@@ -21,9 +21,9 @@
 
 incomplete-and-skipped-tests.incomplete-tests.examples.SampleTest.php展示了一个测试用例类
 `SampleTest`，它有一个测试方法
-`testSomething()`。通过在测试方法中调用便捷方法
-`markTestIncomplete()`（会自动抛出一个
-`PHPUnit_Framework_IncompleteTestError` 异常）将这个测试标记为未完成。
+`testSomething()`。通过在测试方法中调用便捷方法 `markTestIncomplete()`
+（会自动抛出一个 `PHPUnit_Framework_IncompleteTestError`
+异常）将这个测试标记为未完成。
 
     <?php
     use PHPUnit\Framework\TestCase;
@@ -72,7 +72,7 @@ MySQL 驱动程序的测试当然只在 MySQL 服务器可用才能运行。
 
 incomplete-and-skipped-tests.skipping-tests.examples.DatabaseTest.php
 展示了一个测试用例类 `DatabaseTest`，它有一个测试方法
-`testConnection()`。在测试用例类的 `setUp()`模板方法中，检查了 MySQLi
+`testConnection()`。在测试用例类的 `setUp()` 模板方法中，检查了 MySQLi
 扩展是否可用，并且在扩展不可用时用 `markTestSkipped()`
 方法来跳过此测试。
 
