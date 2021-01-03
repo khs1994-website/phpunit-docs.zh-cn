@@ -9,7 +9,7 @@
 API `getDocComment()` 方法来获取相应的文档注释块。诸如 PHPUnit
 这样的应用程序在运行时用这些信息来配置其行为。
 
-Note
+注
 
 PHP中的文档注释块必须以 `/**` 开头，以 `*/`
 结尾。任何其他形式的注释中出现的标注都将被忽略。
@@ -28,14 +28,15 @@ appendixes.annotations.group）的别名，允许基于作者对测试进行过�
 `@after`
 标注用于指明此方法应当在测试用例类中的每个测试方法运行完成之后调用。
 
+    <?php declare(strict_types=1);
     use PHPUnit\Framework\TestCase;
 
-    class MyTest extends TestCase
+    final class MyTest extends TestCase
     {
         /**
          * @after
          */
-        public function tearDownSomeFixtures()
+        public function tearDownSomeFixtures(): void
         {
             // ...
         }
@@ -43,7 +44,7 @@ appendixes.annotations.group）的别名，允许基于作者对测试进行过�
         /**
          * @after
          */
-        public function tearDownSomeOtherFixtures()
+        public function tearDownSomeOtherFixtures(): void
         {
             // ...
         }
@@ -55,14 +56,15 @@ appendixes.annotations.group）的别名，允许基于作者对测试进行过�
 `@afterClass`
 标注用于指明此静态方法应该于测试类中的所有测试方法都运行完成之后调用，用于清理共享基境。
 
+    <?php declare(strict_types=1);
     use PHPUnit\Framework\TestCase;
 
-    class MyTest extends TestCase
+    final class MyTest extends TestCase
     {
         /**
          * @afterClass
          */
-        public static function tearDownSomeSharedFixtures()
+        public static function tearDownSomeSharedFixtures(): void
         {
             // ...
         }
@@ -70,7 +72,7 @@ appendixes.annotations.group）的别名，允许基于作者对测试进行过�
         /**
          * @afterClass
          */
-        public static function tearDownSomeOtherSharedFixtures()
+        public static function tearDownSomeOtherSharedFixtures(): void
         {
             // ...
         }
@@ -79,14 +81,19 @@ appendixes.annotations.group）的别名，允许基于作者对测试进行过�
 @backupGlobals
 --------------
 
-全局变量的备份与还原操作可以对某个测试用例类中的所有测试彻底禁用，像这样：
+PHPUnit
+可选地允许在每个测试之前备份所有全局与超全局变量，并在每个测试结束后还原这些备份。
 
+可以在类级别使用 `@backupGlobals enabled`
+标注来对本测试用例类中的所有测试启用此操作：
+
+    <?php declare(strict_types=1);
     use PHPUnit\Framework\TestCase;
 
     /**
-     * @backupGlobals disabled
+     * @backupGlobals enabled
      */
-    class MyTest extends TestCase
+    final class MyTest extends TestCase
     {
         // ...
     }
@@ -94,17 +101,23 @@ appendixes.annotations.group）的别名，允许基于作者对测试进行过�
 `@backupGlobals`
 标注也可以用在测试方法这一级别。这样可以对备份与还原操作进行更细粒度的配置：
 
+    <?php declare(strict_types=1);
     use PHPUnit\Framework\TestCase;
 
     /**
-     * @backupGlobals disabled
+     * @backupGlobals enabled
      */
-    class MyTest extends TestCase
+    final class MyTest extends TestCase
     {
-        /**
-         * @backupGlobals enabled
-         */
         public function testThatInteractsWithGlobalVariables()
+        {
+            // ...
+        }
+
+        /**
+         * @backupGlobals disabled
+         */
+        public function testThatDoesNotInteractWithGlobalVariables(): void
         {
             // ...
         }
@@ -113,8 +126,25 @@ appendixes.annotations.group）的别名，允许基于作者对测试进行过�
 @backupStaticAttributes
 -----------------------
 
-如果指定了 `@backupStaticAttributes`
-标注，那么将在每个测试之前备份所有已声明的类的静态属性的值，并在测试完成之后全部恢复。它可以用在测试用例类或测试方法级别：
+PHPUnit
+可选地允许在每个测试之前备份所有已声明类的静态属性，并在每个测试结束后还原这些备份。
+
+可以在类级别使用 `@backupStaticAttributes enabled`
+标注来对本测试用例类中的所有测试启用此操作：
+
+    <?php declare(strict_types=1);
+    use PHPUnit\Framework\TestCase;
+
+    /**
+     * @backupStaticAttributes enabled
+     */
+    final class MyTest extends TestCase
+    {
+        // ...
+    }
+
+`@backupStaticAttributes`
+标注也可以用在测试方法这一级别。这样可以对备份与还原操作进行更细粒度的配置：
 
     use PHPUnit\Framework\TestCase;
 
@@ -123,21 +153,26 @@ appendixes.annotations.group）的别名，允许基于作者对测试进行过�
      */
     class MyTest extends TestCase
     {
+        public function testThatInteractsWithStaticAttributes(): void
+        {
+            // ...
+        }
+
         /**
          * @backupStaticAttributes disabled
          */
-        public function testThatInteractsWithStaticAttributes()
+        public function testThatDoesNotInteractWithStaticAttributes(): void
         {
             // ...
         }
     }
 
-Note
+注
 
 受限于 PHP 的内部实现，在某些情况下即使使用了 `@backupStaticAttributes`
 也可能有个别静态值出现意料外的延续，并污染后继测试。
 
-详细信息参见 fixtures.global-state。
+细节参见fixtures.global-state。
 
 @before
 -------
@@ -145,14 +180,15 @@ Note
 `@before`
 标注用于指明此方法应当在测试用例类中的每个测试方法开始运行之前调用。
 
+    <?php declare(strict_types=1);
     use PHPUnit\Framework\TestCase;
 
-    class MyTest extends TestCase
+    final class MyTest extends TestCase
     {
         /**
          * @before
          */
-        public function setupSomeFixtures()
+        public function setupSomeFixtures(): void
         {
             // ...
         }
@@ -160,7 +196,7 @@ Note
         /**
          * @before
          */
-        public function setupSomeOtherFixtures()
+        public function setupSomeOtherFixtures(): void
         {
             // ...
         }
@@ -172,14 +208,15 @@ Note
 `@beforeClass`
 标注用于指明此静态方法应该于测试类中的所有测试方法都运行完成之后调用，用于建立共享基境。
 
+    <?php declare(strict_types=1);
     use PHPUnit\Framework\TestCase;
 
-    class MyTest extends TestCase
+    final class MyTest extends TestCase
     {
         /**
          * @beforeClass
          */
-        public static function setUpSomeSharedFixtures()
+        public static function setUpSomeSharedFixtures(): void
         {
             // ...
         }
@@ -187,7 +224,7 @@ Note
         /**
          * @beforeClass
          */
-        public static function setUpSomeOtherSharedFixtures()
+        public static function setUpSomeOtherSharedFixtures(): void
         {
             // ...
         }
@@ -196,7 +233,7 @@ Note
 @codeCoverageIgnore\*
 ---------------------
 
-`@codeCoverageIgnore`, `@codeCoverageIgnoreStart` and
+`@codeCoverageIgnore`、`@codeCoverageIgnoreStart` 和
 `@codeCoverageIgnoreEnd` 标注用于从覆盖率分析中排除掉某些代码行。
 
 用法参见code-coverage-analysis.ignoring-code-blocks。
@@ -204,20 +241,31 @@ Note
 @covers
 -------
 
-在测试代码中用 `@covers` 标注来指明测试方法想要对哪些方法进行测试：
+在测试代码中用 `@covers` 标注来指明想要对代码的哪些部分进行测试：
 
     /**
-     * @covers BankAccount::getBalance
+     * @covers \BankAccount
      */
-    public function testBalanceIsInitiallyZero()
+    public function testBalanceIsInitiallyZero(): void
     {
-        $this->assertEquals(0, $this->ba->getBalance());
+        $this->assertSame(0, $this->ba->getBalance());
     }
 
-如果提供了此标注，则代码覆盖率信息中只考虑指定的这些方法。
+如果提供，这将有效地过滤代码覆盖率报告，将其限制为仅包括所指代码部分中的已执行部分。这将确保代码只在有针对它的专用测试覆盖的情况下才会被标记为已覆盖，而如果它被针对其他类的测试间接使用则并不会标记为已覆盖，从而避免代码覆盖范围的误报。
 
-appendixes.annotations.covers.tables.annotations列出了 `@covers`
+此标注可以添加给测试类的文档注释块，也可以添加给单个测试方法的文档注释块。推荐的方法是将此标注添加给测试类的文档注释块而不是测试方法的文档注释块。
+
+如果配置文件 &lt;appendixes.configuration&gt;中的
+`forceCoversAnnotation` 配置选项设置为
+`true`，则每个测试方法都必须拥有相应的 `@covers`
+标注（无论是在测试类还是单个测试方法上）。
+
+appendixes.annotations.covers.tables.annotations 展示了 `@covers`
 标注的语法。
+code-coverage-analysis.specifying-covered-parts这部分有关于使用此标注的更长一些的示例。
+
+请注意，此标注要求用完全限定类名（FQCN，fully-qualified class
+name）。为了让读者更容易理解，推荐写上开头的反斜杠（虽然此标注并不要求如此也能正常运行）。
 
 @coversDefaultClass
 -------------------
@@ -226,24 +274,26 @@ appendixes.annotations.covers.tables.annotations列出了 `@covers`
 标注用于指定一个默认的命名空间或类名，这样就不用在每个 `@covers`
 标注中重复长名称。参见appendixes.annotations.examples.CoversDefaultClassTest.php。
 
-    <?php
+请注意，此标注要求用完全限定类名（FQCN，fully-qualified class
+name）。为了让读者更容易理解，推荐写上开头的反斜杠（虽然此标注并不要求如此也能正常运行）。
+
+    <?php declare(strict_types=1);
     use PHPUnit\Framework\TestCase;
 
     /**
      * @coversDefaultClass \Foo\CoveredClass
      */
-    class CoversDefaultClassTest extends TestCase
+    final class CoversDefaultClassTest extends TestCase
     {
         /**
          * @covers ::publicMethod
          */
-        public function testSomething()
+        public function testSomething(): void
         {
             $o = new Foo\CoveredClass;
             $o->publicMethod();
         }
     }
-    ?>
 
 @coversNothing
 --------------
@@ -251,163 +301,63 @@ appendixes.annotations.covers.tables.annotations列出了 `@covers`
 在测试代码中用 `@coversNothing`
 标注来指明所标注的测试用例不需要记录任何代码覆盖率信息。
 
-这可以用于集成测试。例子可参见code-coverage-analysis.specifying-covered-methods.examples.GuestbookIntegrationTest.php。
+这可以用于集成测试。例子可参见code-coverage-analysis.specifying-covered-parts.examples.GuestbookIntegrationTest.php。
 
-这个标注可以用在类级别或者方法级别，并且会覆盖掉任何 `@covers` 标注。
+这个标注可以用在类级别或者方法级别，并且会覆盖掉所有 `@covers` 标注。
 
 @dataProvider
 -------------
 
-测试方法可以接受任意参数。这些参数可以由数据供给器方法（writing-tests-for-phpunit.data-providers.examples.DataTest.php中的
-`provider()`）提供。所要使用的数据供给器方法用 `@dataProvider`
-标注来指定。
+测试方法可以接受任意参数。这些参数由一个或多个数据供给器方法（在writing-tests-for-phpunit.data-providers.examples.DataTest.php中，是
+`provider()` 方法）提供。用 `@dataProvider`
+标注来指定要使用的数据供给器方法。
 
-更多细节参见writing-tests-for-phpunit.data-providers。
+更多细节，参见writing-tests-for-phpunit.data-providers。
 
 @depends
 --------
 
-PHPUnit支持对测试方法之间的显式依赖关系进行声明。这种依赖关系并不是定义在测试方法的执行顺序中，而是允许生产者(producer)返回一个测试基境(fixture)的实例，并将此实例传递给依赖于它的消费者(consumer)们。writing-tests-for-phpunit.examples.StackTest2.php展示了如何用
+PHPUnit
+支持对测试方法之间的显式依赖关系进行声明。这种依赖关系并不是定义在测试方法的执行顺序中，而是允许生产者（producer）返回一个测试基境（fixture）的实例，并将此实例传递给依赖于它的消费者（consumer）们。writing-tests-for-phpunit.examples.StackTest2.php展示了如何用
 `@depends` 标注来表达测试方法之间的依赖关系。
 
-更多细节参见writing-tests-for-phpunit.test-dependencies。
+更多细节，参见writing-tests-for-phpunit.test-dependencies。
 
-@expectedException
-------------------
-
-writing-tests-for-phpunit.exceptions.examples.ExceptionTest.php展示了如何用
-`@expectedException` 标注来测试被测代码中是否抛出了异常。
-
-更多细节参见writing-tests-for-phpunit.exceptions。
-
-@expectedExceptionCode
-----------------------
-
-将 `@expectedExceptionCode` 标注与 `@expectedException`
-联合使用，可以对抛出异常的代码作出断言，这样可以缩小具体异常的范围。
-
-    use PHPUnit\Framework\TestCase;
-
-    class MyTest extends TestCase
-    {
-        /**
-         * @expectedException     MyException
-         * @expectedExceptionCode 20
-         */
-        public function testExceptionHasErrorcode20()
-        {
-            throw new MyException('Some Message', 20);
-        }
-    }
-
-为了方便测试并减少冗余，可以用"`@expectedExceptionCode ClassName::CONST`"这样的语法将指定类常量作为
-`@expectedExceptionCode`
-
-    use PHPUnit\Framework\TestCase;
-
-    class MyTest extends TestCase
-    {
-        /**
-          * @expectedException     MyException
-          * @expectedExceptionCode MyClass::ERRORCODE
-          */
-        public function testExceptionHasErrorcode20()
-        {
-          throw new MyException('Some Message', 20);
-        }
-    }
-    class MyClass
-    {
-        const ERRORCODE = 20;
-    }
-
-@expectedExceptionMessage
+@doesNotPerformAssertions
 -------------------------
 
-`@expectedExceptionMessage` 标注的运作方式类似于
-`@expectedExceptionCode` ，用它可以对异常的错误讯息作出断言。
-
-    use PHPUnit\Framework\TestCase;
-
-    class MyTest extends TestCase
-    {
-        /**
-         * @expectedException        MyException
-         * @expectedExceptionMessage Some Message
-         */
-        public function testExceptionHasRightMessage()
-        {
-            throw new MyException('Some Message', 20);
-        }
-    }
-
-预期讯息可以是异常讯息的子串。在只需要断言传入的特定名称或参数确实出现于异常中时这个特性很有用，这样就无需在测试中关注完整的异常讯息。
-
-    use PHPUnit\Framework\TestCase;
-
-    class MyTest extends TestCase
-    {
-         /**
-          * @expectedException        MyException
-          * @expectedExceptionMessage broken
-          */
-         public function testExceptionHasRightMessage()
-         {
-             $param = "broken";
-             throw new MyException('Invalid parameter "'.$param.'".', 20);
-         }
-    }
-
-为了方便测试同时减少冗余，可以用"`@expectedExceptionMessage ClassName::CONST`"这样的语法将指定类常量作为
-`@expectedExceptionMessage`。在appendixes.annotations.expectedExceptionCode中可以看到范例。
-
-@expectedExceptionMessageRegExp
--------------------------------
-
-预期讯息也可以通过 `@expectedExceptionMessageRegExp`
-标注以正则表达式来指定。当无法用子串来完成对给定讯息的匹配时，这种方式就非常有用了。
-
-    use PHPUnit\Framework\TestCase;
-
-    class MyTest extends TestCase
-    {
-         /**
-          * @expectedException              MyException
-          * @expectedExceptionMessageRegExp /Argument \d+ can not be an? \w+/
-          */
-         public function testExceptionHasRightMessage()
-         {
-             throw new MyException('Argument 2 can not be an integer');
-         }
-    }
+防止不执行任何断言的测试被视为有风险。
 
 @group
 ------
 
 测试可以用 `@group` 标注来标记为属于一个或多个组，就像这样：
 
+    <?php declare(strict_types=1);
     use PHPUnit\Framework\TestCase;
 
-    class MyTest extends TestCase
+    final class MyTest extends TestCase
     {
         /**
          * @group specification
          */
-        public function testSomething()
+        public function testSomething(): void
         {
         }
 
         /**
-         * @group regresssion
+         * @group regression
          * @group bug2204
          */
-        public function testSomethingElse()
+        public function testSomethingElse(): void
         {
         }
     }
 
-测试可以基于组来选择性的执行，使用命令行测试执行器的 `--group` and
-`--exclude-group` 选项，或者使用对应的 XML 配置文件指令。
+也可以对测试类使用 `@group` 标注。它会被“继承”到此测试类的所有方法上。
+
+> 测试可以基于组来选择性的执行，使用命令行测试执行器的 `--group` 和
+> `--exclude-group` 选项，或者使用对应的 XML 配置文件指令。
 
 @large
 ------
@@ -415,17 +365,17 @@ writing-tests-for-phpunit.exceptions.examples.ExceptionTest.php展示了如何�
 `@large` 标注是 `@group large` 的别名。
 
 如果安装了 `PHP_Invoker`
-组件包并启用了严格模式，一个执行时间超过60秒的大型(large)测试将视为失败。这个超时限制可以通过
+组件包并启用了严格模式，一个执行时间超过60秒的大型（large）测试将视为失败。这个超时限制可以通过
 XML 配置文件的 `timeoutForLargeTests` 属性进行配置。
 
 @medium
 -------
 
 `@medium` 标注是 `@group medium`
-的别名。中型(medium)测试不能依赖于标记为 `@large` 的测试。
+的别名。中型（medium）测试不能依赖于标记为 `@large` 的测试。
 
 如果安装了 `PHP_Invoker`
-组件包并启用了严格模式，一个执行时间超过10秒的中型(medium)测试将视为失败。这个超时限制可以通过
+组件包并启用了严格模式，一个执行时间超过10秒的中型（medium）测试将视为失败。这个超时限制可以通过
 XML 配置文件的 `timeoutForMediumTests` 属性进行配置。
 
 @preserveGlobalState
@@ -435,15 +385,16 @@ XML 配置文件的 `timeoutForMediumTests` 属性进行配置。
 会尝试保持来自父进程的全局状态（通过在父进程序列化全局状态然后在子进程反序列化的方式）。这当父进程包含非可序列化的全局内容时可能会导致问题。为了修正这种问题，可以用
 `@preserveGlobalState` 标注来禁止 PHPUnit 保持全局状态。
 
+    <?php declare(strict_types=1);
     use PHPUnit\Framework\TestCase;
 
-    class MyTest extends TestCase
+    final class MyTest extends TestCase
     {
         /**
          * @runInSeparateProcess
          * @preserveGlobalState disabled
          */
-        public function testInSeparateProcess()
+        public function testInSeparateProcess(): void
         {
             // ...
         }
@@ -462,51 +413,55 @@ XML 配置文件的 `timeoutForMediumTests` 属性进行配置。
 
 指明单个测试类内的所有测试要各自运行在独立的 PHP 进程中。
 
+    <?php declare(strict_types=1);
     use PHPUnit\Framework\TestCase;
 
     /**
      * @runTestsInSeparateProcesses
      */
-    class MyTest extends TestCase
+    final class MyTest extends TestCase
     {
         // ...
     }
 
-*注意：*appendixes.annotations.preserveGlobalState 默认情况下，PHPUnit
-会尝试通过在父进程序列化全局状态然后在子进程反序列化的方式在子进程中保持来自父进程的全局状态。这当父进程包含非可序列化的全局内容时可能会导致问题。关于如何修正此问题的信息参见appendixes.annotations.preserveGlobalState。
+*注意：*默认情况下，PHPUnit
+会尝试通过在父进程序列化全局状态然后在子进程反序列化的方式在子进程中保持来自父进程的全局状态。这当父进程包含非可序列化的全局内容时可能会导致问题。关于如何修正此问题的信息参见
+appendixes.annotations.preserveGlobalState。
 
 @runInSeparateProcess
 ---------------------
 
-明某个测试要运行在独立的 PHP 进程中。
+指明某个测试要运行在独立的 PHP 进程中。
 
+    <?php declare(strict_types=1);
     use PHPUnit\Framework\TestCase;
 
-    class MyTest extends TestCase
+    final class MyTest extends TestCase
     {
         /**
          * @runInSeparateProcess
          */
-        public function testInSeparateProcess()
+        public function testInSeparateProcess(): void
         {
             // ...
         }
     }
 
-*注意：*appendixes.annotations.preserveGlobalState 默认情况下，PHPUnit
-会尝试通过在父进程序列化全局状态然后在子进程反序列化的方式在子进程中保持来自父进程的全局状态。这当父进程包含非可序列化的全局内容时可能会导致问题。关于如何修正此问题的信息参见appendixes.annotations.preserveGlobalState。
+*注意：*默认情况下，PHPUnit
+会尝试通过在父进程序列化全局状态然后在子进程反序列化的方式在子进程中保持来自父进程的全局状态。这当父进程包含非可序列化的全局内容时可能会导致问题。关于如何修正此问题的信息参见
+appendixes.annotations.preserveGlobalState。
 
 @small
 ------
 
-`@small` 标注是 `@group small` 的别名。小型(small)测试不能依赖于标记为
+`@small` 标注是 `@group small` 的别名。小型（small）测试不能依赖于标记为
 `@medium` 或 `@large` 的测试。
 
-如果安装了 `PHP_Invoker`
-组件包并启用了严格模式，一个执行时间超过1秒的小型(small)测试将会视为失败。这个超时限制可以通过
-XML 配置文件的 `timeoutForSmallTests` 属性进行配置。
+如果安装了 `PHP_Invoker` 组件包并启用了严格模式，一个执行时间超过 1
+秒的小型（small）测试将会视为失败。这个超时限制可以通过 XML 配置文件的
+`timeoutForSmallTests` 属性进行配置。
 
-Note
+注
 
 需要启用运行时间限制的测试必须显式地标注为 `@small`、`@medium` 或
 `@large`。
@@ -520,16 +475,97 @@ Note
     /**
      * @test
      */
-    public function initialBalanceShouldBe0()
+    public function initialBalanceShouldBe0(): void
     {
-        $this->assertEquals(0, $this->ba->getBalance());
+        $this->assertSame(0, $this->ba->getBalance());
     }
 
 @testdox
 --------
 
+指定生成敏捷文档句子时使用的替换描述。
+
+测试类和测试方法都可以应用 `@testdox` 标注。
+
+    <?php declare(strict_types=1);
+    use PHPUnit\Framework\TestCase;
+
+    /**
+     * @testdox A bank account
+     */
+    final class BankAccountTest extends TestCase
+    {
+        /**
+         * @testdox has an initial balance of zero
+         */
+        public function balanceIsInitiallyZero(): void
+        {
+            $this->assertSame(0, $this->ba->getBalance());
+        }
+    }
+
+注
+
+在 PHPUnit 7.0 之前（由于标注解析中的一个 bug），使用 `@testdox`
+标注也会激活 `@test` 标注的行为。
+
+如果将 `@testdox` 标注在方法级别和 `@dataProvider`
+联用，可以在替换描述中将方法参数用作占位符。
+
+    /**
+     * @dataProvider additionProvider
+     * @testdox Adding $a to $b results in $expected
+     */
+    public function testAdd($a, $b, $expected)
+    {
+        $this->assertSame($expected, $a + $b);
+    }
+
+    public function additionProvider()
+    {
+        return [
+            [0, 0, 0],
+            [0, 1, 1],
+            [1, 0, 1],
+            [1, 1, 3]
+        ];
+    }
+
+@testWith
+---------
+
+除了实现一个方法并将之与 `@dataProvider` 联用外，你也可以用 `@testWith`
+标注来定义数据集。
+
+数据集由一个或多个元素组成。要定义具有多个元素的数据集，每个元素都要定义在单独一行中。数据集的每个元素都必须是以
+JSON 格式定义的数组。
+
+参见writing-tests-for-phpunit.data-providers来学习更多关于传递数据集合给测试的信息。
+
+    /**
+     * @testWith ["test", 4]
+     *           ["longer-string", 13]
+     */
+    public function testStringLength(string $input, int $expectedLength): void
+    {
+        $this->assertSame($expectedLength, strlen($input));
+    }
+
+以 JSON 格式表示的对象会转换为关联数组。
+
+    /**
+     * @testWith [{"day": "monday", "conditions": "sunny"}, ["day", "conditions"]]
+     */
+    public function testArrayKeys(array $array, array $keys): void
+    {
+        $this->assertSame($keys, array_keys($array));
+    }
+
 @ticket
 -------
+
+`@ticket` 标注是 `@group` 标注（参见
+appendixes.annotations.group）的别名，允许基于事务 ID 对测试进行过滤。
 
 @uses
 -----
@@ -538,12 +574,18 @@ Note
 标注用来指明那些将会在测试中执行到但同时又不打算让其被测试所覆盖的代码。在对代码单元进行测试时所必须的值对象就是个很好的例子。
 
     /**
-     * @covers BankAccount::deposit
-     * @uses   Money
+     * @covers \BankAccount
+     * @uses   \Money
      */
-    public function testMoneyCanBeDepositedInAccount()
+    public function testMoneyCanBeDepositedInAccount(): void
     {
         // ...
     }
 
-在严格覆盖模式中，意外覆盖的代码将导致测试判定为失败，这个标注就显得特别有用。关于严格覆盖模式的更多信息，参见risky-tests.unintentionally-covered-code。
+code-coverage-analysis.specifying-covered-parts.examples.InvoiceTest.php
+展示了另一个示例。
+
+在严格覆盖模式中，意外覆盖的代码将导致测试判定为失败，这个标注就比较有用，另外它也有助于阅读代码。关于严格覆盖模式的更多信息，参见risky-tests.unintentionally-covered-code。
+
+请注意，此标注要求用完全限定类名（FQCN，fully-qualified class
+name）。为了让读者更容易理解，推荐写上开头的反斜杠（虽然此标注并不要求如此也能正常运行）。

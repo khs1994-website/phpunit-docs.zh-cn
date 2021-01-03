@@ -16,8 +16,8 @@ PHPUnit
 现在来看看
 [sebastianbergmann/money](http://github.com/sebastianbergmann/money/)
 这个库的测试套件。在这个项目的目录结构中，可以看到 tests
-目录下的测试用例类镜像了 src 目录下被测系统(SUT, System Under
-Test)的包(package)与类(class)的结构：
+目录下的测试用例类镜像了 src 目录下被测系统（SUT，System Under
+Test）的包（package）与类（class）的结构：
 
     src                                 tests
     `-- Currency.php                    `-- CurrencyTest.php
@@ -25,19 +25,9 @@ Test)的包(package)与类(class)的结构：
     `-- Money.php                       `-- MoneyTest.php
     `-- autoload.php
 
-要运行这个库的全部测试，只要将 PHPUnit
-命令行测试执行器指向测试目录即可：
+要运行这个库的全部测试，将 PHPUnit 命令行测试执行器指向测试目录：
 
-    $ phpunit --bootstrap src/autoload.php tests
-    PHPUnit 7.0.0 by Sebastian Bergmann.
-
-    .................................
-
-    Time: 636 ms, Memory: 3.50Mb
-
-    OK (33 tests, 52 assertions)
-
-Note
+注
 
 当 PHPUnit 命令行测试执行器指向一个目录时，它会在目录下查找 \*Test.php
 文件。
@@ -45,39 +35,20 @@ Note
 如果只想运行在 `CurrencyTest` 文件中的 tests/CurrencyTest.php
 测试用例类中声明的测试，可以使用如下命令：
 
-    $ phpunit --bootstrap src/autoload.php tests/CurrencyTest
-    PHPUnit 7.0.0 by Sebastian Bergmann.
-
-    ........
-
-    Time: 280 ms, Memory: 2.75Mb
-
-    OK (8 tests, 8 assertions)
-
 如果想要对运行哪些测试有更细粒度的控制，可以使用 `--filter` 选项：
 
-    $ phpunit --bootstrap src/autoload.php --filter testObjectCanBeConstructedForValidConstructorArgument tests
-    PHPUnit 7.0.0 by Sebastian Bergmann.
+注
 
-    ..
-
-    Time: 167 ms, Memory: 3.00Mb
-
-    OK (2 test, 2 assertions)
-
-Note
-
-这种方法的缺点是无法控制测试的运行顺序。这可能导致测试的依赖关系方面的问题，参见
-writing-tests-for-phpunit.test-dependencies。在下一节中，可以看到如何用
+这种方法的缺点是无法控制测试的运行顺序。这可能导致测试的依赖关系方面的问题，参见writing-tests-for-phpunit.test-dependencies。在下一节中，可以看到如何用
 XML 配置文件来明确指定测试的执行顺序。
 
 用 XML 配置来编排测试套件
 -------------------------
 
 PHPUnit的 XML
-配置文件（appendixes.configuration）也可以用于编排测试套件。organizing-tests.xml-configuration.examples.phpunit.xml展示了一个最小化的
-phpunit.xml 例子，它将在递归遍历 tests 时添加所有在 \*Test.php
-文件中找到的 `*Test` 类。
+配置文件（appendixes.configuration）也可以用于编排测试套件。organizing-tests.xml-configuration.examples.phpunit.xml
+展示了一个最小化的 phpunit.xml 例子，它将在递归遍历 tests 时添加所有在
+\*Test.php 文件中找到的 `*Test` 类。
 
     <phpunit bootstrap="src/autoload.php">
       <testsuites>
@@ -87,8 +58,10 @@ phpunit.xml 例子，它将在递归遍历 tests 时添加所有在 \*Test.php
       </testsuites>
     </phpunit>
 
-如果 phpunit.xml 或 phpunit.xml.dist
-（按此顺序）存在于当前工作目录并且\*未\*使用
+要运行测试套件，用 `--testsuite` 选项：
+
+如果 phpunit.xml 或
+phpunit.xml.dist（按此顺序）存在于当前工作目录并且*未*使用
 `--configuration`，将自动从此文件中读取配置。
 
 可以明确指定测试的执行顺序：
