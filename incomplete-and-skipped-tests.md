@@ -19,7 +19,7 @@
 是一个标记接口，用于将测试方法抛出的异常标记为测试未完成或目前尚未实现而导致的结果。`PHPUnit\Framework\IncompleteTestError`
 是这个接口的标准实现。
 
-incomplete-and-skipped-tests.incomplete-tests.examples.SampleTest.php
+`incomplete-and-skipped-tests.incomplete-tests.examples.SampleTest.php`
 展示了一个测试用例类 `SampleTest`，它有一个测试方法
 `testSomething()`。通过在测试方法中调用便捷方法
 `markTestIncomplete()`（会自动抛出一个
@@ -44,8 +44,44 @@ incomplete-and-skipped-tests.incomplete-tests.examples.SampleTest.php
 
 在 PHPUnit 命令行测试执行器的输出中，未完成的测试记为 `I`，如下例所示：
 
-incomplete-and-skipped-tests.incomplete-tests.tables.api
+$ phpunit --verbose SampleTest PHPUnit .0 by Sebastian Bergmann and
+contributors.
+
+I
+
+Time: 0 seconds, Memory: 3.95Mb
+
+There was 1 incomplete test:
+
+1) SampleTest::testSomething This test has not been implemented yet.
+
+/home/sb/SampleTest.php:12 OK, but incomplete or skipped tests! Tests:
+1, Assertions: 1, Incomplete: 1.
+
+`incomplete-and-skipped-tests.incomplete-tests.tables.api`
 列举了用于将测试标记为未完成的 API。
+
+table
+
+<table>
+<caption>用于不完整的测试的 API</caption>
+<thead>
+<tr class="header">
+<th>方法</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>void markTestIncomplete()</code></td>
+<td>将当前测试标记为未完成。</td>
+</tr>
+<tr class="even">
+<td><code>void markTestIncomplete(string $message)</code></td>
+<td>将当前测试标记为未完成，并用 <code>$message</code> 作为说明信息。</td>
+</tr>
+</tbody>
+</table>
 
 跳过测试
 --------
@@ -53,7 +89,7 @@ incomplete-and-skipped-tests.incomplete-tests.tables.api
 并非所有测试都能在任何环境中运行。比如说，考虑这样一种情况：一个数据库抽象层，针对其所支持的各种数据库系统有多个不同的驱动程序。针对
 MySQL 驱动程序的测试只在 MySQL 服务器可用才能运行。
 
-incomplete-and-skipped-tests.skipping-tests.examples.DatabaseTest.php
+`incomplete-and-skipped-tests.skipping-tests.examples.DatabaseTest.php`
 展示了一个测试用例类 `DatabaseTest`，它有一个测试方法
 `testConnection()`。在测试用例类的 `setUp()` 模板方法中，检查了 MySQLi
 扩展是否可用，并且在扩展不可用时用 `markTestSkipped()`
@@ -81,14 +117,102 @@ incomplete-and-skipped-tests.skipping-tests.examples.DatabaseTest.php
 
 在 PHPUnit 命令行测试执行器的输出中，被跳过的测试记为 `S`，如下例所示：
 
-incomplete-and-skipped-tests.skipped-tests.tables.api
+$ phpunit --verbose DatabaseTest PHPUnit .0 by Sebastian Bergmann and
+contributors.
+
+S
+
+Time: 0 seconds, Memory: 3.95Mb
+
+There was 1 skipped test:
+
+1) DatabaseTest::testConnection The MySQLi extension is not available.
+
+/home/sb/DatabaseTest.php:9 OK, but incomplete or skipped tests! Tests:
+1, Assertions: 0, Skipped: 1.
+
+`incomplete-and-skipped-tests.skipped-tests.tables.api`
 列举了用于跳过测试的 API。
+
+table
+
+<table>
+<caption>用于跳过测试的 API</caption>
+<thead>
+<tr class="header">
+<th>方法</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>void markTestSkipped()</code></td>
+<td>将当前测试标记为已跳过。</td>
+</tr>
+<tr class="even">
+<td><code>void markTestSkipped(string $message)</code></td>
+<td>将当前测试标记为已跳过，并用 <code>$message</code> 作为说明信息。</td>
+</tr>
+</tbody>
+</table>
 
 用 @requires 来跳过测试
 -----------------------
 
 除了上述方法，还可以用 `@requires`
 标注来表达测试用例的一些常见前提条件。
+
+table
+
+<table>
+<caption>可能的 @requires 用法</caption>
+<thead>
+<tr class="header">
+<th>类型</th>
+<th>可能值</th>
+<th>示例</th>
+<th>其他示例</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>PHP</code></td>
+<td>任意 PHP 版本号以及可选的运算符</td>
+<td>@requires PHP 7.1.20</td>
+<td>@requires PHP &gt;= 7.2</td>
+</tr>
+<tr class="even">
+<td><code>PHPUnit</code></td>
+<td>任意 PHPUnit 版本号以及可选的运算符</td>
+<td>@requires PHPUnit 7.3.1</td>
+<td>@requires PHPUnit &lt; 8</td>
+</tr>
+<tr class="odd">
+<td><code>OS</code></td>
+<td>与 <a href="https://www.php.net/manual/en/reserved.constants.php#constant.php-os">PHP_OS</a> 匹配的正则表达式</td>
+<td>@requires OS Linux</td>
+<td>@requires OS WIN32|WINNT</td>
+</tr>
+<tr class="even">
+<td><code>OSFAMILY</code></td>
+<td>任意 <a href="https://www.php.net/manual/en/reserved.constants.php#constant.php-os-family">OS family</a></td>
+<td>@requires OSFAMILY Solaris</td>
+<td>@requires OSFAMILY Windows</td>
+</tr>
+<tr class="odd">
+<td><code>function</code></td>
+<td>任意 <a href="https://www.php.net/function_exists">function_exists</a> 的有效参数</td>
+<td>@requires function imap_open</td>
+<td>@requires function ReflectionMethod::setAccessible</td>
+</tr>
+<tr class="even">
+<td><code>extension</code></td>
+<td>任意扩展名以及可选的版本号和可选的运算符</td>
+<td>@requires extension mysqli</td>
+<td>@requires extension redis &gt;= 2.2.0</td>
+</tr>
+</tbody>
+</table>
 
 PHP、PHPUnit
 和扩展的版本约束支持以下运算符：`<`、`<=`、`>`、`>=`、`=`、`==`、`!=`、`<>`。
@@ -117,5 +241,5 @@ PHP、PHPUnit
     }
 
 如果使用了某种在特定版本的 PHP
-下无法编译的语法，请参考appendixes.configuration.testsuites中 XML
+下无法编译的语法，请参考`appendixes.configuration.testsuites`中 XML
 配置信息里关于版本依赖的部分。

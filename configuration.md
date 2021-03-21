@@ -88,8 +88,8 @@ PHPUnit
 
 可能值：`true` 或 `false`（默认值：`false`）
 
-此属性配置的是在没有 @covers &lt;appendixes.annotations.covers&gt;
-标注时，测试是否要标记为有风险（参见risky-tests.unintentionally-covered-code）。
+此属性配置的是在没有 `@covers <appendixes.annotations.covers>`
+标注时，测试是否要标记为有风险（参见`risky-tests.unintentionally-covered-code`）。
 
 ### `printerClass` 属性
 
@@ -683,7 +683,7 @@ TestDox XML 格式的测试结果日志写入的文件。
 
 `<groups>` 元素及其 `<include>`、`<exclude>`、`<group>` 子元素用于从带有
 `@group` 标注（相关文档参见
-appendixes.annotations.group）的测试中选择需要运行（或不运行）的分组。
+`appendixes.annotations.group`）的测试中选择需要运行（或不运行）的分组。
 
     <groups>
       <include>
@@ -849,7 +849,7 @@ appendixes.annotations.group）的测试中选择需要运行（或不运行）�
 
     define('foo', 'bar');
 
-### &lt;var&gt;\` 元素
+### <span class="title-ref">&lt;var&gt;</span>\` 元素
 
 父元素：`<php>`
 

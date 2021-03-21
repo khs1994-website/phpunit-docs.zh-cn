@@ -1,7 +1,7 @@
 测试替身
 ========
 
-Gerard Meszaros 在 Meszaros2007 &lt;appendixes.bibliography&gt;
+Gerard Meszaros 在 `Meszaros2007 <appendixes.bibliography>`
 中介绍了测试替身的概念：
 
 > *Gerard Meszaros*：
@@ -38,11 +38,11 @@ Stubs（桩件）
 
 将对象替换为（可选地）返回配置好的返回值的测试替身的实践方法称为*打桩（stubbing）*。可以用*桩件（Stub）*来“替换掉被测系统所依赖的实际组件，这样测试就有了对被测系统的间接输入的控制点。这使得测试能强制安排被测系统的执行路径，否则被测系统可能无法执行”。
 
-test-doubles.stubs.examples.StubTest.php
+`test-doubles.stubs.examples.StubTest.php`
 展示了如何对方法的调用进行上桩以及如何设定返回值。首先用
 `PHPUnit\Framework\TestCase` 类提供的 `createStub()`
 方法来建立一个桩件对象，它表面看起来像是 `SomeClass`
-类（test-doubles.stubs.examples.SomeClass.php）的实例。随后用 PHPUnit
+类（`test-doubles.stubs.examples.SomeClass.php`）的实例。随后用 PHPUnit
 提供的[流畅式接口](http://martinfowler.com/bliki/FluentInterface.html)来指定桩件的行为。本质上，这意味着不需要建立多个临时对象然后再把它们捆到一起。取而代之的是范例中所示的链式方法调用。这使得代码更加易读并更加“流畅”。
 
     <?php declare(strict_types=1);
@@ -102,7 +102,7 @@ PHP 类来实现想要的行为。
 类似地，如果 `m` 的返回类型声明是标量类型，则会生成诸如 `0`（对于
 `int`）、`0.0`（对于 `float`）、或 `[]`（对于 `array`）这样的返回值。
 
-test-doubles.stubs.examples.StubTest2.php
+`test-doubles.stubs.examples.StubTest2.php`
 展示了如何用仿件生成器的流畅式接口来配置测试替身的生成。这个测试替身的默认配置用的是和
 `createStub()` 相同的最佳实践。
 
@@ -132,7 +132,7 @@ test-doubles.stubs.examples.StubTest2.php
 在之前的例子中，用 `willReturn($value)` 返回简单值。这个简短的语法相当于
 `will($this->returnValue($value))`。而在这个长点的语法中，可以使用变量，从而实现更复杂的上桩行为。
 
-有时想要将（未改变的）方法调用时所使用的参数之一作为桩件的方法的调用结果来返回。test-doubles.stubs.examples.StubTest3.php
+有时想要将（未改变的）方法调用时所使用的参数之一作为桩件的方法的调用结果来返回。`test-doubles.stubs.examples.StubTest3.php`
 展示了如何用 `returnArgument()` 代替 `returnValue()` 来做到这点。
 
     <?php declare(strict_types=1);
@@ -157,7 +157,7 @@ test-doubles.stubs.examples.StubTest2.php
         }
     }
 
-在用流畅式接口进行测试时，让某个已上桩的方法返回对桩件对象的引用有时会很有用。test-doubles.stubs.examples.StubTest4.php
+在用流畅式接口进行测试时，让某个已上桩的方法返回对桩件对象的引用有时会很有用。`test-doubles.stubs.examples.StubTest4.php`
 展示了如何用 `returnSelf()` 来做到这点。
 
     <?php declare(strict_types=1);
@@ -181,7 +181,7 @@ test-doubles.stubs.examples.StubTest2.php
 
 有时候，上桩的方法需要根据预定义的参数清单来返回不同的值。可以用
 `returnValueMap()`
-方法将参数和相应的返回值关联起来建立映射。示例参见test-doubles.stubs.examples.StubTest5.php。
+方法将参数和相应的返回值关联起来建立映射。示例参见`test-doubles.stubs.examples.StubTest5.php`。
 
     <?php declare(strict_types=1);
     use PHPUnit\Framework\TestCase;
@@ -212,7 +212,7 @@ test-doubles.stubs.examples.StubTest2.php
 如果上桩的方法需要返回计算得到的值而不是固定值（参见
 `returnValue()`）或某个（未改变的）参数（参见
 `returnArgument()`），可以用 `returnCallback()`
-来让上桩的方法返回回调函数或方法的结果。示例参见test-doubles.stubs.examples.StubTest6.php。
+来让上桩的方法返回回调函数或方法的结果。示例参见`test-doubles.stubs.examples.StubTest6.php`。
 
     <?php declare(strict_types=1);
     use PHPUnit\Framework\TestCase;
@@ -235,7 +235,7 @@ test-doubles.stubs.examples.StubTest2.php
 
 相比于建立回调方法，有一个更简单的选择是直接给出期望返回值的列表。可以用
 `onConsecutiveCalls()`
-方法来做到这个。示例参见test-doubles.stubs.examples.StubTest7.php。
+方法来做到这个。示例参见`test-doubles.stubs.examples.StubTest7.php`。
 
     <?php declare(strict_types=1);
     use PHPUnit\Framework\TestCase;
@@ -258,7 +258,7 @@ test-doubles.stubs.examples.StubTest2.php
         }
     }
 
-除了返回一个值之外，上桩的方法还能抛出一个异常。test-doubles.stubs.examples.StubTest8.php
+除了返回一个值之外，上桩的方法还能抛出一个异常。`test-doubles.stubs.examples.StubTest8.php`
 展示了如何用 `throwException()` 做到这点。
 
     <?php declare(strict_types=1);
@@ -303,7 +303,7 @@ PHPUnit
 `@depends` 标注注入测试的仿件对象，PHPUnit 并不会自动对其进行校验。
 
 这有个例子：假设需要测试的当前方法，在例子中是
-`update()`，确实在一个观察着另外一个对象的对象中上被调用了。test-doubles.mock-objects.examples.SUT.php
+`update()`，确实在一个观察着另外一个对象的对象中上被调用了。`test-doubles.mock-objects.examples.SUT.php`
 展示了被测系统（SUT）中 `Subject` 和 `Observer` 两个类的代码。
 
     <?php declare(strict_types=1);
@@ -370,7 +370,7 @@ PHPUnit
         // 其他方法。
     }
 
-test-doubles.mock-objects.examples.SubjectTest.php
+`test-doubles.mock-objects.examples.SubjectTest.php`
 展示了如何用仿件对象来测试 `Subject` 和 `Observer` 对象之间的互动。
 
 首先用 `PHPUnit\Framework\TestCase` 类提供的 `createMock()` 方法来为
@@ -538,8 +538,46 @@ test-doubles.mock-objects.examples.SubjectTest.php
         }
     }
 
-appendixes.assertions.assertThat.tables.constraints中列出了可以应用于方法参数的各种约束，test-doubles.mock-objects.tables.matchers
+`appendixes.assertions.assertThat.tables.constraints`中列出了可以应用于方法参数的各种约束，`test-doubles.mock-objects.tables.matchers`
 中列出了可以用于指定调用次数的各种匹配器。
+
+table
+
+<table>
+<caption>匹配器</caption>
+<thead>
+<tr class="header">
+<th>匹配器</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>PHPUnit\Framework\MockObject\Matcher\AnyInvokedCount any()</code></td>
+<td>返回一个匹配器，当被评定的方法执行0次或更多次（即任意次数）时匹配成功。</td>
+</tr>
+<tr class="even">
+<td><code>PHPUnit\Framework\MockObject\Matcher\InvokedCount never()</code></td>
+<td>返回一个匹配器，当被评定的方法从未执行时匹配成功。</td>
+</tr>
+<tr class="odd">
+<td><code>PHPUnit\Framework\MockObject\Matcher\InvokedAtLeastOnce atLeastOnce()</code></td>
+<td>返回一个匹配器，当被评定的方法执行至少一次时匹配成功。</td>
+</tr>
+<tr class="even">
+<td><code>PHPUnit\Framework\MockObject\Matcher\InvokedCount once()</code></td>
+<td>返回一个匹配器，当被评定的方法执行恰好一次时匹配成功。</td>
+</tr>
+<tr class="odd">
+<td><code>PHPUnit\Framework\MockObject\Matcher\InvokedCount exactly(int $count)</code></td>
+<td>返回一个匹配器，当被评定的方法执行恰好 <code>$count</code> 次时匹配成功。</td>
+</tr>
+<tr class="even">
+<td><code>PHPUnit\Framework\MockObject\Matcher\InvokedAtIndex at(int $index)</code></td>
+<td>返回一个匹配器，当被评定的方法是第 <code>$index</code> 个执行的方法时匹配成功。</td>
+</tr>
+</tbody>
+</table>
 
 注
 
@@ -551,39 +589,26 @@ appendixes.assertions.assertThat.tables.constraints中列出了可以应用于�
 `getMockBuilder($type)`
 方法来用流畅式接口定制测试替身的生成过程。以下是仿件生成器所提供的方法列表：
 
--
+-   `setMethods(array $methods)`
+    > 可以在仿件生成器对象上调用，来指定哪些方法将被替换为可配置的测试替身。其他方法的行为不会有所改变。如果调用
+    > `setMethods(null)`，那么没有方法会被替换。
 
-> `setMethods(array $methods)`
-> 可以在仿件生成器对象上调用，来指定哪些方法将被替换为可配置的测试替身。其他方法的行为不会有所改变。如果调用
-> `setMethods(null)`，那么没有方法会被替换。
+-   可以在仿件生成器对象上调用 `setMethodsExcept(array $methods)`
+    > 来指定哪些方法不被替换为可配置的测试替身，与此同时所有其他 public
+    > 方法都会被替换。`setMethods()` 的作用则相反。
 
--
+-   `setConstructorArgs(array $args)`
+    > 可用于向原版类的构造函数（默认情况下不会被替换为伪实现）提供参数数组。
 
-> 可以在仿件生成器对象上调用 `setMethodsExcept(array $methods)`
-> 来指定哪些方法不被替换为可配置的测试替身，与此同时所有其他 public
-> 方法都会被替换。`setMethods()` 的作用则相反。
+-   `setMockClassName($name)` 可用于指定生成的测试替身类的类名。
 
--
+-   `disableOriginalConstructor()`
+    > 参数可用于禁用对原版类的构造方法的调用。
 
-> `setConstructorArgs(array $args)`
-> 可用于向原版类的构造函数（默认情况下不会被替换为伪实现）提供参数数组。
+-   `disableOriginalClone()` 可用于禁用对原版类的克隆方法的调用。
 
--
-
-> `setMockClassName($name)` 可用于指定生成的测试替身类的类名。
-
--
-
-> `disableOriginalConstructor()`
-> 参数可用于禁用对原版类的构造方法的调用。
-
--
-
-> `disableOriginalClone()` 可用于禁用对原版类的克隆方法的调用。
-
--
-
-> `disableAutoload()` 可用于在测试替身类的生成期间禁用 `__autoload()`。
+-   `disableAutoload()` 可用于在测试替身类的生成期间禁用
+    > `__autoload()`。
 
 对特质（Trait）与抽象类进行模仿
 -------------------------------
@@ -658,9 +683,9 @@ appendixes.assertions.assertThat.tables.constraints中列出了可以应用于�
 所返回的桩件或者仿件是基于以 WSDL 描述的 web 服务，而 `getMock()`
 返回的桩件或者仿件是基于 PHP 类或接口的。
 
-test-doubles.stubbing-and-mocking-web-services.examples.GoogleTest.php
-展示了如何用 `getMockFromWsdl()` 来对（例如）GoogleSearch.wsdl 中描述的
-web 服务上桩。
+`test-doubles.stubbing-and-mocking-web-services.examples.GoogleTest.php`
+展示了如何用 `getMockFromWsdl()` 来对（例如）`GoogleSearch.wsdl`
+中描述的 web 服务上桩。
 
     <?php declare(strict_types=1);
     use PHPUnit\Framework\TestCase;

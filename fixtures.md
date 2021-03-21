@@ -3,7 +3,7 @@
 
 在编写测试时，最费时的部分之一是编写代码来将整个场景设置成某个已知的状态，并在测试结束后将其复原到初始状态。这个已知的状态称为测试的*基境（fixture）*。
 
-在writing-tests-for-phpunit.examples.StackTest.php中，基境就是存储在
+在`writing-tests-for-phpunit.examples.StackTest.php`中，基境就是存储在
 `$stack`
 变量中的数组。然而，绝大多数时候基境均远比一个简单数组要复杂，用于建立基境的代码量也会随之增长。测试的真正内容就被淹没于建立基境带来的干扰中。当编写多个需要类似基境的测试时这个问题就变得更糟糕了。如果没有来自于测试框架的帮助，就不得不在写每一个测试时都将建立基境的代码重复一次。
 
@@ -12,7 +12,7 @@ PHPUnit 支持共享建立基境的代码。在运行某个测试方法前，会
 是创建测试所用对象的地方。当测试方法运行结束后，不管是成功还是失败，都会调用另外一个名叫
 `tearDown()` 的模板方法。`tearDown()` 是清理测试所用对象的地方。
 
-在writing-tests-for-phpunit.examples.StackTest2.php中，我们在测试之间运用生产者-消费者关系来共享基境。这并非总是预期的方式，甚至有时是不可能的。fixtures.examples.StackTest.php
+在`writing-tests-for-phpunit.examples.StackTest2.php`中，我们在测试之间运用生产者-消费者关系来共享基境。这并非总是预期的方式，甚至有时是不可能的。`fixtures.examples.StackTest.php`
 展示了另外一个编写测试 `StackTest`
 的方式。在这个方式中，不再重用基境本身，而是重用建立基境的代码。首先声明一个实例变量，`$stack`，用来替代方法内的局部变量。然后把
 `array` 基境的建立放到 `setUp()`
@@ -116,6 +116,26 @@ PHPUnit 支持共享建立基境的代码。在运行某个测试方法前，会
         }
     }
 
+$ phpunit TemplateMethodsTest PHPUnit .0 by Sebastian Bergmann and
+contributors.
+
+TemplateMethodsTest::setUpBeforeClass TemplateMethodsTest::setUp
+TemplateMethodsTest::assertPreConditions TemplateMethodsTest::testOne
+TemplateMethodsTest::assertPostConditions TemplateMethodsTest::tearDown
+.TemplateMethodsTest::setUp TemplateMethodsTest::assertPreConditions
+TemplateMethodsTest::testTwo TemplateMethodsTest::tearDown
+TemplateMethodsTest::onNotSuccessfulTest
+FTemplateMethodsTest::tearDownAfterClass
+
+Time: 0 seconds, Memory: 5.25Mb
+
+There was 1 failure:
+
+1) TemplateMethodsTest::testTwo Failed asserting that
+&lt;boolean:false&gt; is true. /home/sb/TemplateMethodsTest.php:30
+
+FAILURES! Tests: 2, Assertions: 2, Failures: 1.
+
 setUp() 多、tearDown() 少
 -------------------------
 
@@ -131,15 +151,11 @@ setUp() 多、tearDown() 少
 
 如果拥有两个测试，它们的基境建立工作略有不同，该怎么办？有两种可能：
 
--
+-   如果两个 `setUp()` 代码仅有微小差异，把有差异的代码内容从 `setUp()`
+    > 移到测试方法内。
 
-> 如果两个 `setUp()` 代码仅有微小差异，把有差异的代码内容从 `setUp()`
-> 移到测试方法内。
-
--
-
-> 如果两个 `setUp()`
-> 是确实不一样，那么需要另外一个测试用例类。参考基境建立工作的不同之处来命名这个类。
+-   如果两个 `setUp()`
+    > 是确实不一样，那么需要另外一个测试用例类。参考基境建立工作的不同之处来命名这个类。
 
 基境共享
 --------
@@ -148,7 +164,7 @@ setUp() 多、tearDown() 少
 
 一个有实际意义的多测试间共享基境的例子是数据库连接：只登录数据库一次，然后重用此连接，而不是每个测试都建立一个新的数据库连接。这样能加快测试的运行。
 
-fixtures.sharing-fixture.examples.DatabaseTest.php 中用
+`fixtures.sharing-fixture.examples.DatabaseTest.php` 中用
 `setUpBeforeClass()` 和 `tearDownAfterClass()`
 模板方法来分别在测试用例类的第一个测试之前和最后一个测试之后连接与断开数据库。
 
@@ -170,7 +186,7 @@ fixtures.sharing-fixture.examples.DatabaseTest.php 中用
         }
     }
 
-需要反复强调的是：在测试之间共享基境会降低测试的价值。潜在的设计问题是对象之间并非松散耦合。如果解决掉潜在的设计问题并使用桩件（stub）（参见test-doubles）来编写测试，就能达成更好的结果，而不是在测试之间产生运行时依赖并错过改进设计的机会。
+需要反复强调的是：在测试之间共享基境会降低测试的价值。潜在的设计问题是对象之间并非松散耦合。如果解决掉潜在的设计问题并使用桩件（stub）（参见`test-doubles`）来编写测试，就能达成更好的结果，而不是在测试之间产生运行时依赖并错过改进设计的机会。
 
 全局状态
 --------
@@ -179,24 +195,16 @@ fixtures.sharing-fixture.examples.DatabaseTest.php 中用
 
 在 PHP 中，全局变量是这样运作的：
 
--
+-   全局变量 `$foo = 'bar';` 实际上是存储为 `$GLOBALS['foo'] = 'bar';`
+    > 的。
 
-> 全局变量 `$foo = 'bar';` 实际上是存储为 `$GLOBALS['foo'] = 'bar';`
-> 的。
+-   `$GLOBALS`这个变量是一种被称为*超全局*变量的变量。
 
--
+-   超全局变量是一种在任何变量作用域中都总是可用的内建变量。
 
-> `$GLOBALS`这个变量是一种被称为*超全局*变量的变量。
-
--
-
-> 超全局变量是一种在任何变量作用域中都总是可用的内建变量。
-
--
-
-> 在函数或者方法的变量作用域中，要访问全局变量 `$foo`，可以直接访问
-> `$GLOBALS['foo']`，或者用 `global $foo;`
-> 来创建一个引用全局变量的局部变量。
+-   在函数或者方法的变量作用域中，要访问全局变量 `$foo`，可以直接访问
+    > `$GLOBALS['foo']`，或者用 `global $foo;`
+    > 来创建一个引用全局变量的局部变量。
 
 除了全局变量，类的静态属性也是一种全局状态。
 
@@ -220,7 +228,7 @@ fixtures.sharing-fixture.examples.DatabaseTest.php 中用
 `PDO`）无法序列化，因此如果把这样一个对象存放在比如说 `$GLOBALS`
 数组内时，备份操作就会出问题。
 
-在 appendixes.annotations.backupGlobals 中所讨论的 `@backupGlobals`
+在 `appendixes.annotations.backupGlobals` 中所讨论的 `@backupGlobals`
 标注可以用来控制对全局变量的备份与还原操作。另外，还可以提供一个全局变量的名单，名单中的全局变量将被排除于备份与还原操作之外，就像这样：
 
     final class MyTest extends TestCase
@@ -235,7 +243,7 @@ fixtures.sharing-fixture.examples.DatabaseTest.php 中用
 在方法（例如 `setUp()` 方法）内对 `$backupGlobalsBlacklist`
 属性进行设置是无效的。
 
-在 appendixes.annotations.backupStaticAttributes 中提到的
+在 `appendixes.annotations.backupStaticAttributes` 中提到的
 `@backupStaticAttributes`
 标注可以用于在每个测试之前备份所有已声明类的静态属性值并在其后恢复。
 

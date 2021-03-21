@@ -1,11 +1,17 @@
 命令行测试执行器
 ================
 
-PHPUnit 命令行测试执行器可通过 phpunit 命令调用。下面的代码展示了如何用
-PHPUnit 命令行测试执行器来运行测试：
+PHPUnit 命令行测试执行器可通过 `phpunit`
+命令调用。下面的代码展示了如何用 PHPUnit 命令行测试执行器来运行测试：
+
+$ phpunit ArrayTest PHPUnit .0 by Sebastian Bergmann and contributors.
+
+Time: 0 seconds
+
+OK (2 tests, 2 assertions)
 
 上面这个调用例子中，PHPUnit 命令行测试执行器将在当前工作目录中寻找
-ArrayTest.php 源文件并加载之。而在此源文件中应当能找到 `ArrayTest`
+`ArrayTest.php` 源文件并加载之。而在此源文件中应当能找到 `ArrayTest`
 测试用例类，此类中的测试将被执行。
 
 对于每个测试的运行，PHPUnit 命令行工具输出一个字符来指示进展：
@@ -24,15 +30,15 @@ ArrayTest.php 源文件并加载之。而在此源文件中应当能找到 `Arra
 
 `R`
 
-> 当测试被标记为有风险时输出（参见risky-tests）。
+> 当测试被标记为有风险时输出（参见`risky-tests`）。
 
 `S`
 
-> 当测试被跳过时输出（参见incomplete-and-skipped-tests）。
+> 当测试被跳过时输出（参见`incomplete-and-skipped-tests`）。
 
 `I`
 
-> 当测试被标记为不完整或未实现时输出（参见incomplete-and-skipped-tests）。
+> 当测试被标记为不完整或未实现时输出（参见`incomplete-and-skipped-tests`）。
 
 PHPUnit 区分*失败（failure）*与*错误（error）*。失败指的是被违背了的
 PHPUnit 断言，例如一个失败的 `assertSame()`
@@ -44,9 +50,110 @@ PHPUnit 断言，例如一个失败的 `assertSame()`
 
 让我们来瞧瞧以下代码中命令行测试执行器的各种选项：
 
+$ phpunit --help PHPUnit .0 by Sebastian Bergmann and contributors.
+
+Usage:  
+phpunit \[options\] UnitTest.php phpunit \[options\] &lt;directory&gt;
+
+Code Coverage Options:  
+--coverage-clover &lt;file&gt; Generate code coverage report in Clover
+XML format --coverage-crap4j &lt;file&gt; Generate code coverage report
+in Crap4J XML format --coverage-html &lt;dir&gt; Generate code coverage
+report in HTML format --coverage-php &lt;file&gt; Export
+PHP\_CodeCoverage object to file --coverage-text &lt;file&gt; Generate
+code coverage report in text format \[default: standard output\]
+--coverage-xml &lt;dir&gt; Generate code coverage report in PHPUnit XML
+format --coverage-cache &lt;dir&gt; Cache static analysis results
+--warm-coverage-cache Warm static analysis cache --coverage-filter
+&lt;dir&gt; Include &lt;dir&gt; in code coverage analysis
+--path-coverage Perform path coverage analysis --disable-coverage-ignore
+Disable annotations for ignoring code coverage --no-coverage Ignore code
+coverage configuration
+
+Logging Options:  
+--log-junit &lt;file&gt; Log test execution in JUnit XML format to file
+--log-teamcity &lt;file&gt; Log test execution in TeamCity format to
+file --testdox-html &lt;file&gt; Write agile documentation in HTML
+format to file --testdox-text &lt;file&gt; Write agile documentation in
+Text format to file --testdox-xml &lt;file&gt; Write agile documentation
+in XML format to file --reverse-list Print defects in reverse order
+--no-logging Ignore logging configuration
+
+Test Selection Options:  
+--filter &lt;pattern&gt; Filter which tests to run --testsuite
+&lt;name&gt; Filter which testsuite to run --group &lt;name&gt; Only
+runs tests from the specified group(s) --exclude-group &lt;name&gt;
+Exclude tests from the specified group(s) --list-groups List available
+test groups --list-suites List available test suites --list-tests List
+available tests --list-tests-xml &lt;file&gt; List available tests in
+XML format --test-suffix &lt;suffixes&gt; Only search for test in files
+with specified suffix(es). Default: Test.php,.phpt
+
+Test Execution Options:  
+--dont-report-useless-tests Do not report tests that do not test
+anything --strict-coverage Be strict about @covers annotation usage
+--strict-global-state Be strict about changes to global state
+--disallow-test-output Be strict about output during tests
+--disallow-resource-usage Be strict about resource usage during small
+tests --enforce-time-limit Enforce time limit based on test size
+--default-time-limit &lt;sec&gt; Timeout in seconds for tests without
+@small, @medium or @large --disallow-todo-tests Disallow @todo-annotated
+tests
+
+--process-isolation Run each test in a separate PHP process
+--globals-backup Backup and restore $GLOBALS for each test
+--static-backup Backup and restore static attributes for each test
+
+--colors &lt;flag&gt; Use colors in output ("never", "auto" or "always")
+--columns &lt;n&gt; Number of columns to use for progress output
+--columns max Use maximum number of columns for progress output --stderr
+Write to STDERR instead of STDOUT --stop-on-defect Stop execution upon
+first not-passed test --stop-on-error Stop execution upon first error
+--stop-on-failure Stop execution upon first error or failure
+--stop-on-warning Stop execution upon first warning --stop-on-risky Stop
+execution upon first risky test --stop-on-skipped Stop execution upon
+first skipped test --stop-on-incomplete Stop execution upon first
+incomplete test --fail-on-incomplete Treat incomplete tests as failures
+--fail-on-risky Treat risky tests as failures --fail-on-skipped Treat
+skipped tests as failures --fail-on-warning Treat tests with warnings as
+failures -v|--verbose Output more verbose information --debug Display
+debugging information
+
+--repeat &lt;times&gt; Runs the test(s) repeatedly --teamcity Report
+test execution progress in TeamCity format --testdox Report test
+execution progress in TestDox format --testdox-group Only include tests
+from the specified group(s) --testdox-exclude-group Exclude tests from
+the specified group(s) --no-interaction Disable TestDox progress
+animation --printer &lt;printer&gt; TestListener implementation to use
+
+--order-by &lt;order&gt; Run tests in order: defaultdurationrandomsize
+--random-order-seed &lt;N&gt; Use a specific random seed &lt;N&gt; for
+random order --cache-result Write test results to cache file
+--do-not-cache-result Do not write test results to cache file
+
+Configuration Options:  
+--prepend &lt;file&gt; A PHP script that is included as early as
+possible --bootstrap &lt;file&gt; A PHP script that is included before
+the tests run -c|--configuration &lt;file&gt; Read configuration from
+XML file --no-configuration Ignore default configuration file
+(phpunit.xml) --extensions &lt;extensions&gt; A comma separated list of
+PHPUnit extensions to load --no-extensions Do not load PHPUnit
+extensions --include-path &lt;path(s)&gt; Prepend PHP's include\_path
+with given path(s) -d &lt;key\[=value\]&gt; Sets a php.ini value
+--cache-result-file &lt;file&gt; Specify result cache path and filename
+--generate-configuration Generate configuration file with suggested
+settings --migrate-configuration Migrate configuration file to current
+format
+
+Miscellaneous Options:  
+-h|--help Prints this usage information --version Prints the version and
+exits --atleast-version &lt;min&gt; Checks that version is greater than
+min and exits --check-version Check whether PHPUnit is the latest
+version
+
 `phpunit UnitTest`
 
-> 运行由 `UnitTest` 类提供的测试。这个类应当在 UnitTest.php
+> 运行由 `UnitTest` 类提供的测试。这个类应当在 `UnitTest.php`
 > 源文件中声明。
 >
 > `UnitTest` 这个类必须满足以下二个条件之一：要么它继承自
@@ -61,16 +168,17 @@ PHPUnit 断言，例如一个失败的 `assertSame()`
 `--coverage-clover`
 
 > 为运行的测试生成带有代码覆盖率信息的 XML
-> 格式的日志文件。更多细节参见code-coverage-analysis。
+> 格式的日志文件。更多细节参见`code-coverage-analysis`。
 
 `--coverage-crap4j`
 
 > 生成 Crap4j
-> 格式的代码覆盖率报告。更多细节请参见code-coverage-analysis。
+> 格式的代码覆盖率报告。更多细节请参见`code-coverage-analysis`。
 
 `--coverage-html`
 
-> 生成 HTML 格式的代码覆盖率报告。更多细节请参见code-coverage-analysis。
+> 生成 HTML
+> 格式的代码覆盖率报告。更多细节请参见`code-coverage-analysis`。
 
 `--coverage-php`
 
@@ -86,7 +194,8 @@ PHPUnit 断言，例如一个失败的 `assertSame()`
 
 `--testdox-html` 和 `--testdox-text`
 
-> 为运行的测试以 HTML 或纯文本格式生成敏捷文档（参见 textui.testdox）。
+> 为运行的测试以 HTML 或纯文本格式生成敏捷文档（参见
+> `textui.testdox`）。
 
 `--filter`
 
@@ -105,7 +214,7 @@ PHPUnit 断言，例如一个失败的 `assertSame()`
 >
 > `TestNamespace\TestCaseClass::testMethod with data set "my named data"`
 >
-> > 当测试拥有使用命名数据集的数据供给器时，数据的每轮迭代都会将当前名称附加在默认测试名称结尾处。命名数据集的例子参见textui.examples.TestCaseClass.php。
+> > 当测试拥有使用命名数据集的数据供给器时，数据的每轮迭代都会将当前名称附加在默认测试名称结尾处。命名数据集的例子参见`textui.examples.TestCaseClass.php`。
 >
 > >     <?php
 > >     use PHPUnit\Framework\TestCase;
@@ -135,7 +244,7 @@ PHPUnit 断言，例如一个失败的 `assertSame()`
 >
 > > 对于 PHPT 测试，其测试名称是文件系统路径。
 >
-> 有效的过滤器模式例子参见textui.examples.filter-patterns。
+> 有效的过滤器模式例子参见`textui.examples.filter-patterns`。
 >
 >     --filter 'TestNamespace\\TestCaseClass::testMethod'
 >     --filter 'TestNamespace\\TestCaseClass'
@@ -146,7 +255,7 @@ PHPUnit 断言，例如一个失败的 `assertSame()`
 >     --filter '/::testMethod .*#5$/'
 >     --filter '/::testMethod .*#(5|6|7)$/'
 >
-> 在匹配数据供给器时有一些额外的快捷方式，参见textui.examples.filter-shortcuts。
+> 在匹配数据供给器时有一些额外的快捷方式，参见`textui.examples.filter-shortcuts`。
 >
 >     --filter 'testMethod#2'
 >     --filter 'testMethod#2-4'
@@ -184,19 +293,19 @@ PHPUnit 断言，例如一个失败的 `assertSame()`
 
 `--dont-report-useless-tests`
 
-> 不报告事实上不测试任何内容的测试。详情参见risky-tests。
+> 不报告事实上不测试任何内容的测试。详情参见`risky-tests`。
 
 `--strict-coverage`
 
-> 更严格对待意外的代码覆盖。详情参见risky-tests。
+> 更严格对待意外的代码覆盖。详情参见`risky-tests`。
 
 `--strict-global-state`
 
-> 更严格对待全局状态篡改。详情参见risky-tests。
+> 更严格对待全局状态篡改。详情参见`risky-tests`。
 
 `--disallow-test-output`
 
-> 更严格对待测试执行期间产生的输出。详情参见risky-tests。
+> 更严格对待测试执行期间产生的输出。详情参见`risky-tests`。
 
 `--disallow-todo-tests`
 
@@ -204,7 +313,7 @@ PHPUnit 断言，例如一个失败的 `assertSame()`
 
 `--enforce-time-limit`
 
-> 根据测试规模对其加上执行时长限制。详情参见risky-tests。
+> 根据测试规模对其加上执行时长限制。详情参见`risky-tests`。
 
 `--process-isolation`
 
@@ -212,11 +321,11 @@ PHPUnit 断言，例如一个失败的 `assertSame()`
 
 `--no-globals-backup`
 
-> 不要备份与还原 $GLOBALS。更多细节请参见fixtures.global-state。
+> 不要备份与还原 $GLOBALS。更多细节请参见`fixtures.global-state`。
 
 `--static-backup`
 
-> 备份与还原用户定义的类中的静态属性。更多细节请参见fixtures.global-state。
+> 备份与还原用户定义的类中的静态属性。更多细节请参见`fixtures.global-state`。
 
 `--colors`
 
@@ -226,18 +335,12 @@ PHPUnit 断言，例如一个失败的 `assertSame()`
 >
 > 本选项有三个可能的值：
 >
-> -
+> -   `never`：完全不使用彩色输出。当未使用 `--colors`
+>     > 选项时，这是默认值。
 >
-> > `never`：完全不使用彩色输出。当未使用 `--colors`
-> > 选项时，这是默认值。
+> -   `auto`：如果当前终端不支持彩色、或者输出被管道输出至其他命令、或输出被重定向至文件时，不使用彩色输出，其余情况使用彩色。
 >
-> -
->
-> > `auto`：如果当前终端不支持彩色、或者输出被管道输出至其他命令、或输出被重定向至文件时，不使用彩色输出，其余情况使用彩色。
->
-> -
->
-> > `always`：总是使用彩色输出，即使当前终端不支持彩色、输出被管道输出至其他命令、或输出被重定向至文件。
+> -   `always`：总是使用彩色输出，即使当前终端不支持彩色、输出被管道输出至其他命令、或输出被重定向至文件。
 >
 > 当使用了 `--colors` 选项但未指定任何值时，将选择 `auto` 做为其值。
 
@@ -284,7 +387,7 @@ PHPUnit 断言，例如一个失败的 `assertSame()`
 >
 > 标准的测试套件加载器将在当前工作目录和 PHP 的 `include_path`
 > 配置指令中指定的每个目录内查找源文件。诸如 `Project_Package_Class`
-> 这样的类名对应的源文件名为 Project/Package/Class.php。
+> 这样的类名对应的源文件名为 `Project/Package/Class.php`。
 
 `--repeat`
 
@@ -292,7 +395,7 @@ PHPUnit 断言，例如一个失败的 `assertSame()`
 
 `--testdox`
 
-> 以 TestDox 格式报告测试进度。（参见 textui.testdox）。
+> 以 TestDox 格式报告测试进度。（参见 `textui.testdox`）。
 
 `--printer`
 
@@ -306,22 +409,23 @@ PHPUnit 断言，例如一个失败的 `assertSame()`
 
 `--configuration`、`-c`
 
-> 从 XML 文件中读取配置信息。更多细节请参见 appendixes.configuration。
+> 从 XML 文件中读取配置信息。更多细节请参见 `appendixes.configuration`。
 >
-> 如果 phpunit.xml 或
-> phpunit.xml.dist（按此顺序）存在于当前工作目录并且*未*使用
+> 如果 `phpunit.xml` 或
+> `phpunit.xml.dist`（按此顺序）存在于当前工作目录并且*未*使用
 > `--configuration`，将自动从此文件中读取配置。
 >
-> 如果指定了目录且在此目录中存在 phpunit.xml 或
-> phpunit.xml.dist（按此顺序）将自动从此文件中读取配置。
+> 如果指定了目录且在此目录中存在 `phpunit.xml` 或
+> `phpunit.xml.dist`（按此顺序）将自动从此文件中读取配置。
 
 `--no-configuration`
 
-> 忽略当前工作目录下的 phpunit.xml 与 phpunit.xml.dist。
+> 忽略当前工作目录下的 `phpunit.xml` 与 `phpunit.xml.dist`。
 
 `--include-path`
 
-> 向 PHP 的 include\_path 开头添加指定路径（可以多个）。
+> 向 PHP 的 <span class="title-ref">include\_path</span>
+> 开头添加指定路径（可以多个）。
 
 `-d`
 
@@ -345,6 +449,12 @@ zero”。如果有多个测试方法的名字互相之间的差异只是一个�
 cannot become negative”只会出现一次。
 
 来看一下从 `BankAccount` 类生成的敏捷文档：
+
+$ phpunit --testdox BankAccountTest.php PHPUnit .0 by Sebastian Bergmann
+and contributors.
+
+BankAccount  
+✔ Balance is initially zero ✔ Balance cannot become negative
 
 另外，敏捷文档也能以 HTML 或纯文本格式生成并写入文件中，用
 `--testdox-html` 和 `--testdox-text` 参数即可。

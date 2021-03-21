@@ -16,7 +16,7 @@ PHPUnit\\Framework\\TestCase 的子类
 --------------
 
 编写自定义断言时，最佳实践是遵循 PHPUnit
-自有断言的实现方式。正如extending-phpunit.examples.Assert.php
+自有断言的实现方式。正如`extending-phpunit.examples.Assert.php`
 中所示，`assertTrue()` 方法只是对 `isTrue()` 和 `assertThat()`
 方法的封装：`isTrue()` 创建了一个匹配器对象，将其传递给 `assertThat()`
 进行评定。
@@ -45,7 +45,7 @@ PHPUnit\\Framework\\TestCase 的子类
         // ...
     }
 
-extending-phpunit.examples.IsTrue.php 展示了
+`extending-phpunit.examples.IsTrue.php` 展示了
 `PHPUnit\Framework\Constraint\IsTrue`
 是如何扩展针对匹配器对象（或约束）的抽象基类
 `PHPUnit\Framework\Constraint` 的。
@@ -95,9 +95,9 @@ PHPUnit
 每个“hook”（表示上面列出的各个接口）都代表一个可能在测试执行过程中发生的事件。
 
 有关如何在 PHPUnit 的 XML 配置中注册扩展的详细信息，参见
-appendixes.configuration.extensions。
+`appendixes.configuration.extensions`。
 
-extending-phpunit.examples.TestRunnerExtension 展示了一个实现了
+`extending-phpunit.examples.TestRunnerExtension` 展示了一个实现了
 `BeforeFirstTestHook` 和 `AfterLastTestHook` 的扩展：
 
     <?php declare(strict_types=1);
@@ -123,7 +123,7 @@ extending-phpunit.examples.TestRunnerExtension 展示了一个实现了
 
 假定扩展接受配置值，则你可以对 PHPUnit 扩展进行配置。
 
-extending-phpunit.examples.TestRunnerConfigurableExtension
+`extending-phpunit.examples.TestRunnerConfigurableExtension`
 展示了如何通过为扩展类添加 `__constructor()` 定义让扩展可配置：
 
     <?php declare(strict_types=1);
@@ -160,7 +160,7 @@ extending-phpunit.examples.TestRunnerConfigurableExtension
     }
 
 要通过 XML 给扩展输入配置，必须更新 XML 配置文件的 `extensions`
-段来让其拥有配置值，如extending-phpunit.examples.TestRunnerConfigurableExtensionConfig
+段来让其拥有配置值，如`extending-phpunit.examples.TestRunnerConfigurableExtensionConfig`
 中所示：
 
     <extensions>
@@ -174,6 +174,6 @@ extending-phpunit.examples.TestRunnerConfigurableExtension
     </extensions>
 
 有关如何使用 `arguments` 配置的详细信息，参见
-appendixes.configuration.extensions.extension.arguments。
+`appendixes.configuration.extensions.extension.arguments`。
 
 请记住：所有配置都是可选的，因此要确保你的配置要么要有健全的默认值，要么它就应当在缺失配置的时候禁用自身。

@@ -39,7 +39,13 @@ PHP 档案包（PHAR）
 
 可以在下载后立即使用 PHPUnit PHAR：
 
+$ wget <https://phar.phpunit.de/phpunit-%7Cversion>version|.phar
+--version PHPUnit x.y.z by Sebastian Bergmann and contributors.
+
 让 PHAR 可执行是种常见做法：
+
+$ wget <https://phar.phpunit.de/phpunit-%7Cversion>versionversion|.phar
+--version PHPUnit x.y.z by Sebastian Bergmann and contributors.
 
 ### 校验 PHPUnit PHAR 发行包
 
@@ -47,20 +53,45 @@ PHP 档案包（PHAR）
 [phar.phpunit.de](https://phar.phpunit.de/) 上有 PGP 签名和 SHA256
 散列值可用于校验。
 
-下面的例子详细说明了如何对发行包进行校验。首先下载 phpunit.phar
-和与之对应的单独 PGP 签名 phpunit.phar.asc：
+下面的例子详细说明了如何对发行包进行校验。首先下载 `phpunit.phar`
+和与之对应的单独 PGP 签名 `phpunit.phar.asc`：
 
-用单独的签名（phpunit-x.y.phar）对 PHPUnit 的 PHP
-档案包（phpunit-x.y.phar.asc）进行校验：
+$ wget <https://phar.phpunit.de/phpunit-%7Cversion>.phar.asc
+
+用单独的签名（`phpunit-x.y.phar`）对 PHPUnit 的 PHP
+档案包（`phpunit-x.y.phar.asc`）进行校验：
+
+$ gpg phpunit-.phar.asc gpg: Signature made Sat 19 Jul 2014 01:28:02 PM
+CEST using RSA key ID 6372C20A gpg: Can't check signature: public key
+not found
 
 在本地系统中没有发行包管理器的公钥（`6372C20A`）。为了能进行校验，必须从某个密钥服务器上取得发行包管理器的公钥。其中一个服务器是
-pgp.uni-mainz.de。所有密钥服务器是链接在一起的，因此连接到任一密钥服务器都可以。
+`pgp.uni-mainz.de`。所有密钥服务器是链接在一起的，因此连接到任一密钥服务器都可以。
+
+$ curl --silent <https://sebastian-bergmann.de/gpg.asc> | gpg --import
+gpg: key 4AA394086372C20A: 452 signatures not checked due to missing
+keys gpg: /root/.gnupg/trustdb.gpg: trustdb created gpg: key
+4AA394086372C20A: public key "Sebastian Bergmann
+&lt;<sb@sebastian-bergmann.de>&gt;" imported gpg: Total number
+processed: 1 gpg: imported: 1 gpg: no ultimately trusted keys found
 
 现在已经取得了条目名称为“Sebastian Bergmann
 &lt;<sb@sebastian-bergmann.de>&gt;”的公钥。不过，无法检验这个密钥确实是由名叫
 Sebastian Bergmann
 的人创建的。但是可以先试着校验发行包的签名：为运行的测试以 HTML
 或纯文本格式生成敏捷文档
+
+$ gpg phpunit-.phar.asc gpg: Signature made Sat 19 Jul 2014 01:28:02 PM
+CEST using RSA key ID 6372C20A gpg: Good signature from "Sebastian
+Bergmann &lt;<sb@sebastian-bergmann.de>&gt;" gpg: aka "Sebastian
+Bergmann &lt;<sebastian@php.net>&gt;" gpg: aka "Sebastian Bergmann
+&lt;<sebastian@thephp.cc>&gt;" gpg: aka "Sebastian Bergmann
+&lt;<sebastian@phpunit.de>&gt;" gpg: aka "Sebastian Bergmann
+&lt;<sebastian.bergmann@thephp.cc>&gt;" gpg: aka "\[jpeg image of size
+40635\]" gpg: WARNING: This key is not certified with a trusted
+signature! gpg: There is no indication that the signature belongs to the
+owner. Primary key fingerprint: D840 6D0D 8294 7747 2937 7831 4AA3 9408
+6372 C20A
 
 此时，签名已经没问题了，但是这个公钥还不能信任。签名没问题意味着文件未被篡改。可是由于公钥加密系统的性质，还需要再校验密钥
 `6372C20A` 确实是由真正的 Sebastian Bergmann 创建的。
@@ -77,6 +108,8 @@ Composer
 如果用 [Composer](https://getcomposer.org/)
 来管理项目的依赖关系，只要在项目的 `composer.json` 文件中加上对
 `phpunit/phpunit` 的（开发时）依赖关系即可：
+
+composer require --dev phpunit/phpunit ^
 
 全局安装
 --------

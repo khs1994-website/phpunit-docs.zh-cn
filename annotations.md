@@ -20,7 +20,7 @@ PHP中的文档注释块必须以 `/**` 开头，以 `*/`
 -------
 
 `@author` 标注是 `@group` 标注（参见
-appendixes.annotations.group）的别名，允许基于作者对测试进行过滤。
+`appendixes.annotations.group`）的别名，允许基于作者对测试进行过滤。
 
 @after
 ------
@@ -172,7 +172,7 @@ PHPUnit
 受限于 PHP 的内部实现，在某些情况下即使使用了 `@backupStaticAttributes`
 也可能有个别静态值出现意料外的延续，并污染后继测试。
 
-细节参见fixtures.global-state。
+细节参见`fixtures.global-state`。
 
 @before
 -------
@@ -236,7 +236,7 @@ PHPUnit
 `@codeCoverageIgnore`、`@codeCoverageIgnoreStart` 和
 `@codeCoverageIgnoreEnd` 标注用于从覆盖率分析中排除掉某些代码行。
 
-用法参见code-coverage-analysis.ignoring-code-blocks。
+用法参见`code-coverage-analysis.ignoring-code-blocks`。
 
 @covers
 -------
@@ -255,24 +255,77 @@ PHPUnit
 
 此标注可以添加给测试类的文档注释块，也可以添加给单个测试方法的文档注释块。推荐的方法是将此标注添加给测试类的文档注释块而不是测试方法的文档注释块。
 
-如果配置文件 &lt;appendixes.configuration&gt;中的
-`forceCoversAnnotation` 配置选项设置为
-`true`，则每个测试方法都必须拥有相应的 `@covers`
+如果`配置文件 <appendixes.configuration>`中的 `forceCoversAnnotation`
+配置选项设置为 `true`，则每个测试方法都必须拥有相应的 `@covers`
 标注（无论是在测试类还是单个测试方法上）。
 
-appendixes.annotations.covers.tables.annotations 展示了 `@covers`
+`appendixes.annotations.covers.tables.annotations` 展示了 `@covers`
 标注的语法。
-code-coverage-analysis.specifying-covered-parts这部分有关于使用此标注的更长一些的示例。
+`code-coverage-analysis.specifying-covered-parts`这部分有关于使用此标注的更长一些的示例。
 
 请注意，此标注要求用完全限定类名（FQCN，fully-qualified class
 name）。为了让读者更容易理解，推荐写上开头的反斜杠（虽然此标注并不要求如此也能正常运行）。
+
+table
+
+<table>
+<caption>用于指明测试覆盖哪些方法的标注</caption>
+<thead>
+<tr class="header">
+<th>标注</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>@covers ClassName::methodName</code>（不推荐）</td>
+<td>指明所标注的测试方法覆盖指定的方法。</td>
+</tr>
+<tr class="even">
+<td><code>@covers ClassName</code>（推荐）</td>
+<td>指明所标注的测试方法覆盖给定类的全部方法。</td>
+</tr>
+<tr class="odd">
+<td><code>@covers ClassName&lt;extended&gt;</code>（不推荐）</td>
+<td>指明所标注的测试方法覆盖给定类以及其所有父类的全部方法。</td>
+</tr>
+<tr class="even">
+<td><code>@covers ClassName::&lt;public&gt;</code>（不推荐）</td>
+<td>指明所标注的测试方法覆盖给定类的所有 public 方法。</td>
+</tr>
+<tr class="odd">
+<td><code>@covers ClassName::&lt;protected&gt;</code>（不推荐）</td>
+<td>指明所标注的测试方法覆盖给定类的所有 protected 方法。</td>
+</tr>
+<tr class="even">
+<td><code>@covers ClassName::&lt;private&gt;</code>（不推荐）</td>
+<td>指明所标注的测试方法覆盖给定类的所有 private 方法。</td>
+</tr>
+<tr class="odd">
+<td><code>@covers ClassName::&lt;!public&gt;</code>（不推荐）</td>
+<td>指明所标注的测试方法覆盖给定类的所有非 public 方法。</td>
+</tr>
+<tr class="even">
+<td><code>@covers ClassName::&lt;!protected&gt;</code>（不推荐）</td>
+<td>指明所标注的测试方法覆盖给定类的所有非 protected 方法。</td>
+</tr>
+<tr class="odd">
+<td><code>@covers ClassName::&lt;!private&gt;</code>（不推荐）</td>
+<td>指明所标注的测试方法覆盖给定类的所有非 private 方法。</td>
+</tr>
+<tr class="even">
+<td><code>@covers ::functionName</code>（推荐）</td>
+<td>指明所标注的测试方法覆盖给定的全局函数。</td>
+</tr>
+</tbody>
+</table>
 
 @coversDefaultClass
 -------------------
 
 `@coversDefaultClass`
 标注用于指定一个默认的命名空间或类名，这样就不用在每个 `@covers`
-标注中重复长名称。参见appendixes.annotations.examples.CoversDefaultClassTest.php。
+标注中重复长名称。参见`appendixes.annotations.examples.CoversDefaultClassTest.php`。
 
 请注意，此标注要求用完全限定类名（FQCN，fully-qualified class
 name）。为了让读者更容易理解，推荐写上开头的反斜杠（虽然此标注并不要求如此也能正常运行）。
@@ -301,27 +354,27 @@ name）。为了让读者更容易理解，推荐写上开头的反斜杠（虽�
 在测试代码中用 `@coversNothing`
 标注来指明所标注的测试用例不需要记录任何代码覆盖率信息。
 
-这可以用于集成测试。例子可参见code-coverage-analysis.specifying-covered-parts.examples.GuestbookIntegrationTest.php。
+这可以用于集成测试。例子可参见`code-coverage-analysis.specifying-covered-parts.examples.GuestbookIntegrationTest.php`。
 
 这个标注可以用在类级别或者方法级别，并且会覆盖掉所有 `@covers` 标注。
 
 @dataProvider
 -------------
 
-测试方法可以接受任意参数。这些参数由一个或多个数据供给器方法（在writing-tests-for-phpunit.data-providers.examples.DataTest.php中，是
+测试方法可以接受任意参数。这些参数由一个或多个数据供给器方法（在`writing-tests-for-phpunit.data-providers.examples.DataTest.php`中，是
 `provider()` 方法）提供。用 `@dataProvider`
 标注来指定要使用的数据供给器方法。
 
-更多细节，参见writing-tests-for-phpunit.data-providers。
+更多细节，参见`writing-tests-for-phpunit.data-providers`。
 
 @depends
 --------
 
 PHPUnit
-支持对测试方法之间的显式依赖关系进行声明。这种依赖关系并不是定义在测试方法的执行顺序中，而是允许生产者（producer）返回一个测试基境（fixture）的实例，并将此实例传递给依赖于它的消费者（consumer）们。writing-tests-for-phpunit.examples.StackTest2.php展示了如何用
+支持对测试方法之间的显式依赖关系进行声明。这种依赖关系并不是定义在测试方法的执行顺序中，而是允许生产者（producer）返回一个测试基境（fixture）的实例，并将此实例传递给依赖于它的消费者（consumer）们。`writing-tests-for-phpunit.examples.StackTest2.php`展示了如何用
 `@depends` 标注来表达测试方法之间的依赖关系。
 
-更多细节，参见writing-tests-for-phpunit.test-dependencies。
+更多细节，参见`writing-tests-for-phpunit.test-dependencies`。
 
 @doesNotPerformAssertions
 -------------------------
@@ -406,7 +459,7 @@ XML 配置文件的 `timeoutForMediumTests` 属性进行配置。
 `@requires` 标注用于在常规前提条件（例如 PHP
 版本或所安装的扩展）不满足时跳过测试。
 
-完整的可能用法以及例子见incomplete-and-skipped-tests.requires.tables.api
+完整的可能用法以及例子见`incomplete-and-skipped-tests.requires.tables.api`
 
 @runTestsInSeparateProcesses
 ----------------------------
@@ -426,7 +479,7 @@ XML 配置文件的 `timeoutForMediumTests` 属性进行配置。
 
 *注意：*默认情况下，PHPUnit
 会尝试通过在父进程序列化全局状态然后在子进程反序列化的方式在子进程中保持来自父进程的全局状态。这当父进程包含非可序列化的全局内容时可能会导致问题。关于如何修正此问题的信息参见
-appendixes.annotations.preserveGlobalState。
+`appendixes.annotations.preserveGlobalState`。
 
 @runInSeparateProcess
 ---------------------
@@ -449,7 +502,7 @@ appendixes.annotations.preserveGlobalState。
 
 *注意：*默认情况下，PHPUnit
 会尝试通过在父进程序列化全局状态然后在子进程反序列化的方式在子进程中保持来自父进程的全局状态。这当父进程包含非可序列化的全局内容时可能会导致问题。关于如何修正此问题的信息参见
-appendixes.annotations.preserveGlobalState。
+`appendixes.annotations.preserveGlobalState`。
 
 @small
 ------
@@ -540,7 +593,7 @@ appendixes.annotations.preserveGlobalState。
 数据集由一个或多个元素组成。要定义具有多个元素的数据集，每个元素都要定义在单独一行中。数据集的每个元素都必须是以
 JSON 格式定义的数组。
 
-参见writing-tests-for-phpunit.data-providers来学习更多关于传递数据集合给测试的信息。
+参见`writing-tests-for-phpunit.data-providers`来学习更多关于传递数据集合给测试的信息。
 
     /**
      * @testWith ["test", 4]
@@ -565,7 +618,7 @@ JSON 格式定义的数组。
 -------
 
 `@ticket` 标注是 `@group` 标注（参见
-appendixes.annotations.group）的别名，允许基于事务 ID 对测试进行过滤。
+`appendixes.annotations.group`）的别名，允许基于事务 ID 对测试进行过滤。
 
 @uses
 -----
@@ -582,10 +635,10 @@ appendixes.annotations.group）的别名，允许基于事务 ID 对测试进行
         // ...
     }
 
-code-coverage-analysis.specifying-covered-parts.examples.InvoiceTest.php
+`code-coverage-analysis.specifying-covered-parts.examples.InvoiceTest.php`
 展示了另一个示例。
 
-在严格覆盖模式中，意外覆盖的代码将导致测试判定为失败，这个标注就比较有用，另外它也有助于阅读代码。关于严格覆盖模式的更多信息，参见risky-tests.unintentionally-covered-code。
+在严格覆盖模式中，意外覆盖的代码将导致测试判定为失败，这个标注就比较有用，另外它也有助于阅读代码。关于严格覆盖模式的更多信息，参见`risky-tests.unintentionally-covered-code`。
 
 请注意，此标注要求用完全限定类名（FQCN，fully-qualified class
 name）。为了让读者更容易理解，推荐写上开头的反斜杠（虽然此标注并不要求如此也能正常运行）。

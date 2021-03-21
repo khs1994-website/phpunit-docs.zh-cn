@@ -24,7 +24,7 @@ PHPUnit 可以生成基于 HTML
 的代码覆盖率信息记录文件。代码覆盖率信息也能以文本格式提供（同时可以输出到
 STDOUT）或以 PHP 代码格式输出以供进一步处理。
 
-textui中列出了各种控制代码覆盖率功能的命令行参数供参考，同时appendixes.configuration.logging中可以找到其他相关的配置信息。
+`textui`中列出了各种控制代码覆盖率功能的命令行参数供参考，同时`appendixes.configuration.logging`中可以找到其他相关的配置信息。
 
 用于代码覆盖率的软件衡量标准
 ----------------------------
@@ -70,9 +70,9 @@ textui中列出了各种控制代码覆盖率功能的命令行参数供参考�
 --------
 
 为了告诉 PHPUnit
-哪些源代码文件要包含在代码覆盖率报告中，必须配置过滤器。可以用命令行 &lt;textui.clioptions&gt;选项
+哪些源代码文件要包含在代码覆盖率报告中，必须配置过滤器。可以用`命令行 <textui.clioptions>`选项
 `--coverage-filter`
-或通过配置文件（参见appendixes.configuration.coverage.include）来完成。
+或通过配置文件（参见`appendixes.configuration.coverage.include`）来完成。
 
 `includeUncoveredFilesInCodeCoverageReport` 和
 `processUncoveredFilesForCodeCoverageReport`
@@ -99,7 +99,7 @@ textui中列出了各种控制代码覆盖率功能的命令行参数供参考�
 有时，一些代码块是无法对其进行测试的，因此希望在代码覆盖率分析中忽略它们。在
 PHPUnit 中可以用 `@codeCoverageIgnore`、`@codeCoverageIgnoreStart` 与
 `@codeCoverageIgnoreEnd`
-标注来做到这点，如code-coverage-analysis.ignoring-code-blocks.examples.Sample.php
+标注来做到这点，如`code-coverage-analysis.ignoring-code-blocks.examples.Sample.php`
 中所示。
 
     <?php declare(strict_types=1);
@@ -139,7 +139,7 @@ PHPUnit 中可以用 `@codeCoverageIgnore`、`@codeCoverageIgnoreStart` 与
 ------------------
 
 `@covers`
-标注（参见annotation documentation &lt;appendixes.annotations.covers.tables.annotations&gt;）可以用在测试代码中来指明测试类（或测试方法）想要对哪些代码部分进行测试。如果提供了这个信息，则可以有效过滤代码覆盖率报告，仅包含所指定的代码部分中的已执行代码。code-coverage-analysis.specifying-covered-parts.examples.InvoiceTest.php
+标注（参见`annotation documentation <appendixes.annotations.covers.tables.annotations>`）可以用在测试代码中来指明测试类（或测试方法）想要对哪些代码部分进行测试。如果提供了这个信息，则可以有效过滤代码覆盖率报告，仅包含所指定的代码部分中的已执行代码。`code-coverage-analysis.specifying-covered-parts.examples.InvoiceTest.php`
 展示了一个例子。
 
 注
@@ -242,7 +242,7 @@ PHPUnit 中可以用 `@codeCoverageIgnore`、`@codeCoverageIgnoreStart` 与
     }
 
 同时，可以用 `@coversNothing`
-标注来指明一个测试不覆盖*任何*方法（参见appendixes.annotations.coversNothing）。这可以在编写集成测试时用于确保代码覆盖全部来自单元测试。
+标注来指明一个测试不覆盖*任何*方法（参见`appendixes.annotations.coversNothing`）。这可以在编写集成测试时用于确保代码覆盖全部来自单元测试。
 
     <?php declare(strict_types=1);
     use PHPUnit\DbUnit\TestCase
