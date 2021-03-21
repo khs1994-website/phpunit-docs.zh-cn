@@ -1,0 +1,691 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Code Coverage Analysis · PHPUnit 中文文档</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="configuration.html" />
+    
+    
+    <link rel="prev" href="bibliography.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://docs.khs1994.com" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="annotations.html">
+            
+                <a href="annotations.html">
+            
+                    
+                    Annotations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="assertions.html">
+            
+                <a href="assertions.html">
+            
+                    
+                    Assertions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="bibliography.html">
+            
+                <a href="bibliography.html">
+            
+                    
+                    Bibliography
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5" data-path="code-coverage-analysis.html">
+            
+                <a href="code-coverage-analysis.html">
+            
+                    
+                    Code Coverage Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="configuration.html">
+            
+                <a href="configuration.html">
+            
+                    
+                    Configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="copyright.html">
+            
+                <a href="copyright.html">
+            
+                    
+                    Copyright
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="extending-phpunit.html">
+            
+                <a href="extending-phpunit.html">
+            
+                    
+                    Extending Phpunit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="fixtures.html">
+            
+                <a href="fixtures.html">
+            
+                    
+                    Fixtures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="incomplete-and-skipped-tests.html">
+            
+                <a href="incomplete-and-skipped-tests.html">
+            
+                    
+                    Incomplete And Skipped Tests
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="installation.html">
+            
+                <a href="installation.html">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="organizing-tests.html">
+            
+                <a href="organizing-tests.html">
+            
+                    
+                    Organizing Tests
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="risky-tests.html">
+            
+                <a href="risky-tests.html">
+            
+                    
+                    Risky Tests
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="test-doubles.html">
+            
+                <a href="test-doubles.html">
+            
+                    
+                    Test Doubles
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="textui.html">
+            
+                <a href="textui.html">
+            
+                    
+                    Textui
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="writing-tests-for-phpunit.html">
+            
+                <a href="writing-tests-for-phpunit.html">
+            
+                    
+                    Writing Tests For Phpunit
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Code Coverage Analysis</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x7387;&#x5206;&#x6790;">&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x7387;&#x5206;&#x6790;</h1>
+<blockquote>
+<p><em>Wikipedia</em>&#xFF1A;</p>
+<p>&#x8BA1;&#x7B97;&#x673A;&#x79D1;&#x5B66;&#x4E2D;&#x6240;&#x8BF4;&#x7684;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x7387;&#x662F;&#x4E00;&#x79CD;&#x7528;&#x4E8E;&#x8861;&#x91CF;&#x7279;&#x5B9A;&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#x5BF9;&#x7A0B;&#x5E8F;&#x6E90;&#x4EE3;&#x7801;&#x6D4B;&#x8BD5;&#x7A0B;&#x5EA6;&#x7684;&#x6307;&#x6807;&#x3002;&#x62E5;&#x6709;&#x9AD8;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x7387;&#x7684;&#x7A0B;&#x5E8F;&#x76F8;&#x8F83;&#x4E8E;&#x4F4E;&#x4EE3;&#x7801;&#x4F4E;&#x6982;&#x7387;&#x7684;&#x7A0B;&#x5E8F;&#x800C;&#x8A00;&#x6D4B;&#x8BD5;&#x7684;&#x66F4;&#x52A0;&#x5F7B;&#x5E95;&#x3001;&#x5305;&#x542B;&#x8F6F;&#x4EF6;
+bug &#x7684;&#x53EF;&#x80FD;&#x6027;&#x66F4;&#x4F4E;&#x3002;</p>
+</blockquote>
+<p>&#x5728;&#x672C;&#x7AE0;&#x4E2D;&#xFF0C;&#x4F60;&#x5C06;&#x5B66;&#x5230; PHPUnit
+&#x4E2D;&#x4E0E;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x7387;&#x76F8;&#x5173;&#x7684;&#x4E00;&#x5207;&#x529F;&#x80FD;&#x3002;&#x901A;&#x8FC7;&#x8FD9;&#x90E8;&#x5206;&#x529F;&#x80FD;&#xFF0C;&#x80FD;&#x591F;&#x4E86;&#x89E3;&#x5728;&#x6D4B;&#x8BD5;&#x8FD0;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x6267;&#x884C;&#x4E86;&#x751F;&#x4EA7;&#x4EE3;&#x7801;&#x7684;&#x54EA;&#x4E9B;&#x90E8;&#x5206;&#x3002;&#x5B83;&#x4F7F;&#x7528;&#x4E86;
+<a href="https://github.com/sebastianbergmann/php-code-coverage" target="_blank">php-code-coverage</a>
+&#x7EC4;&#x4EF6;&#xFF0C;&#x800C;&#x8FD9;&#x4E2A;&#x7EC4;&#x4EF6;&#x53C8;&#x4F7F;&#x7528;&#x4E86; PHP &#x7684; <a href="https://xdebug.org/" target="_blank">Xdebug</a> &#x6216;
+<a href="https://github.com/krakjoe/pcov" target="_blank">PCOV</a> &#x6269;&#x5C55;&#x6216;
+<a href="https://www.php.net/manual/en/book.phpdbg.php" target="_blank">PHPDBG</a>
+&#x6240;&#x63D0;&#x4F9B;&#x7684;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x7387;&#x529F;&#x80FD;&#x3002;</p>
+<p>&#x6CE8;</p>
+<p>&#x5982;&#x679C;&#x5728;&#x8FD0;&#x884C;&#x6D4B;&#x8BD5;&#x65F6;&#x770B;&#x5230;&#x8B66;&#x544A;&#x4FE1;&#x606F;&#x8BF4;&#x6CA1;&#x6709;&#x53EF;&#x7528;&#x7684;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x7387;&#x9A71;&#x52A8;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x4F60;&#x6B63;&#x5728;&#x4F7F;&#x7528;
+PHP &#x547D;&#x4EE4;&#x884C;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#xFF08;<code>php</code>&#xFF09;&#x4E14;&#x672A;&#x52A0;&#x8F7D; Xdebug &#x6216; PCOV&#x3002;</p>
+<p>PHPUnit &#x53EF;&#x4EE5;&#x751F;&#x6210;&#x57FA;&#x4E8E; HTML
+&#x7684;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x7387;&#x62A5;&#x544A;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x80FD;&#x751F;&#x6210;&#x597D;&#x51E0;&#x79CD;&#xFF08;Clover&#x3001;Crap4J&#x3001;PHPUnit&#xFF09;&#x57FA;&#x4E8E; XML
+&#x7684;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x7387;&#x4FE1;&#x606F;&#x8BB0;&#x5F55;&#x6587;&#x4EF6;&#x3002;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x7387;&#x4FE1;&#x606F;&#x4E5F;&#x80FD;&#x4EE5;&#x6587;&#x672C;&#x683C;&#x5F0F;&#x63D0;&#x4F9B;&#xFF08;&#x540C;&#x65F6;&#x53EF;&#x4EE5;&#x8F93;&#x51FA;&#x5230;
+STDOUT&#xFF09;&#x6216;&#x4EE5; PHP &#x4EE3;&#x7801;&#x683C;&#x5F0F;&#x8F93;&#x51FA;&#x4EE5;&#x4F9B;&#x8FDB;&#x4E00;&#x6B65;&#x5904;&#x7406;&#x3002;</p>
+<p><code>textui</code>&#x4E2D;&#x5217;&#x51FA;&#x4E86;&#x5404;&#x79CD;&#x63A7;&#x5236;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x7387;&#x529F;&#x80FD;&#x7684;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;&#x4F9B;&#x53C2;&#x8003;&#xFF0C;&#x540C;&#x65F6;<code>appendixes.configuration.logging</code>&#x4E2D;&#x53EF;&#x4EE5;&#x627E;&#x5230;&#x5176;&#x4ED6;&#x76F8;&#x5173;&#x7684;&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#x3002;</p>
+<h2 id="&#x7528;&#x4E8E;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x7387;&#x7684;&#x8F6F;&#x4EF6;&#x8861;&#x91CF;&#x6807;&#x51C6;">&#x7528;&#x4E8E;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x7387;&#x7684;&#x8F6F;&#x4EF6;&#x8861;&#x91CF;&#x6807;&#x51C6;</h2>
+<p>&#x76EE;&#x524D;&#x5B58;&#x5728;&#x591A;&#x79CD;&#x8F6F;&#x4EF6;&#x8861;&#x91CF;&#x6807;&#x51C6;&#x7528;&#x4E8E;&#x8861;&#x91CF;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x7387;&#xFF1A;</p>
+<p><em>&#x884C;&#x8986;&#x76D6;&#x7387;&#xFF08;Line Coverage&#xFF09;</em></p>
+<blockquote>
+<p><em>&#x884C;&#x8986;&#x76D6;&#x7387;&#xFF08;Line Coverage&#xFF09;</em>&#x6309;&#x5355;&#x4E2A;&#x53EF;&#x6267;&#x884C;&#x884C;&#x662F;&#x5426;&#x5DF2;&#x6267;&#x884C;&#x8FDB;&#x884C;&#x8BA1;&#x91CF;&#x3002;</p>
+</blockquote>
+<p><em>&#x5206;&#x652F;&#x8986;&#x76D6;&#x7387;&#xFF08;Branch Coverage&#xFF09;</em></p>
+<blockquote>
+<p><em>&#x5206;&#x652F;&#x8986;&#x76D6;&#x7387;&#xFF08;Branch
+Coverage&#xFF09;</em>&#x6309;&#x63A7;&#x5236;&#x7ED3;&#x6784;&#x7684;&#x5206;&#x652F;&#x8FDB;&#x884C;&#x8BA1;&#x91CF;&#x3002;&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#x8FD0;&#x884C;&#x65F6;&#x6BCF;&#x4E2A;&#x63A7;&#x5236;&#x7ED3;&#x6784;&#x7684;&#x5E03;&#x5C14;&#x8868;&#x8FBE;&#x5F0F;&#x6C42;&#x503C;&#x4E3A;
+<code>true</code> &#x548C; <code>false</code> &#x5404;&#x81EA;&#x8BA1;&#x4E3A;&#x4E00;&#x4E2A;&#x5206;&#x652F;&#x3002;</p>
+</blockquote>
+<p><em>&#x8DEF;&#x5F84;&#x8986;&#x76D6;&#x7387;&#xFF08;Path Coverage&#xFF09;</em></p>
+<blockquote>
+<p><em>&#x8DEF;&#x5F84;&#x8986;&#x76D6;&#x7387;&#xFF08;Path
+Coverage&#xFF09;</em>&#x6309;&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#x8FD0;&#x884C;&#x65F6;&#x51FD;&#x6570;&#x6216;&#x8005;&#x65B9;&#x6CD5;&#x5185;&#x90E8;&#x6240;&#x7ECF;&#x5386;&#x7684;&#x6267;&#x884C;&#x8DEF;&#x5F84;&#x8FDB;&#x884C;&#x8BA1;&#x91CF;&#x3002;&#x4E00;&#x4E2A;&#x6267;&#x884C;&#x8DEF;&#x5F84;&#x6307;&#x7684;&#x662F;&#x4ECE;&#x8FDB;&#x5165;&#x51FD;&#x6570;&#x6216;&#x65B9;&#x6CD5;&#x4E00;&#x76F4;&#x5230;&#x79BB;&#x5F00;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x7ECF;&#x8FC7;&#x5404;&#x4E2A;&#x5206;&#x652F;&#x7684;&#x7279;&#x5B9A;&#x5E8F;&#x5217;&#x3002;</p>
+</blockquote>
+<p><em>&#x51FD;&#x6570;&#x4E0E;&#x65B9;&#x6CD5;&#x8986;&#x76D6;&#x7387;&#xFF08;Function and Method Coverage&#xFF09;</em></p>
+<blockquote>
+<p><em>&#x51FD;&#x6570;&#x4E0E;&#x65B9;&#x6CD5;&#x8986;&#x76D6;&#x7387;&#xFF08;Function and Method
+Coverage&#xFF09;</em>&#x6309;&#x5355;&#x4E2A;&#x51FD;&#x6570;&#x6216;&#x65B9;&#x6CD5;&#x662F;&#x5426;&#x5DF2;&#x8C03;&#x7528;&#x8FDB;&#x884C;&#x8BA1;&#x91CF;&#x3002;&#x4EC5;&#x5F53;&#x51FD;&#x6570;&#x6216;&#x65B9;&#x6CD5;&#x7684;&#x6240;&#x6709;&#x53EF;&#x6267;&#x884C;&#x884C;&#x5168;&#x90E8;&#x5DF2;&#x8986;&#x76D6;&#x65F6;
+php-code-coverage &#x624D;&#x5C06;&#x5176;&#x89C6;&#x4E3A;&#x5DF2;&#x8986;&#x76D6;&#x3002;</p>
+</blockquote>
+<p><em>&#x7C7B;&#x4E0E;&#x7279;&#x8D28;&#x8986;&#x76D6;&#x7387;&#xFF08;Class and Trait Coverage&#xFF09;</em></p>
+<blockquote>
+<p><em>&#x7C7B;&#x4E0E;&#x7279;&#x8D28;&#x8986;&#x76D6;&#x7387;&#xFF08;Class and Trait
+Coverage&#xFF09;</em>&#x6309;&#x5355;&#x4E2A;&#x7C7B;&#x6216;&#x7279;&#x8D28;&#x7684;&#x6240;&#x6709;&#x65B9;&#x6CD5;&#x662F;&#x5426;&#x5168;&#x90E8;&#x5DF2;&#x8986;&#x76D6;&#x8FDB;&#x884C;&#x8BA1;&#x91CF;&#x3002;&#x4EC5;&#x5F53;&#x4E00;&#x4E2A;&#x7C7B;&#x6216;&#x7279;&#x8D28;&#x7684;&#x6240;&#x6709;&#x65B9;&#x6CD5;&#x5168;&#x90E8;&#x5DF2;&#x8986;&#x76D6;&#x65F6;
+php-code-coverage &#x624D;&#x5C06;&#x5176;&#x89C6;&#x4E3A;&#x5DF2;&#x8986;&#x76D6;&#x3002;</p>
+</blockquote>
+<p><em>&#x53D8;&#x66F4;&#x98CE;&#x9669;&#x53CD;&#x6A21;&#x5F0F;&#xFF08;CRAP&#xFF09;&#x6307;&#x6570;&#xFF08;Change Risk Anti-Patterns (CRAP) Index&#xFF09;</em></p>
+<blockquote>
+<p><em>&#x53D8;&#x66F4;&#x98CE;&#x9669;&#x53CD;&#x6A21;&#x5F0F;&#xFF08;CRAP&#xFF09;&#x6307;&#x6570;&#xFF08;Change Risk Anti-Patterns (CRAP)
+Index&#xFF09;</em>&#x662F;&#x57FA;&#x4E8E;&#x4EE3;&#x7801;&#x5355;&#x5143;&#x7684;&#x5708;&#x590D;&#x6742;&#x5EA6;&#xFF08;cyclomatic
+complexity&#xFF09;&#x4E0E;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x7387;&#x8BA1;&#x7B97;&#x5F97;&#x51FA;&#x7684;&#x3002;&#x4E0D;&#x592A;&#x590D;&#x6742;&#x5E76;&#x5177;&#x6709;&#x6070;&#x5F53;&#x6D4B;&#x8BD5;&#x8986;&#x76D6;&#x7387;&#x7684;&#x4EE3;&#x7801;&#x5C06;&#x5F97;&#x51FA;&#x8F83;&#x4F4E;&#x7684;
+CRAP &#x6307;&#x6570;&#x3002;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x7F16;&#x5199;&#x6D4B;&#x8BD5;&#x6216;&#x91CD;&#x6784;&#x4EE3;&#x7801;&#x6765;&#x964D;&#x4F4E;&#x5176;&#x590D;&#x6742;&#x6027;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x964D;&#x4F4E; CRAP
+&#x6307;&#x6570;&#x3002;</p>
+</blockquote>
+<h2 id="&#x5305;&#x542B;&#x6587;&#x4EF6;">&#x5305;&#x542B;&#x6587;&#x4EF6;</h2>
+<p>&#x4E3A;&#x4E86;&#x544A;&#x8BC9; PHPUnit
+&#x54EA;&#x4E9B;&#x6E90;&#x4EE3;&#x7801;&#x6587;&#x4EF6;&#x8981;&#x5305;&#x542B;&#x5728;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x7387;&#x62A5;&#x544A;&#x4E2D;&#xFF0C;&#x5FC5;&#x987B;&#x914D;&#x7F6E;&#x8FC7;&#x6EE4;&#x5668;&#x3002;&#x53EF;&#x4EE5;&#x7528;<code>&#x547D;&#x4EE4;&#x884C; <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>textui.clioptions</span><span class="token punctuation">&gt;</span></span></code>&#x9009;&#x9879;
+<code>--coverage-filter</code>
+&#x6216;&#x901A;&#x8FC7;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF08;&#x53C2;&#x89C1;<code>appendixes.configuration.coverage.include</code>&#xFF09;&#x6765;&#x5B8C;&#x6210;&#x3002;</p>
+<p><code>includeUncoveredFilesInCodeCoverageReport</code> &#x548C;
+<code>processUncoveredFilesForCodeCoverageReport</code>
+&#x914D;&#x7F6E;&#x8BBE;&#x7F6E;&#x53EF;&#x7528;&#x4E8E;&#x914D;&#x7F6E;&#x8FC7;&#x6EE4;&#x5668;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<ul>
+<li><code>includeUncoveredFilesInCodeCoverageReport=&quot;false&quot;</code>
+&#x610F;&#x5473;&#x7740;&#x53EA;&#x6709;&#x81F3;&#x5C11;&#x6709;&#x4E00;&#x884C;&#x5DF2;&#x6267;&#x884C;&#x4EE3;&#x7801;&#x7684;&#x6587;&#x4EF6;&#x624D;&#x4F1A;&#x5305;&#x62EC;&#x5728;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x7387;&#x62A5;&#x544A;&#x4E2D;</li>
+<li><code>includeUncoveredFilesInCodeCoverageReport=&quot;true&quot;</code>&#xFF08;&#x9ED8;&#x8BA4;&#x503C;&#xFF09;&#x610F;&#x5473;&#x7740;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x90FD;&#x4F1A;&#x5305;&#x62EC;&#x5728;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x7387;&#x62A5;&#x544A;&#x4E2D;&#xFF0C;&#x5373;&#x4F7F;&#x6587;&#x4EF6;&#x4E2D;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x4E00;&#x884C;&#x4EE3;&#x7801;&#x88AB;&#x6267;&#x884C;&#x8FC7;&#x4E5F;&#x4E00;&#x6837;</li>
+<li><code>processUncoveredFilesForCodeCoverageReport=&quot;false&quot;</code>&#xFF08;&#x9ED8;&#x8BA4;&#x503C;&#xFF09;&#x610F;&#x5473;&#x7740;&#x6CA1;&#x6709;&#x5DF2;&#x6267;&#x884C;&#x4EE3;&#x7801;&#x884C;&#x7684;&#x6587;&#x4EF6;&#x4F1A;&#x88AB;&#x52A0;&#x5165;&#x5230;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x7387;&#x62A5;&#x544A;&#x4E2D;&#xFF08;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86;
+<code>includeUncoveredFilesInCodeCoverageReport=&quot;true&quot;</code>&#xFF09;&#xFF0C;&#x4F46;&#x5B83;&#x5E76;&#x4E0D;&#x4F1A;&#x88AB;
+PHPUnit &#x52A0;&#x8F7D;&#xFF0C;&#x56E0;&#x6B64;&#x4E5F;&#x4E0D;&#x4F1A;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x5206;&#x6790;&#x6765;&#x83B7;&#x53D6;&#x6B63;&#x786E;&#x7684;&#x53EF;&#x6267;&#x884C;&#x4EE3;&#x7801;&#x884C;&#x4FE1;&#x606F;</li>
+<li><code>processUncoveredFilesForCodeCoverageReport=&quot;true&quot;</code>
+&#x610F;&#x5473;&#x7740;&#x6CA1;&#x6709;&#x5DF2;&#x6267;&#x884C;&#x4EE3;&#x7801;&#x884C;&#x7684;&#x6587;&#x4EF6;&#x4F1A;&#x88AB; PHPUnit
+&#x52A0;&#x8F7D;&#xFF0C;&#x4ECE;&#x800C;&#x4E5F;&#x80FD;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x5206;&#x6790;&#x6765;&#x83B7;&#x53D6;&#x6B63;&#x786E;&#x7684;&#x53EF;&#x6267;&#x884C;&#x4EE3;&#x7801;&#x884C;&#x4FE1;&#x606F;</li>
+</ul>
+<p>&#x6CE8;</p>
+<p>&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x5F53;&#x8BBE;&#x7F6E;&#x4E86; <code>processUncoveredFilesForCodeCoverageReport=&quot;true&quot;</code>
+&#x65F6;&#x5C06;&#x5BF9;&#x6E90;&#x4EE3;&#x7801;&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x8F7D;&#x5165;&#xFF0C;&#x8FD9;&#x5728;&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x95EE;&#x9898;&#xFF0C;&#x6BD4;&#x5982;&#xFF0C;&#x6E90;&#x4EE3;&#x7801;&#x6587;&#x4EF6;&#x5305;&#x542B;&#x6709;&#x5904;&#x4E8E;&#x7C7B;&#x6216;&#x8005;&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;&#x4E4B;&#x5916;&#x7684;&#x4EE3;&#x7801;&#x3002;</p>
+<h2 id="&#x5FFD;&#x7565;&#x4EE3;&#x7801;&#x5757;">&#x5FFD;&#x7565;&#x4EE3;&#x7801;&#x5757;</h2>
+<p>&#x6709;&#x65F6;&#xFF0C;&#x4E00;&#x4E9B;&#x4EE3;&#x7801;&#x5757;&#x662F;&#x65E0;&#x6CD5;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x5E0C;&#x671B;&#x5728;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x7387;&#x5206;&#x6790;&#x4E2D;&#x5FFD;&#x7565;&#x5B83;&#x4EEC;&#x3002;&#x5728;
+PHPUnit &#x4E2D;&#x53EF;&#x4EE5;&#x7528; <code>@codeCoverageIgnore</code>&#x3001;<code>@codeCoverageIgnoreStart</code> &#x4E0E;
+<code>@codeCoverageIgnoreEnd</code>
+&#x6807;&#x6CE8;&#x6765;&#x505A;&#x5230;&#x8FD9;&#x70B9;&#xFF0C;&#x5982;<code>code-coverage-analysis.ignoring-code-blocks.examples.Sample.php</code>
+&#x4E2D;&#x6240;&#x793A;&#x3002;</p>
+<pre class="language-"><code>&lt;?php declare(strict_types=1);
+use PHPUnit\Framework\TestCase;
+
+/**
+ * @codeCoverageIgnore
+ */
+final class Foo
+{
+    public function bar(): void
+    {
+    }
+}
+
+final class Bar
+{
+    /**
+     * @codeCoverageIgnore
+     */
+    public function foo(): void
+    {
+    }
+}
+
+if (false) {
+    // @codeCoverageIgnoreStart
+    print &apos;*&apos;;
+    // @codeCoverageIgnoreEnd
+}
+
+exit; // @codeCoverageIgnore
+</code></pre><p>&#x4EE3;&#x7801;&#x4E2D;&#x88AB;&#x5FFD;&#x7565;&#x6389;&#x7684;&#x884C;&#xFF08;&#x7528;&#x6807;&#x6CE8;&#x6807;&#x8BB0;&#x4E3A;&#x5FFD;&#x7565;&#xFF09;&#x5C06;&#x4F1A;&#x8BA1;&#x4E3A;&#x5DF2;&#x6267;&#x884C;&#xFF08;&#x5982;&#x679C;&#x5B83;&#x4EEC;&#x662F;&#x53EF;&#x6267;&#x884C;&#x7684;&#xFF09;&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x4F1A;&#x5728;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x60C5;&#x51B5;&#x4E2D;&#x88AB;&#x9AD8;&#x4EAE;&#x6807;&#x8BB0;&#x3002;</p>
+<h2 id="&#x6307;&#x660E;&#x8986;&#x76D6;&#x7684;&#x4EE3;&#x7801;&#x90E8;&#x5206;">&#x6307;&#x660E;&#x8986;&#x76D6;&#x7684;&#x4EE3;&#x7801;&#x90E8;&#x5206;</h2>
+<p><code>@covers</code>
+&#x6807;&#x6CE8;&#xFF08;&#x53C2;&#x89C1;<code>annotation documentation <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appendixes.annotations.covers.tables.annotations</span><span class="token punctuation">&gt;</span></span></code>&#xFF09;&#x53EF;&#x4EE5;&#x7528;&#x5728;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#x4E2D;&#x6765;&#x6307;&#x660E;&#x6D4B;&#x8BD5;&#x7C7B;&#xFF08;&#x6216;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;&#xFF09;&#x60F3;&#x8981;&#x5BF9;&#x54EA;&#x4E9B;&#x4EE3;&#x7801;&#x90E8;&#x5206;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;&#x3002;&#x5982;&#x679C;&#x63D0;&#x4F9B;&#x4E86;&#x8FD9;&#x4E2A;&#x4FE1;&#x606F;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x6709;&#x6548;&#x8FC7;&#x6EE4;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x7387;&#x62A5;&#x544A;&#xFF0C;&#x4EC5;&#x5305;&#x542B;&#x6240;&#x6307;&#x5B9A;&#x7684;&#x4EE3;&#x7801;&#x90E8;&#x5206;&#x4E2D;&#x7684;&#x5DF2;&#x6267;&#x884C;&#x4EE3;&#x7801;&#x3002;<code>code-coverage-analysis.specifying-covered-parts.examples.InvoiceTest.php</code>
+&#x5C55;&#x793A;&#x4E86;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#x3002;</p>
+<p>&#x6CE8;</p>
+<p>&#x5982;&#x679C;&#x7528; <code>@covers</code>
+&#x6807;&#x6CE8;&#x6307;&#x5B9A;&#x4E86;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x5417;&#xFF0C;&#x90A3;&#x4E48;&#x53EA;&#x6709;&#x6240;&#x6307;&#x65B9;&#x6CD5;&#x4F1A;&#x88AB;&#x89C6;&#x4E3A;&#x5DF2;&#x8986;&#x76D6;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x6240;&#x8C03;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x4E0D;&#x4F1A;&#x89C6;&#x4E3A;&#x5DF2;&#x8986;&#x76D6;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5982;&#x679C;&#x7528;<em>&#x63D0;&#x53D6;&#x65B9;&#x6CD5;</em>&#x91CD;&#x6784;&#x4E86;&#x5DF2;&#x8986;&#x76D6;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x6DFB;&#x52A0;&#x76F8;&#x5E94;&#x7684;
+<code>@covers</code> &#x6807;&#x6CE8;&#x3002;&#x8FD9;&#x5C31;&#x662F;&#x63A8;&#x8350;&#x5C06;&#x6B64;&#x6807;&#x6CE8;&#x7528;&#x5728;&#x7C7B;&#x4F5C;&#x7528;&#x57DF;&#x800C;&#x975E;&#x65B9;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;&#x7684;&#x539F;&#x56E0;&#x3002;</p>
+<pre class="language-"><code>&lt;?php declare(strict_types=1);
+use PHPUnit\Framework\TestCase;
+
+/**
+ * @covers \Invoice
+ * @uses \Money
+ */
+final class InvoiceTest extends TestCase
+{
+    private $invoice;
+
+    protected function setUp(): void
+    {
+        $this-&gt;invoice = new Invoice;
+    }
+
+    public function testAmountInitiallyIsEmpty(): void
+    {
+        $this-&gt;assertEquals(new Money, $this-&gt;invoice-&gt;getAmount());
+    }
+}
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>?php</span> <span class="token attr-name">declare(strict_types</span><span class="token attr-value"><span class="token punctuation">=</span>1);</span>
+<span class="token attr-name">use</span> <span class="token attr-name">PHPUnit\Framework\TestCase;</span>
+
+<span class="token attr-name">final</span> <span class="token attr-name">class</span> <span class="token attr-name">BankAccountTest</span> <span class="token attr-name">extends</span> <span class="token attr-name">TestCase</span>
+<span class="token attr-name">{</span>
+    <span class="token attr-name">private</span> <span class="token attr-name">$ba;</span>
+
+    <span class="token attr-name">protected</span> <span class="token attr-name">function</span> <span class="token attr-name"><span class="token namespace">setUp():</span></span> <span class="token attr-name">void</span>
+    <span class="token attr-name">{</span>
+        <span class="token attr-name">$this-</span><span class="token punctuation">&gt;</span></span>ba = new BankAccount;
+    }
+
+    /**
+     * @covers \BankAccount::getBalance
+     */
+    public function testBalanceIsInitiallyZero(): void
+    {
+        $this-&gt;assertSame(0, $this-&gt;ba-&gt;getBalance());
+    }
+
+    /**
+     * @covers \BankAccount::withdrawMoney
+     */
+    public function testBalanceCannotBecomeNegative(): void
+    {
+        try {
+            $this-&gt;ba-&gt;withdrawMoney(1);
+        }
+
+        catch (BankAccountException $e) {
+            $this-&gt;assertSame(0, $this-&gt;ba-&gt;getBalance());
+
+            return;
+        }
+
+        $this-&gt;fail();
+    }
+
+    /**
+     * @covers \BankAccount::depositMoney
+     */
+    public function testBalanceCannotBecomeNegative2(): void
+    {
+        try {
+            $this-&gt;ba-&gt;depositMoney(-1);
+        }
+
+        catch (BankAccountException $e) {
+            $this-&gt;assertSame(0, $this-&gt;ba-&gt;getBalance());
+
+            return;
+        }
+
+        $this-&gt;fail();
+    }
+
+    /**
+     * @covers \BankAccount::getBalance
+     * @covers \BankAccount::depositMoney
+     * @covers \BankAccount::withdrawMoney
+     */
+    public function testDepositWithdrawMoney(): void
+    {
+        $this-&gt;assertSame(0, $this-&gt;ba-&gt;getBalance());
+        $this-&gt;ba-&gt;depositMoney(1);
+        $this-&gt;assertSame(1, $this-&gt;ba-&gt;getBalance());
+        $this-&gt;ba-&gt;withdrawMoney(1);
+        $this-&gt;assertSame(0, $this-&gt;ba-&gt;getBalance());
+    }
+}
+</code></pre><p>&#x540C;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x7528; <code>@coversNothing</code>
+&#x6807;&#x6CE8;&#x6765;&#x6307;&#x660E;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x4E0D;&#x8986;&#x76D6;<em>&#x4EFB;&#x4F55;</em>&#x65B9;&#x6CD5;&#xFF08;&#x53C2;&#x89C1;<code>appendixes.annotations.coversNothing</code>&#xFF09;&#x3002;&#x8FD9;&#x53EF;&#x4EE5;&#x5728;&#x7F16;&#x5199;&#x96C6;&#x6210;&#x6D4B;&#x8BD5;&#x65F6;&#x7528;&#x4E8E;&#x786E;&#x4FDD;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x5168;&#x90E8;&#x6765;&#x81EA;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x3002;</p>
+<pre class="language-"><code>&lt;?php declare(strict_types=1);
+use PHPUnit\DbUnit\TestCase
+
+final class GuestbookIntegrationTest extends TestCase
+{
+    /**
+     * @coversNothing
+     */
+    public function testAddEntry(): void
+    {
+        $guestbook = new Guestbook();
+        $guestbook-&gt;addEntry(&quot;suzy&quot;, &quot;Hello world!&quot;);
+
+        $queryTable = $this-&gt;getConnection()-&gt;createQueryTable(
+            &apos;guestbook&apos;, &apos;SELECT * FROM guestbook&apos;
+        );
+
+        $expectedTable = $this-&gt;createFlatXmlDataSet(&quot;expectedBook.xml&quot;)
+                              -&gt;getTable(&quot;guestbook&quot;);
+
+        $this-&gt;assertTablesEqual($expectedTable, $queryTable);
+    }
+}
+</code></pre><h2 id="&#x8FB9;&#x7F18;&#x60C5;&#x51B5;">&#x8FB9;&#x7F18;&#x60C5;&#x51B5;</h2>
+<p>&#x672C;&#x8282;&#x4E2D;&#x5C55;&#x793A;&#x4E86;&#x4E00;&#x4E9B;&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x8FB9;&#x7F18;&#x60C5;&#x51B5;&#xFF0C;&#x5728;&#x8FD9;&#x4E9B;&#x8FB9;&#x7F18;&#x60C5;&#x51B5;&#x4E2D;&#x53EF;&#x80FD;&#x51FA;&#x73B0;&#x4EE4;&#x4EBA;&#x8FF7;&#x60D1;&#x7684;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x7387;&#x4FE1;&#x606F;&#x3002;</p>
+<pre class="language-"><code>&lt;?php declare(strict_types=1);
+use PHPUnit\Framework\TestCase;
+
+// &#x56E0;&#x4E3A;&#x662F;&#x201C;&#x57FA;&#x4E8E;&#x884C;&#x201D;&#x7684;&#x800C;&#x975E;&#x57FA;&#x4E8E;&#x8BED;&#x53E5;&#x7684;&#x8986;&#x76D6;&#x7387;
+// &#x4E00;&#x884C;&#x59CB;&#x7EC8;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x79CD;&#x8986;&#x76D6;&#x72B6;&#x6001;
+if (false) this_function_call_shows_up_as_covered();
+
+// &#x7531;&#x4E8E;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x7387;&#x7684;&#x5185;&#x90E8;&#x5DE5;&#x4F5C;&#x65B9;&#x5F0F;&#xFF0C;&#x8FD9;&#x4E24;&#x884C;&#x663E;&#x5F97;&#x5F88;&#x7279;&#x6B8A;&#x3002;
+// &#x8FD9;&#x4E00;&#x884C;&#x4F1A;&#x663E;&#x793A;&#x4E3A;&#x975E;&#x53EF;&#x6267;&#x884C;
+if (false)
+    // &#x8FD9;&#x4E00;&#x884C;&#x4F1A;&#x663E;&#x793A;&#x4E3A;&#x5DF2;&#x8986;&#x76D6;&#xFF0C;
+    // &#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x4E0A;&#x4E00;&#x884C;&#x7684; if &#x8BED;&#x53E5;&#x7684;&#x8986;&#x76D6;&#x4FE1;&#x606F;&#x663E;&#x793A;&#x5728;&#x8FD9;&#x4E86;&#xFF01;
+    will_also_show_up_as_covered();
+
+// &#x8981;&#x907F;&#x514D;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#xFF0C;&#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x5927;&#x62EC;&#x53F7;
+if (false) {
+    this_call_will_never_show_up_as_covered();
+}
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="bibliography.html" class="navigation navigation-prev " aria-label="Previous page: Bibliography">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="configuration.html" class="navigation navigation-next " aria-label="Next page: Configuration">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Code Coverage Analysis","level":"1.5","depth":1,"next":{"title":"Configuration","level":"1.6","depth":1,"path":"configuration.md","ref":"configuration.md","articles":[]},"previous":{"title":"Bibliography","level":"1.4","depth":1,"path":"bibliography.md","ref":"bibliography.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-highlight","-livereload","prism"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-solarizedlight.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"PHPUnit 中文文档","language":"zh-hans","links":{"sidebar":{"Home":"https://docs.khs1994.com"}},"gitbook":"*"},"file":{"path":"code-coverage-analysis.md","mtime":"2021-03-21T00:47:07.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-21T00:47:52.261Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,582 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Extending Phpunit · PHPUnit 中文文档</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="fixtures.html" />
+    
+    
+    <link rel="prev" href="copyright.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://docs.khs1994.com" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="annotations.html">
+            
+                <a href="annotations.html">
+            
+                    
+                    Annotations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="assertions.html">
+            
+                <a href="assertions.html">
+            
+                    
+                    Assertions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="bibliography.html">
+            
+                <a href="bibliography.html">
+            
+                    
+                    Bibliography
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="code-coverage-analysis.html">
+            
+                <a href="code-coverage-analysis.html">
+            
+                    
+                    Code Coverage Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="configuration.html">
+            
+                <a href="configuration.html">
+            
+                    
+                    Configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="copyright.html">
+            
+                <a href="copyright.html">
+            
+                    
+                    Copyright
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8" data-path="extending-phpunit.html">
+            
+                <a href="extending-phpunit.html">
+            
+                    
+                    Extending Phpunit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="fixtures.html">
+            
+                <a href="fixtures.html">
+            
+                    
+                    Fixtures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="incomplete-and-skipped-tests.html">
+            
+                <a href="incomplete-and-skipped-tests.html">
+            
+                    
+                    Incomplete And Skipped Tests
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="installation.html">
+            
+                <a href="installation.html">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="organizing-tests.html">
+            
+                <a href="organizing-tests.html">
+            
+                    
+                    Organizing Tests
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="risky-tests.html">
+            
+                <a href="risky-tests.html">
+            
+                    
+                    Risky Tests
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="test-doubles.html">
+            
+                <a href="test-doubles.html">
+            
+                    
+                    Test Doubles
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="textui.html">
+            
+                <a href="textui.html">
+            
+                    
+                    Textui
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="writing-tests-for-phpunit.html">
+            
+                <a href="writing-tests-for-phpunit.html">
+            
+                    
+                    Writing Tests For Phpunit
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Extending Phpunit</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x6269;&#x5C55;-phpunit">&#x6269;&#x5C55; PHPUnit</h1>
+<p>&#x53EF;&#x4EE5;&#x7528;&#x591A;&#x79CD;&#x65B9;&#x5F0F;&#x5BF9; PHPUnit
+&#x8FDB;&#x884C;&#x6269;&#x5C55;&#xFF0C;&#x4F7F;&#x7F16;&#x5199;&#x6D4B;&#x8BD5;&#x66F4;&#x5BB9;&#x6613;&#xFF0C;&#x4EE5;&#x53CA;&#x5BF9;&#x8FD0;&#x884C;&#x6D4B;&#x8BD5;&#x6240;&#x5F97;&#x5230;&#x7684;&#x53CD;&#x9988;&#x8FDB;&#x884C;&#x5B9A;&#x5236;&#x3002;&#x6269;&#x5C55;
+PHPUnit &#x65F6;&#xFF0C;&#x4E00;&#x822C;&#x4ECE;&#x8FD9;&#x4E9B;&#x70B9;&#x5165;&#x624B;&#xFF1A;</p>
+<h2 id="phpunitframeworktestcase-&#x7684;&#x5B50;&#x7C7B;">PHPUnit\Framework\TestCase &#x7684;&#x5B50;&#x7C7B;</h2>
+<p>&#x5C06;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x65AD;&#x8A00;&#x548C;&#x5DE5;&#x5177;&#x65B9;&#x6CD5;&#x5199;&#x5728; <code>PHPUnit\Framework\TestCase</code>
+&#x7684;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x5B50;&#x7C7B;&#x4E2D;&#xFF0C;&#x7136;&#x540E;&#x4ECE;&#x8FD9;&#x4E2A;&#x62BD;&#x8C61;&#x5B50;&#x7C7B;&#x6D3E;&#x751F;&#x4F60;&#x7684;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x7C7B;&#x3002;&#x8FD9;&#x662F;&#x6269;&#x5C55; PHPUnit
+&#x7684;&#x6700;&#x5BB9;&#x6613;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
+<h2 id="&#x7F16;&#x5199;&#x81EA;&#x5B9A;&#x4E49;&#x65AD;&#x8A00;">&#x7F16;&#x5199;&#x81EA;&#x5B9A;&#x4E49;&#x65AD;&#x8A00;</h2>
+<p>&#x7F16;&#x5199;&#x81EA;&#x5B9A;&#x4E49;&#x65AD;&#x8A00;&#x65F6;&#xFF0C;&#x6700;&#x4F73;&#x5B9E;&#x8DF5;&#x662F;&#x9075;&#x5FAA; PHPUnit
+&#x81EA;&#x6709;&#x65AD;&#x8A00;&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x3002;&#x6B63;&#x5982;<code>extending-phpunit.examples.Assert.php</code>
+&#x4E2D;&#x6240;&#x793A;&#xFF0C;<code>assertTrue()</code> &#x65B9;&#x6CD5;&#x53EA;&#x662F;&#x5BF9; <code>isTrue()</code> &#x548C; <code>assertThat()</code>
+&#x65B9;&#x6CD5;&#x7684;&#x5C01;&#x88C5;&#xFF1A;<code>isTrue()</code> &#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x5339;&#x914D;&#x5668;&#x5BF9;&#x8C61;&#xFF0C;&#x5C06;&#x5176;&#x4F20;&#x9012;&#x7ED9; <code>assertThat()</code>
+&#x8FDB;&#x884C;&#x8BC4;&#x5B9A;&#x3002;</p>
+<pre class="language-"><code>&lt;?php declare(strict_types=1);
+namespace PHPUnit\Framework;
+
+use PHPUnit\Framework\Constraint\IsTrue;
+
+abstract class Assert
+{
+    // ...
+
+    public static function assertTrue($condition, string $message = &apos;&apos;): void
+    {
+        static::assertThat($condition, static::isTrue(), $message);
+    }
+
+    // ...
+
+    public static function isTrue(): IsTrue
+    {
+        return new IsTrue;
+    }
+
+    // ...
+}
+</code></pre><p><code>extending-phpunit.examples.IsTrue.php</code> &#x5C55;&#x793A;&#x4E86;
+<code>PHPUnit\Framework\Constraint\IsTrue</code>
+&#x662F;&#x5982;&#x4F55;&#x6269;&#x5C55;&#x9488;&#x5BF9;&#x5339;&#x914D;&#x5668;&#x5BF9;&#x8C61;&#xFF08;&#x6216;&#x7EA6;&#x675F;&#xFF09;&#x7684;&#x62BD;&#x8C61;&#x57FA;&#x7C7B;
+<code>PHPUnit\Framework\Constraint</code> &#x7684;&#x3002;</p>
+<pre class="language-"><code>&lt;?php declare(strict_types=1);
+namespace PHPUnit\Framework\Constraint;
+
+use PHPUnit\Framework\Constraint;
+
+final class IsTrue extends Constraint
+{
+    public function toString(): string
+    {
+        return &apos;is true&apos;;
+    }
+
+    protected function matches($other): bool
+    {
+        return $other === true;
+    }
+}
+</code></pre><p>&#x5728;&#x5B9E;&#x73B0; <code>assertTrue()</code> &#x548C; <code>isTrue()</code> &#x65B9;&#x6CD5;&#x53CA;
+<code>PHPUnit\Framework\Constraint\IsTrue</code>
+&#x7C7B;&#x65F6;&#x6240;&#x4ED8;&#x51FA;&#x7684;&#x52AA;&#x529B;&#x5E26;&#x6765;&#x4E86;&#x4E00;&#x4E9B;&#x597D;&#x5904;&#xFF0C;<code>assertThat()</code>
+&#x80FD;&#x591F;&#x81EA;&#x52A8;&#x8D1F;&#x8D23;&#x8D77;&#x65AD;&#x8A00;&#x7684;&#x8BC4;&#x5B9A;&#x4E0E;&#x4EFB;&#x52A1;&#x7C3F;&#x8BB0;&#xFF08;&#x4F8B;&#x5982;&#x4E3A;&#x4E86;&#x7EDF;&#x8BA1;&#x76EE;&#x7684;&#x800C;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x8BA1;&#x6570;&#xFF09;&#x5DE5;&#x4F5C;&#x3002;&#x6B64;&#x5916;&#xFF0C;
+<code>isTrue()</code> &#x65B9;&#x6CD5;&#x8FD8;&#x53EF;&#x4EE5;&#x5728;&#x914D;&#x7F6E;&#x4EFF;&#x4EF6;&#x5BF9;&#x8C61;&#x65F6;&#x7528;&#x6765;&#x4F5C;&#x4E3A;&#x5339;&#x914D;&#x5668;&#x3002;</p>
+<h2 id="&#x6269;&#x5C55;&#x6D4B;&#x8BD5;&#x6267;&#x884C;&#x5668;">&#x6269;&#x5C55;&#x6D4B;&#x8BD5;&#x6267;&#x884C;&#x5668;</h2>
+<p>PHPUnit
+&#x7684;&#x6D4B;&#x8BD5;&#x6267;&#x884C;&#x5668;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6CE8;&#x518C;&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x4EE5;&#x4E0B;&#x63A5;&#x53E3;&#x7684;&#x5BF9;&#x8C61;&#x6765;&#x8FDB;&#x884C;&#x6269;&#x5C55;&#xFF1A;</p>
+<ul>
+<li><code>AfterIncompleteTestHook</code></li>
+<li><code>AfterLastTestHook</code></li>
+<li><code>AfterRiskyTestHook</code></li>
+<li><code>AfterSkippedTestHook</code></li>
+<li><code>AfterSuccessfulTestHook</code></li>
+<li><code>AfterTestErrorHook</code></li>
+<li><code>AfterTestFailureHook</code></li>
+<li><code>AfterTestWarningHook</code></li>
+<li><code>AfterTestHook</code></li>
+<li><code>BeforeFirstTestHook</code></li>
+<li><code>BeforeTestHook</code></li>
+</ul>
+<p>&#x6BCF;&#x4E2A;&#x201C;hook&#x201D;&#xFF08;&#x8868;&#x793A;&#x4E0A;&#x9762;&#x5217;&#x51FA;&#x7684;&#x5404;&#x4E2A;&#x63A5;&#x53E3;&#xFF09;&#x90FD;&#x4EE3;&#x8868;&#x4E00;&#x4E2A;&#x53EF;&#x80FD;&#x5728;&#x6D4B;&#x8BD5;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x53D1;&#x751F;&#x7684;&#x4E8B;&#x4EF6;&#x3002;</p>
+<p>&#x6709;&#x5173;&#x5982;&#x4F55;&#x5728; PHPUnit &#x7684; XML &#x914D;&#x7F6E;&#x4E2D;&#x6CE8;&#x518C;&#x6269;&#x5C55;&#x7684;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x53C2;&#x89C1;
+<code>appendixes.configuration.extensions</code>&#x3002;</p>
+<p><code>extending-phpunit.examples.TestRunnerExtension</code> &#x5C55;&#x793A;&#x4E86;&#x4E00;&#x4E2A;&#x5B9E;&#x73B0;&#x4E86;
+<code>BeforeFirstTestHook</code> &#x548C; <code>AfterLastTestHook</code> &#x7684;&#x6269;&#x5C55;&#xFF1A;</p>
+<pre class="language-"><code>&lt;?php declare(strict_types=1);
+namespace Vendor;
+
+use PHPUnit\Runner\BeforeFirstTestHook;
+use PHPUnit\Runner\AfterLastTestHook;
+
+final class MyExtension implements BeforeFirstTestHook, AfterLastTestHook
+{
+    public function executeBeforeFirstTest(): void
+    {
+        // &#x8FD0;&#x884C;&#x7B2C;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x4E4B;&#x524D;&#x8C03;&#x7528;
+    }
+
+    public function executeAfterLastTest(): void
+    {
+        // &#x8FD0;&#x884C;&#x5B8C;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x4E4B;&#x540E;&#x8C03;&#x7528;
+    }
+}
+</code></pre><h3 id="&#x914D;&#x7F6E;&#x6269;&#x5C55;">&#x914D;&#x7F6E;&#x6269;&#x5C55;</h3>
+<p>&#x5047;&#x5B9A;&#x6269;&#x5C55;&#x63A5;&#x53D7;&#x914D;&#x7F6E;&#x503C;&#xFF0C;&#x5219;&#x4F60;&#x53EF;&#x4EE5;&#x5BF9; PHPUnit &#x6269;&#x5C55;&#x8FDB;&#x884C;&#x914D;&#x7F6E;&#x3002;</p>
+<p><code>extending-phpunit.examples.TestRunnerConfigurableExtension</code>
+&#x5C55;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x901A;&#x8FC7;&#x4E3A;&#x6269;&#x5C55;&#x7C7B;&#x6DFB;&#x52A0; <code>__constructor()</code> &#x5B9A;&#x4E49;&#x8BA9;&#x6269;&#x5C55;&#x53EF;&#x914D;&#x7F6E;&#xFF1A;</p>
+<pre class="language-"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>?php</span> <span class="token attr-name">declare(strict_types</span><span class="token attr-value"><span class="token punctuation">=</span>1);</span>
+<span class="token attr-name">namespace</span> <span class="token attr-name">Vendor;</span>
+
+<span class="token attr-name">use</span> <span class="token attr-name">PHPUnit\Runner\BeforeFirstTestHook;</span>
+<span class="token attr-name">use</span> <span class="token attr-name">PHPUnit\Runner\AfterLastTestHook;</span>
+
+<span class="token attr-name">final</span> <span class="token attr-name">class</span> <span class="token attr-name">MyConfigurableExtension</span> <span class="token attr-name">implements</span> <span class="token attr-name">BeforeFirstTestHook,</span> <span class="token attr-name">AfterLastTestHook</span>
+<span class="token attr-name">{</span>
+    <span class="token attr-name">protected</span> <span class="token attr-name">$config_value_1</span> <span class="token attr-value"><span class="token punctuation">=</span> <span class="token punctuation">&apos;</span><span class="token punctuation">&apos;</span></span><span class="token attr-name">;</span>
+
+    <span class="token attr-name">protected</span> <span class="token attr-name">$config_value_2</span> <span class="token attr-value"><span class="token punctuation">=</span> 0;</span>
+
+    <span class="token attr-name">public</span> <span class="token attr-name">function</span> <span class="token attr-name">__construct(string</span> <span class="token attr-name">$value1</span> <span class="token attr-value"><span class="token punctuation">=</span> <span class="token punctuation">&apos;</span><span class="token punctuation">&apos;</span></span><span class="token attr-name">,</span> <span class="token attr-name">int</span> <span class="token attr-name">$value2</span> <span class="token attr-value"><span class="token punctuation">=</span> 0)</span>
+    <span class="token attr-name">{</span>
+        <span class="token attr-name">$this-</span><span class="token punctuation">&gt;</span></span>config_value_1 = $config_1;
+        $this-&gt;config_value_2 = $config_2;
+    }
+
+    public function executeBeforeFirstTest(): void
+    {
+        if (strlen($this-&gt;config_value_1) {
+            echo &apos;Testing with configuration value: &apos; . $this-&gt;config_value_1;
+        }
+    }
+
+    public function executeAfterLastTest(): void
+    {
+        if ($this-&gt;config_value_2 &gt; 10) {
+            echo &apos;Second config value is OK!&apos;;
+        }
+    }
+}
+</code></pre><p>&#x8981;&#x901A;&#x8FC7; XML &#x7ED9;&#x6269;&#x5C55;&#x8F93;&#x5165;&#x914D;&#x7F6E;&#xFF0C;&#x5FC5;&#x987B;&#x66F4;&#x65B0; XML &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684; <code>extensions</code>
+&#x6BB5;&#x6765;&#x8BA9;&#x5176;&#x62E5;&#x6709;&#x914D;&#x7F6E;&#x503C;&#xFF0C;&#x5982;<code>extending-phpunit.examples.TestRunnerConfigurableExtensionConfig</code>
+&#x4E2D;&#x6240;&#x793A;&#xFF1A;</p>
+<pre class="language-"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>extensions</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>extension</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>Vendor\MyUnconfigurableExtension<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>extension</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>Vendor\MyConfigurableExtension<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>arguments</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>string</span><span class="token punctuation">&gt;</span></span>Hello world!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>string</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>int</span><span class="token punctuation">&gt;</span></span>15<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>int</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>arguments</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>extension</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>extensions</span><span class="token punctuation">&gt;</span></span>
+</code></pre><p>&#x6709;&#x5173;&#x5982;&#x4F55;&#x4F7F;&#x7528; <code>arguments</code> &#x914D;&#x7F6E;&#x7684;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x53C2;&#x89C1;
+<code>appendixes.configuration.extensions.extension.arguments</code>&#x3002;</p>
+<p>&#x8BF7;&#x8BB0;&#x4F4F;&#xFF1A;&#x6240;&#x6709;&#x914D;&#x7F6E;&#x90FD;&#x662F;&#x53EF;&#x9009;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x8981;&#x786E;&#x4FDD;&#x4F60;&#x7684;&#x914D;&#x7F6E;&#x8981;&#x4E48;&#x8981;&#x6709;&#x5065;&#x5168;&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x8981;&#x4E48;&#x5B83;&#x5C31;&#x5E94;&#x5F53;&#x5728;&#x7F3A;&#x5931;&#x914D;&#x7F6E;&#x7684;&#x65F6;&#x5019;&#x7981;&#x7528;&#x81EA;&#x8EAB;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="copyright.html" class="navigation navigation-prev " aria-label="Previous page: Copyright">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="fixtures.html" class="navigation navigation-next " aria-label="Next page: Fixtures">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Extending Phpunit","level":"1.8","depth":1,"next":{"title":"Fixtures","level":"1.9","depth":1,"path":"fixtures.md","ref":"fixtures.md","articles":[]},"previous":{"title":"Copyright","level":"1.7","depth":1,"path":"copyright.md","ref":"copyright.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-highlight","-livereload","prism"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-solarizedlight.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"PHPUnit 中文文档","language":"zh-hans","links":{"sidebar":{"Home":"https://docs.khs1994.com"}},"gitbook":"*"},"file":{"path":"extending-phpunit.md","mtime":"2021-03-21T00:47:07.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-21T00:47:52.261Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

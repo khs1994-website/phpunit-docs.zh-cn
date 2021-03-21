@@ -1,0 +1,1122 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Test Doubles · PHPUnit 中文文档</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="textui.html" />
+    
+    
+    <link rel="prev" href="risky-tests.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://docs.khs1994.com" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="annotations.html">
+            
+                <a href="annotations.html">
+            
+                    
+                    Annotations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="assertions.html">
+            
+                <a href="assertions.html">
+            
+                    
+                    Assertions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="bibliography.html">
+            
+                <a href="bibliography.html">
+            
+                    
+                    Bibliography
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="code-coverage-analysis.html">
+            
+                <a href="code-coverage-analysis.html">
+            
+                    
+                    Code Coverage Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="configuration.html">
+            
+                <a href="configuration.html">
+            
+                    
+                    Configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="copyright.html">
+            
+                <a href="copyright.html">
+            
+                    
+                    Copyright
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="extending-phpunit.html">
+            
+                <a href="extending-phpunit.html">
+            
+                    
+                    Extending Phpunit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="fixtures.html">
+            
+                <a href="fixtures.html">
+            
+                    
+                    Fixtures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="incomplete-and-skipped-tests.html">
+            
+                <a href="incomplete-and-skipped-tests.html">
+            
+                    
+                    Incomplete And Skipped Tests
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="installation.html">
+            
+                <a href="installation.html">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="organizing-tests.html">
+            
+                <a href="organizing-tests.html">
+            
+                    
+                    Organizing Tests
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="risky-tests.html">
+            
+                <a href="risky-tests.html">
+            
+                    
+                    Risky Tests
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.14" data-path="test-doubles.html">
+            
+                <a href="test-doubles.html">
+            
+                    
+                    Test Doubles
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="textui.html">
+            
+                <a href="textui.html">
+            
+                    
+                    Textui
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="writing-tests-for-phpunit.html">
+            
+                <a href="writing-tests-for-phpunit.html">
+            
+                    
+                    Writing Tests For Phpunit
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Test Doubles</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x6D4B;&#x8BD5;&#x66FF;&#x8EAB;">&#x6D4B;&#x8BD5;&#x66FF;&#x8EAB;</h1>
+<p>Gerard Meszaros &#x5728; <code>Meszaros2007 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appendixes.bibliography</span><span class="token punctuation">&gt;</span></span></code>
+&#x4E2D;&#x4ECB;&#x7ECD;&#x4E86;&#x6D4B;&#x8BD5;&#x66FF;&#x8EAB;&#x7684;&#x6982;&#x5FF5;&#xFF1A;</p>
+<blockquote>
+<p><em>Gerard Meszaros</em>&#xFF1A;</p>
+<p>&#x6709;&#x65F6;&#x5019;&#x5BF9;&#x88AB;&#x6D4B;&#x7CFB;&#x7EDF;&#xFF08;SUT&#xFF09;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;&#x662F;&#x5F88;&#x56F0;&#x96BE;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4F9D;&#x8D56;&#x4E8E;&#x5176;&#x4ED6;&#x65E0;&#x6CD5;&#x5728;&#x6D4B;&#x8BD5;&#x73AF;&#x5883;&#x4E2D;&#x4F7F;&#x7528;&#x7684;&#x7EC4;&#x4EF6;&#x3002;&#x8FD9;&#x6709;&#x53EF;&#x80FD;&#x662F;&#x56E0;&#x4E3A;&#x8FD9;&#x4E9B;&#x7EC4;&#x4EF6;&#x4E0D;&#x53EF;&#x7528;&#xFF0C;&#x5B83;&#x4EEC;&#x4E0D;&#x4F1A;&#x8FD4;&#x56DE;&#x6D4B;&#x8BD5;&#x6240;&#x9700;&#x8981;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x6216;&#x8005;&#x6267;&#x884C;&#x5B83;&#x4EEC;&#x4F1A;&#x6709;&#x4E0D;&#x826F;&#x526F;&#x4F5C;&#x7528;&#x3002;&#x5728;&#x5176;&#x4ED6;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x6D4B;&#x8BD5;&#x7B56;&#x7565;&#x8981;&#x6C42;&#x5BF9;&#x88AB;&#x6D4B;&#x7CFB;&#x7EDF;&#x7684;&#x5185;&#x90E8;&#x884C;&#x4E3A;&#x6709;&#x66F4;&#x591A;&#x63A7;&#x5236;&#x6216;&#x66F4;&#x591A;&#x53EF;&#x89C1;&#x6027;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x5728;&#x7F16;&#x5199;&#x6D4B;&#x8BD5;&#x65F6;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;&#xFF08;&#x6216;&#x9009;&#x62E9;&#x4E0D;&#x4F7F;&#x7528;&#xFF09;&#x5B9E;&#x9645;&#x7684;&#x4F9D;&#x8D56;&#x7EC4;&#x4EF6;&#xFF08;DOC&#xFF09;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6D4B;&#x8BD5;&#x66FF;&#x8EAB;&#x6765;&#x4EE3;&#x66FF;&#x3002;&#x6D4B;&#x8BD5;&#x66FF;&#x8EAB;&#x4E0D;&#x9700;&#x8981;&#x548C;&#x771F;&#x6B63;&#x7684;&#x4F9D;&#x8D56;&#x7EC4;&#x4EF6;&#x6709;&#x5B8C;&#x5168;&#x4E00;&#x6837;&#x7684;&#x7684;&#x884C;&#x4E3A;&#x65B9;&#x5F0F;&#xFF1B;&#x5B83;&#x53EA;&#x9700;&#x8981;&#x63D0;&#x4F9B;&#x548C;&#x771F;&#x6B63;&#x7684;&#x7EC4;&#x4EF6;&#x540C;&#x6837;&#x7684;
+API &#x5373;&#x53EF;&#xFF0C;&#x8FD9;&#x6837;&#x88AB;&#x6D4B;&#x7CFB;&#x7EDF;&#x5C31;&#x4F1A;&#x4EE5;&#x4E3A;&#x5B83;&#x662F;&#x771F;&#x6B63;&#x7684;&#x7EC4;&#x4EF6;&#xFF01;</p>
+</blockquote>
+<p>PHPUnit &#x63D0;&#x4F9B;&#x7684; <code>createStub($type)</code>&#x3001;<code>createMock($type)</code> &#x548C;
+<code>getMockBuilder($type)</code>
+&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x5728;&#x6D4B;&#x8BD5;&#x4E2D;&#x7528;&#x6765;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x5BF9;&#x8C61;&#xFF0C;&#x6B64;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x5145;&#x5F53;&#x4EFB;&#x610F;&#x6307;&#x5B9A;&#x539F;&#x7248;&#x7C7B;&#x578B;&#xFF08;&#x63A5;&#x53E3;&#x6216;&#x7C7B;&#x540D;&#xFF09;&#x7684;&#x6D4B;&#x8BD5;&#x66FF;&#x8EAB;&#x3002;&#x5728;&#x4EFB;&#x4F55;&#x9884;&#x671F;&#x6216;&#x8981;&#x6C42;&#x4F7F;&#x7528;&#x539F;&#x7248;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x90FD;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x6D4B;&#x8BD5;&#x66FF;&#x8EAB;&#x5BF9;&#x8C61;&#x6765;&#x4EE3;&#x66FF;&#x3002;</p>
+<p><code>createStub($type)</code> &#x548C; <code>createMock($type)</code>
+&#x65B9;&#x6CD5;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x6307;&#x5B9A;&#x7C7B;&#x578B;&#xFF08;&#x63A5;&#x53E3;&#x6216;&#x7C7B;&#xFF09;&#x7684;&#x6D4B;&#x8BD5;&#x66FF;&#x8EAB;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x3002;&#x6B64;&#x6D4B;&#x8BD5;&#x66FF;&#x8EAB;&#x7684;&#x521B;&#x5EFA;&#x4F7F;&#x7528;&#x4E86;&#x6700;&#x4F73;&#x5B9E;&#x8DF5;&#x9ED8;&#x8BA4;&#x65B9;&#x6848;&#x3002;&#x539F;&#x59CB;&#x7C7B;&#x7684;
+<code>__construct()</code> &#x548C; <code>__clone()</code>
+&#x65B9;&#x6CD5;&#x4E0D;&#x4F1A;&#x6267;&#x884C;&#xFF0C;&#x4E14;&#x4E0D;&#x5BF9;&#x4F20;&#x9012;&#x7ED9;&#x6D4B;&#x8BD5;&#x66FF;&#x8EAB;&#x7684;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x8FDB;&#x884C;&#x514B;&#x9686;&#x3002;&#x5982;&#x679C;&#x8FD9;&#x4E9B;&#x9ED8;&#x8BA4;&#x503C;&#x975E;&#x4F60;&#x6240;&#x9700;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;
+<code>getMockBuilder($type)</code> &#x65B9;&#x6CD5;&#x5E76;&#x4F7F;&#x7528;&#x6D41;&#x7545;&#x5F0F;&#x63A5;&#x53E3;&#x6765;&#x5B9A;&#x5236;&#x6D4B;&#x8BD5;&#x66FF;&#x8EAB;&#x7684;&#x751F;&#x6210;&#x8FC7;&#x7A0B;&#x3002;</p>
+<p>&#x5728;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x539F;&#x7248;&#x7C7B;&#x7684;&#x6240;&#x6709;&#x65B9;&#x6CD5;&#x90FD;&#x4F1A;&#x88AB;&#x66FF;&#x6362;&#x4E3A;&#x8FD4;&#x56DE; <code>null</code>
+&#x7684;&#x4F2A;&#x5B9E;&#x73B0;&#xFF08;&#x5176;&#x4E2D;&#x4E0D;&#x4F1A;&#x8C03;&#x7528;&#x539F;&#x7248;&#x65B9;&#x6CD5;&#xFF09;&#x3002;&#x4F7F;&#x7528;&#x8BF8;&#x5982; <code>will($this-&gt;returnValue())</code>
+&#x4E4B;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x5BF9;&#x8FD9;&#x4E9B;&#x4F2A;&#x5B9E;&#x73B0;&#x5728;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#x5E94;&#x5F53;&#x8FD4;&#x56DE;&#x4EC0;&#x4E48;&#x503C;&#x505A;&#x51FA;&#x914D;&#x7F6E;&#x3002;</p>
+<p>&#x5C40;&#x9650;&#x6027;&#xFF1A;final&#x3001;private&#x3001;&#x4E0E; static &#x65B9;&#x6CD5;</p>
+<p>&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;<code>final</code>&#x3001;<code>private</code> &#x548C; <code>static</code>
+&#x65B9;&#x6CD5;&#x65E0;&#x6CD5;&#x5236;&#x4F5C;&#x76F8;&#x5E94;&#x6869;&#x4EF6;&#xFF08;Stub&#xFF09;&#x6216;&#x4EFF;&#x4EF6;&#xFF08;Mock&#xFF09;&#x3002;PHPUnit
+&#x7684;&#x6D4B;&#x8BD5;&#x66FF;&#x8EAB;&#x529F;&#x80FD;&#x5C06;&#x4F1A;&#x5FFD;&#x7565;&#x5B83;&#x4EEC;&#xFF0C;&#x5E76;&#x7EF4;&#x6301;&#x5B83;&#x4EEC;&#x7684;&#x539F;&#x59CB;&#x884C;&#x4E3A;&#xFF0C;<code>static</code>
+&#x65B9;&#x6CD5;&#x4F8B;&#x5916;&#xFF0C;&#x5B83;&#x4F1A;&#x88AB;&#x66FF;&#x6362;&#x4E3A;&#x4E00;&#x4E2A;&#x4F1A;&#x629B;&#x51FA;
+<code>\PHPUnit\Framework\MockObject\BadMethodCallException</code> &#x5F02;&#x5E38;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
+<h2 id="stubs&#xFF08;&#x6869;&#x4EF6;&#xFF09;">Stubs&#xFF08;&#x6869;&#x4EF6;&#xFF09;</h2>
+<p>&#x5C06;&#x5BF9;&#x8C61;&#x66FF;&#x6362;&#x4E3A;&#xFF08;&#x53EF;&#x9009;&#x5730;&#xFF09;&#x8FD4;&#x56DE;&#x914D;&#x7F6E;&#x597D;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x7684;&#x6D4B;&#x8BD5;&#x66FF;&#x8EAB;&#x7684;&#x5B9E;&#x8DF5;&#x65B9;&#x6CD5;&#x79F0;&#x4E3A;<em>&#x6253;&#x6869;&#xFF08;stubbing&#xFF09;</em>&#x3002;&#x53EF;&#x4EE5;&#x7528;<em>&#x6869;&#x4EF6;&#xFF08;Stub&#xFF09;</em>&#x6765;&#x201C;&#x66FF;&#x6362;&#x6389;&#x88AB;&#x6D4B;&#x7CFB;&#x7EDF;&#x6240;&#x4F9D;&#x8D56;&#x7684;&#x5B9E;&#x9645;&#x7EC4;&#x4EF6;&#xFF0C;&#x8FD9;&#x6837;&#x6D4B;&#x8BD5;&#x5C31;&#x6709;&#x4E86;&#x5BF9;&#x88AB;&#x6D4B;&#x7CFB;&#x7EDF;&#x7684;&#x95F4;&#x63A5;&#x8F93;&#x5165;&#x7684;&#x63A7;&#x5236;&#x70B9;&#x3002;&#x8FD9;&#x4F7F;&#x5F97;&#x6D4B;&#x8BD5;&#x80FD;&#x5F3A;&#x5236;&#x5B89;&#x6392;&#x88AB;&#x6D4B;&#x7CFB;&#x7EDF;&#x7684;&#x6267;&#x884C;&#x8DEF;&#x5F84;&#xFF0C;&#x5426;&#x5219;&#x88AB;&#x6D4B;&#x7CFB;&#x7EDF;&#x53EF;&#x80FD;&#x65E0;&#x6CD5;&#x6267;&#x884C;&#x201D;&#x3002;</p>
+<p><code>test-doubles.stubs.examples.StubTest.php</code>
+&#x5C55;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x5BF9;&#x65B9;&#x6CD5;&#x7684;&#x8C03;&#x7528;&#x8FDB;&#x884C;&#x4E0A;&#x6869;&#x4EE5;&#x53CA;&#x5982;&#x4F55;&#x8BBE;&#x5B9A;&#x8FD4;&#x56DE;&#x503C;&#x3002;&#x9996;&#x5148;&#x7528;
+<code>PHPUnit\Framework\TestCase</code> &#x7C7B;&#x63D0;&#x4F9B;&#x7684; <code>createStub()</code>
+&#x65B9;&#x6CD5;&#x6765;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x6869;&#x4EF6;&#x5BF9;&#x8C61;&#xFF0C;&#x5B83;&#x8868;&#x9762;&#x770B;&#x8D77;&#x6765;&#x50CF;&#x662F; <code>SomeClass</code>
+&#x7C7B;&#xFF08;<code>test-doubles.stubs.examples.SomeClass.php</code>&#xFF09;&#x7684;&#x5B9E;&#x4F8B;&#x3002;&#x968F;&#x540E;&#x7528; PHPUnit
+&#x63D0;&#x4F9B;&#x7684;<a href="http://martinfowler.com/bliki/FluentInterface.html" target="_blank">&#x6D41;&#x7545;&#x5F0F;&#x63A5;&#x53E3;</a>&#x6765;&#x6307;&#x5B9A;&#x6869;&#x4EF6;&#x7684;&#x884C;&#x4E3A;&#x3002;&#x672C;&#x8D28;&#x4E0A;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x4E0D;&#x9700;&#x8981;&#x5EFA;&#x7ACB;&#x591A;&#x4E2A;&#x4E34;&#x65F6;&#x5BF9;&#x8C61;&#x7136;&#x540E;&#x518D;&#x628A;&#x5B83;&#x4EEC;&#x6346;&#x5230;&#x4E00;&#x8D77;&#x3002;&#x53D6;&#x800C;&#x4EE3;&#x4E4B;&#x7684;&#x662F;&#x8303;&#x4F8B;&#x4E2D;&#x6240;&#x793A;&#x7684;&#x94FE;&#x5F0F;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x3002;&#x8FD9;&#x4F7F;&#x5F97;&#x4EE3;&#x7801;&#x66F4;&#x52A0;&#x6613;&#x8BFB;&#x5E76;&#x66F4;&#x52A0;&#x201C;&#x6D41;&#x7545;&#x201D;&#x3002;</p>
+<pre class="language-"><code>&lt;?php declare(strict_types=1);
+class SomeClass
+{
+    public function doSomething()
+    {
+        // &#x968F;&#x4FBF;&#x505A;&#x70B9;&#x4EC0;&#x4E48;&#x3002;
+    }
+}
+
+&lt;?php declare(strict_types=1);
+use PHPUnit\Framework\TestCase;
+
+final class StubTest extends TestCase
+{
+    public function testStub(): void
+    {
+        // &#x4E3A; SomeClass &#x7C7B;&#x521B;&#x5EFA;&#x6869;&#x4EF6;&#x3002;
+        $stub = $this-&gt;createStub(SomeClass::class);
+
+        // &#x914D;&#x7F6E;&#x6869;&#x4EF6;&#x3002;
+        $stub-&gt;method(&apos;doSomething&apos;)
+             -&gt;willReturn(&apos;foo&apos;);
+
+        // &#x73B0;&#x5728;&#x8C03;&#x7528; $stub-&gt;doSomething() &#x4F1A;&#x8FD4;&#x56DE; &apos;foo&apos;&#x3002;
+        $this-&gt;assertSame(&apos;foo&apos;, $stub-&gt;doSomething());
+    }
+</code></pre><p>&#x5C40;&#x9650;&#x6027;&#xFF1A;&#x540D;&#x5B57;&#x4E3A;&#x201C;method&#x201D;&#x7684;&#x65B9;&#x6CD5;</p>
+<p>&#x4EC5;&#x5F53;&#x539F;&#x59CB;&#x7C7B;&#x4E2D;&#x4E0D;&#x5305;&#x542B;&#x540D;&#x5B57;&#x4E3A;&#x201C;method&#x201D;&#x7684;&#x65B9;&#x6CD5;&#x65F6;&#xFF0C;&#x4EE5;&#x4E0A;&#x8303;&#x4F8B;&#x624D;&#x80FD;&#x6B63;&#x5E38;&#x8FD0;&#x884C;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x539F;&#x59CB;&#x7C7B;&#x5305;&#x542B;&#x540D;&#x4E3A;&#x201C;method&#x201D;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5C31;&#x5FC5;&#x987B;&#x7528;
+<code>$stub-&gt;expects($this-&gt;any())-&gt;method(&apos;doSomething&apos;)-&gt;willReturn(&apos;foo&apos;);</code>&#x3002;</p>
+<p>&#x201C;&#x5728;&#x5E55;&#x540E;&#x201D;&#xFF0C;&#x5F53;&#x4F7F;&#x7528;&#x4E86; <code>createStub()</code> &#x65B9;&#x6CD5;&#x65F6;&#xFF0C; PHPUnit &#x81EA;&#x52A8;&#x751F;&#x6210;&#x4E86;&#x4E00;&#x4E2A;&#x65B0;&#x7684;
+PHP &#x7C7B;&#x6765;&#x5B9E;&#x73B0;&#x60F3;&#x8981;&#x7684;&#x884C;&#x4E3A;&#x3002;</p>
+<p>&#x8BF7;&#x6CE8;&#x610F;&#xFF1A;<code>createStub()</code>
+&#x4F1A;&#x81EA;&#x52A8;&#x9012;&#x5F52;&#x5730;&#x57FA;&#x4E8E;&#x65B9;&#x6CD5;&#x7684;&#x8FD4;&#x56DE;&#x7C7B;&#x578B;&#x5BF9;&#x8FD4;&#x56DE;&#x503C;&#x8FDB;&#x884C;&#x4E0A;&#x6869;&#x3002;&#x8003;&#x8651;&#x4EE5;&#x4E0B;&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre class="language-"><code>&lt;?php declare(strict_types=1);
+class C
+{
+    public function m(): D
+    {
+        // &#x968F;&#x4FBF;&#x505A;&#x70B9;&#x4EC0;&#x4E48;&#x3002;
+    }
+}
+</code></pre><p>&#x5728;&#x4E0A;&#x8FF0;&#x793A;&#x4F8B;&#x4E2D;&#xFF0C;<code>C::m()</code> &#x65B9;&#x6CD5;&#x5177;&#x6709;&#x8FD4;&#x56DE;&#x7C7B;&#x578B;&#x58F0;&#x660E;&#xFF0C;&#x6307;&#x793A;&#x6B64;&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x7C7B;&#x578B;&#x4E3A; <code>D</code>
+&#x7684;&#x5BF9;&#x8C61;&#x3002;&#x90A3;&#x4E48;&#xFF0C;&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#x8BF4;&#xFF0C;&#x521B;&#x5EFA; <code>C</code> &#x7684;&#x6D4B;&#x8BD5;&#x66FF;&#x8EAB;&#x800C;&#x53C8;&#x672A;&#x7528; <code>willReturn()</code> &#x7ED9;
+<code>m()</code> &#x914D;&#x7F6E;&#x8FD4;&#x56DE;&#x503C;&#x65F6;&#xFF08;&#x89C1;&#x4E0A;&#x6587;&#xFF09;&#xFF0C;&#x5219;&#x5F53; PHPUnit &#x8C03;&#x7528; <code>m()</code> &#x65F6;&#x4F1A;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;
+<code>D</code> &#x7684;&#x6D4B;&#x8BD5;&#x66FF;&#x8EAB;&#x4F5C;&#x4E3A;&#x8FD4;&#x56DE;&#x503C;&#x3002;</p>
+<p>&#x7C7B;&#x4F3C;&#x5730;&#xFF0C;&#x5982;&#x679C; <code>m</code> &#x7684;&#x8FD4;&#x56DE;&#x7C7B;&#x578B;&#x58F0;&#x660E;&#x662F;&#x6807;&#x91CF;&#x7C7B;&#x578B;&#xFF0C;&#x5219;&#x4F1A;&#x751F;&#x6210;&#x8BF8;&#x5982; <code>0</code>&#xFF08;&#x5BF9;&#x4E8E;
+<code>int</code>&#xFF09;&#x3001;<code>0.0</code>&#xFF08;&#x5BF9;&#x4E8E; <code>float</code>&#xFF09;&#x3001;&#x6216; <code>[]</code>&#xFF08;&#x5BF9;&#x4E8E; <code>array</code>&#xFF09;&#x8FD9;&#x6837;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x3002;</p>
+<p><code>test-doubles.stubs.examples.StubTest2.php</code>
+&#x5C55;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x7528;&#x4EFF;&#x4EF6;&#x751F;&#x6210;&#x5668;&#x7684;&#x6D41;&#x7545;&#x5F0F;&#x63A5;&#x53E3;&#x6765;&#x914D;&#x7F6E;&#x6D4B;&#x8BD5;&#x66FF;&#x8EAB;&#x7684;&#x751F;&#x6210;&#x3002;&#x8FD9;&#x4E2A;&#x6D4B;&#x8BD5;&#x66FF;&#x8EAB;&#x7684;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x7528;&#x7684;&#x662F;&#x548C;
+<code>createStub()</code> &#x76F8;&#x540C;&#x7684;&#x6700;&#x4F73;&#x5B9E;&#x8DF5;&#x3002;</p>
+<pre class="language-"><code>&lt;?php declare(strict_types=1);
+use PHPUnit\Framework\TestCase;
+
+final class StubTest extends TestCase
+{
+    public function testStub(): void
+    {
+        // &#x4E3A; SomeClass &#x7C7B;&#x521B;&#x5EFA;&#x6869;&#x4EF6;&#x3002;
+        $stub = $this-&gt;getMockBuilder(SomeClass::class)
+                     -&gt;disableOriginalConstructor()
+                     -&gt;disableOriginalClone()
+                     -&gt;disableArgumentCloning()
+                     -&gt;disallowMockingUnknownTypes()
+                     -&gt;getMock();
+
+        // &#x914D;&#x7F6E;&#x6869;&#x4EF6;&#x3002;
+        $stub-&gt;method(&apos;doSomething&apos;)
+             -&gt;willReturn(&apos;foo&apos;);
+
+        // &#x73B0;&#x5728;&#x8C03;&#x7528; $stub-&gt;doSomething() &#x4F1A;&#x8FD4;&#x56DE; &apos;foo&apos;&#x3002;
+        $this-&gt;assertSame(&apos;foo&apos;, $stub-&gt;doSomething());
+    }
+</code></pre><p>&#x5728;&#x4E4B;&#x524D;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x7528; <code>willReturn($value)</code> &#x8FD4;&#x56DE;&#x7B80;&#x5355;&#x503C;&#x3002;&#x8FD9;&#x4E2A;&#x7B80;&#x77ED;&#x7684;&#x8BED;&#x6CD5;&#x76F8;&#x5F53;&#x4E8E;
+<code>will($this-&gt;returnValue($value))</code>&#x3002;&#x800C;&#x5728;&#x8FD9;&#x4E2A;&#x957F;&#x70B9;&#x7684;&#x8BED;&#x6CD5;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x53D8;&#x91CF;&#xFF0C;&#x4ECE;&#x800C;&#x5B9E;&#x73B0;&#x66F4;&#x590D;&#x6742;&#x7684;&#x4E0A;&#x6869;&#x884C;&#x4E3A;&#x3002;</p>
+<p>&#x6709;&#x65F6;&#x60F3;&#x8981;&#x5C06;&#xFF08;&#x672A;&#x6539;&#x53D8;&#x7684;&#xFF09;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x65F6;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x53C2;&#x6570;&#x4E4B;&#x4E00;&#x4F5C;&#x4E3A;&#x6869;&#x4EF6;&#x7684;&#x65B9;&#x6CD5;&#x7684;&#x8C03;&#x7528;&#x7ED3;&#x679C;&#x6765;&#x8FD4;&#x56DE;&#x3002;<code>test-doubles.stubs.examples.StubTest3.php</code>
+&#x5C55;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x7528; <code>returnArgument()</code> &#x4EE3;&#x66FF; <code>returnValue()</code> &#x6765;&#x505A;&#x5230;&#x8FD9;&#x70B9;&#x3002;</p>
+<pre class="language-"><code>&lt;?php declare(strict_types=1);
+use PHPUnit\Framework\TestCase;
+
+final class StubTest extends TestCase
+{
+    public function testReturnArgumentStub(): void
+    {
+        // &#x4E3A; SomeClass &#x7C7B;&#x521B;&#x5EFA;&#x6869;&#x4EF6;&#x3002;
+        $stub = $this-&gt;createStub(SomeClass::class);
+
+        // &#x914D;&#x7F6E;&#x6869;&#x4EF6;&#x3002;
+        $stub-&gt;method(&apos;doSomething&apos;)
+             -&gt;will($this-&gt;returnArgument(0));
+
+        // $stub-&gt;doSomething(&apos;foo&apos;) &#x8FD4;&#x56DE; &apos;foo&apos;
+        $this-&gt;assertSame(&apos;foo&apos;, $stub-&gt;doSomething(&apos;foo&apos;));
+
+        // $stub-&gt;doSomething(&apos;bar&apos;) &#x8FD4;&#x56DE; &apos;bar&apos;
+        $this-&gt;assertSame(&apos;bar&apos;, $stub-&gt;doSomething(&apos;bar&apos;));
+    }
+}
+</code></pre><p>&#x5728;&#x7528;&#x6D41;&#x7545;&#x5F0F;&#x63A5;&#x53E3;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;&#x65F6;&#xFF0C;&#x8BA9;&#x67D0;&#x4E2A;&#x5DF2;&#x4E0A;&#x6869;&#x7684;&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x5BF9;&#x6869;&#x4EF6;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x6709;&#x65F6;&#x4F1A;&#x5F88;&#x6709;&#x7528;&#x3002;<code>test-doubles.stubs.examples.StubTest4.php</code>
+&#x5C55;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x7528; <code>returnSelf()</code> &#x6765;&#x505A;&#x5230;&#x8FD9;&#x70B9;&#x3002;</p>
+<pre class="language-"><code>&lt;?php declare(strict_types=1);
+use PHPUnit\Framework\TestCase;
+
+final class StubTest extends TestCase
+{
+    public function testReturnSelf(): void
+    {
+        // &#x4E3A; SomeClass &#x7C7B;&#x521B;&#x5EFA;&#x6869;&#x4EF6;&#x3002;
+        $stub = $this-&gt;createStub(SomeClass::class);
+
+        // &#x914D;&#x7F6E;&#x6869;&#x4EF6;&#x3002;
+        $stub-&gt;method(&apos;doSomething&apos;)
+             -&gt;will($this-&gt;returnSelf());
+
+        // $stub-&gt;doSomething() &#x8FD4;&#x56DE; $stub
+        $this-&gt;assertSame($stub, $stub-&gt;doSomething());
+    }
+}
+</code></pre><p>&#x6709;&#x65F6;&#x5019;&#xFF0C;&#x4E0A;&#x6869;&#x7684;&#x65B9;&#x6CD5;&#x9700;&#x8981;&#x6839;&#x636E;&#x9884;&#x5B9A;&#x4E49;&#x7684;&#x53C2;&#x6570;&#x6E05;&#x5355;&#x6765;&#x8FD4;&#x56DE;&#x4E0D;&#x540C;&#x7684;&#x503C;&#x3002;&#x53EF;&#x4EE5;&#x7528;
+<code>returnValueMap()</code>
+&#x65B9;&#x6CD5;&#x5C06;&#x53C2;&#x6570;&#x548C;&#x76F8;&#x5E94;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x5173;&#x8054;&#x8D77;&#x6765;&#x5EFA;&#x7ACB;&#x6620;&#x5C04;&#x3002;&#x793A;&#x4F8B;&#x53C2;&#x89C1;<code>test-doubles.stubs.examples.StubTest5.php</code>&#x3002;</p>
+<pre class="language-"><code>&lt;?php declare(strict_types=1);
+use PHPUnit\Framework\TestCase;
+
+final class StubTest extends TestCase
+{
+    public function testReturnValueMapStub(): void
+    {
+        // &#x4E3A; SomeClass &#x7C7B;&#x521B;&#x5EFA;&#x6869;&#x4EF6;&#x3002;
+        $stub = $this-&gt;createStub(SomeClass::class);
+
+        // Create a map of arguments to return values.
+        $map = [
+            [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;],
+            [&apos;e&apos;, &apos;f&apos;, &apos;g&apos;, &apos;h&apos;]
+        ];
+
+        // &#x914D;&#x7F6E;&#x6869;&#x4EF6;&#x3002;
+        $stub-&gt;method(&apos;doSomething&apos;)
+             -&gt;will($this-&gt;returnValueMap($map));
+
+        // $stub-&gt;doSomething() &#x6839;&#x636E;&#x63D0;&#x4F9B;&#x7684;&#x53C2;&#x6570;&#x8FD4;&#x56DE;&#x4E0D;&#x540C;&#x7684;&#x503C;&#x3002;
+        $this-&gt;assertSame(&apos;d&apos;, $stub-&gt;doSomething(&apos;a&apos;, &apos;b&apos;, &apos;c&apos;));
+        $this-&gt;assertSame(&apos;h&apos;, $stub-&gt;doSomething(&apos;e&apos;, &apos;f&apos;, &apos;g&apos;));
+    }
+}
+</code></pre><p>&#x5982;&#x679C;&#x4E0A;&#x6869;&#x7684;&#x65B9;&#x6CD5;&#x9700;&#x8981;&#x8FD4;&#x56DE;&#x8BA1;&#x7B97;&#x5F97;&#x5230;&#x7684;&#x503C;&#x800C;&#x4E0D;&#x662F;&#x56FA;&#x5B9A;&#x503C;&#xFF08;&#x53C2;&#x89C1;
+<code>returnValue()</code>&#xFF09;&#x6216;&#x67D0;&#x4E2A;&#xFF08;&#x672A;&#x6539;&#x53D8;&#x7684;&#xFF09;&#x53C2;&#x6570;&#xFF08;&#x53C2;&#x89C1;
+<code>returnArgument()</code>&#xFF09;&#xFF0C;&#x53EF;&#x4EE5;&#x7528; <code>returnCallback()</code>
+&#x6765;&#x8BA9;&#x4E0A;&#x6869;&#x7684;&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x6216;&#x65B9;&#x6CD5;&#x7684;&#x7ED3;&#x679C;&#x3002;&#x793A;&#x4F8B;&#x53C2;&#x89C1;<code>test-doubles.stubs.examples.StubTest6.php</code>&#x3002;</p>
+<pre class="language-"><code>&lt;?php declare(strict_types=1);
+use PHPUnit\Framework\TestCase;
+
+final class StubTest extends TestCase
+{
+    public function testReturnCallbackStub(): void
+    {
+        // &#x4E3A; SomeClass &#x7C7B;&#x521B;&#x5EFA;&#x6869;&#x4EF6;&#x3002;
+        $stub = $this-&gt;createStub(SomeClass::class);
+
+        // &#x914D;&#x7F6E;&#x6869;&#x4EF6;&#x3002;
+        $stub-&gt;method(&apos;doSomething&apos;)
+             -&gt;will($this-&gt;returnCallback(&apos;str_rot13&apos;));
+
+        // $stub-&gt;doSomething($argument) &#x8FD4;&#x56DE; str_rot13($argument)
+        $this-&gt;assertSame(&apos;fbzrguvat&apos;, $stub-&gt;doSomething(&apos;something&apos;));
+    }
+}
+</code></pre><p>&#x76F8;&#x6BD4;&#x4E8E;&#x5EFA;&#x7ACB;&#x56DE;&#x8C03;&#x65B9;&#x6CD5;&#xFF0C;&#x6709;&#x4E00;&#x4E2A;&#x66F4;&#x7B80;&#x5355;&#x7684;&#x9009;&#x62E9;&#x662F;&#x76F4;&#x63A5;&#x7ED9;&#x51FA;&#x671F;&#x671B;&#x8FD4;&#x56DE;&#x503C;&#x7684;&#x5217;&#x8868;&#x3002;&#x53EF;&#x4EE5;&#x7528;
+<code>onConsecutiveCalls()</code>
+&#x65B9;&#x6CD5;&#x6765;&#x505A;&#x5230;&#x8FD9;&#x4E2A;&#x3002;&#x793A;&#x4F8B;&#x53C2;&#x89C1;<code>test-doubles.stubs.examples.StubTest7.php</code>&#x3002;</p>
+<pre class="language-"><code>&lt;?php declare(strict_types=1);
+use PHPUnit\Framework\TestCase;
+
+final class StubTest extends TestCase
+{
+    public function testOnConsecutiveCallsStub(): void
+    {
+        // &#x4E3A; SomeClass &#x7C7B;&#x521B;&#x5EFA;&#x6869;&#x4EF6;&#x3002;
+        $stub = $this-&gt;createStub(SomeClass::class);
+
+        // &#x914D;&#x7F6E;&#x6869;&#x4EF6;&#x3002;
+        $stub-&gt;method(&apos;doSomething&apos;)
+             -&gt;will($this-&gt;onConsecutiveCalls(2, 3, 5, 7));
+
+        // $stub-&gt;doSomething() &#x6BCF;&#x6B21;&#x90FD;&#x4F1A;&#x8FD4;&#x56DE;&#x4E0D;&#x540C;&#x7684;&#x503C;
+        $this-&gt;assertSame(2, $stub-&gt;doSomething());
+        $this-&gt;assertSame(3, $stub-&gt;doSomething());
+        $this-&gt;assertSame(5, $stub-&gt;doSomething());
+    }
+}
+</code></pre><p>&#x9664;&#x4E86;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x503C;&#x4E4B;&#x5916;&#xFF0C;&#x4E0A;&#x6869;&#x7684;&#x65B9;&#x6CD5;&#x8FD8;&#x80FD;&#x629B;&#x51FA;&#x4E00;&#x4E2A;&#x5F02;&#x5E38;&#x3002;<code>test-doubles.stubs.examples.StubTest8.php</code>
+&#x5C55;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x7528; <code>throwException()</code> &#x505A;&#x5230;&#x8FD9;&#x70B9;&#x3002;</p>
+<pre class="language-"><code>&lt;?php declare(strict_types=1);
+use PHPUnit\Framework\TestCase;
+
+final class StubTest extends TestCase
+{
+    public function testThrowExceptionStub(): void
+    {
+        // &#x4E3A; SomeClass &#x7C7B;&#x521B;&#x5EFA;&#x6869;&#x4EF6;&#x3002;
+        $stub = $this-&gt;createStub(SomeClass::class);
+
+        // &#x914D;&#x7F6E;&#x6869;&#x4EF6;&#x3002;
+        $stub-&gt;method(&apos;doSomething&apos;)
+             -&gt;will($this-&gt;throwException(new Exception));
+
+        // $stub-&gt;doSomething() &#x629B;&#x51FA;&#x5F02;&#x5E38;
+        $stub-&gt;doSomething();
+    }
+}
+</code></pre><p>&#x53E6;&#x5916;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x7F16;&#x5199;&#x6869;&#x4EF6;&#xFF0C;&#x5E76;&#x5728;&#x6B64;&#x8FC7;&#x7A0B;&#x4E2D;&#x6539;&#x5584;&#x8BBE;&#x8BA1;&#x3002;&#x5728;&#x7CFB;&#x7EDF;&#x4E2D;&#x88AB;&#x5E7F;&#x6CDB;&#x4F7F;&#x7528;&#x7684;&#x8D44;&#x6E90;&#x662F;&#x901A;&#x8FC7;&#x5355;&#x4E2A;&#x5916;&#x89C2;&#xFF08;facade&#xFF09;&#x6765;&#x8BBF;&#x95EE;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x5C31;&#x80FD;&#x7528;&#x6869;&#x4EF6;&#x66FF;&#x6362;&#x6389;&#x8D44;&#x6E90;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5C06;&#x6563;&#x843D;&#x5728;&#x4EE3;&#x7801;&#x5404;&#x5904;&#x7684;&#x5BF9;&#x6570;&#x636E;&#x5E93;&#x7684;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x66FF;&#x6362;&#x4E3A;&#x5355;&#x4E2A;
+<code>Database</code> &#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x5B9E;&#x73B0;&#x4E86; <code>IDatabase</code>
+&#x63A5;&#x53E3;&#x3002;&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x5B9E;&#x73B0;&#x4E86; <code>IDatabase</code>
+&#x7684;&#x6869;&#x4EF6;&#x5E76;&#x5728;&#x6D4B;&#x8BD5;&#x4E2D;&#x4F7F;&#x7528;&#x4E4B;&#x3002;&#x751A;&#x81F3;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x9009;&#x9879;&#x6765;&#x63A7;&#x5236;&#x662F;&#x7528;&#x6869;&#x4EF6;&#x8FD8;&#x662F;&#x7528;&#x771F;&#x5B9E;&#x6570;&#x636E;&#x5E93;&#x6765;&#x8FD0;&#x884C;&#x6D4B;&#x8BD5;&#xFF0C;&#x8FD9;&#x6837;&#x6D4B;&#x8BD5;&#x5C31;&#x65E2;&#x80FD;&#x5728;&#x5F00;&#x53D1;&#x8FC7;&#x7A0B;&#x4E2D;&#x7528;&#x4F5C;&#x672C;&#x5730;&#x6D4B;&#x8BD5;&#xFF0C;&#x53C8;&#x80FD;&#x5728;&#x5B9E;&#x9645;&#x6570;&#x636E;&#x5E93;&#x73AF;&#x5883;&#x4E2D;&#x8FDB;&#x884C;&#x96C6;&#x6210;&#x6D4B;&#x8BD5;&#x3002;</p>
+<p>&#x9700;&#x8981;&#x4E0A;&#x6869;&#x7684;&#x529F;&#x80FD;&#x5F80;&#x5F80;&#x96C6;&#x4E2D;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x4E2D;&#xFF0C;&#x8FD9;&#x5C31;&#x6539;&#x5584;&#x4E86;&#x5185;&#x805A;&#x5EA6;&#x3002;&#x5C06;&#x529F;&#x80FD;&#x901A;&#x8FC7;&#x5355;&#x4E00;&#x4E14;&#x4E00;&#x81F4;&#x7684;&#x63A5;&#x53E3;&#x5448;&#x73B0;&#x51FA;&#x6765;&#xFF0C;&#x5C31;&#x964D;&#x4F4E;&#x4E86;&#x8FD9;&#x90E8;&#x5206;&#x4E0E;&#x7CFB;&#x7EDF;&#x5176;&#x4ED6;&#x90E8;&#x5206;&#x4E4B;&#x95F4;&#x7684;&#x8026;&#x5408;&#x5EA6;&#x3002;</p>
+<h2 id="&#x4EFF;&#x4EF6;&#x5BF9;&#x8C61;&#xFF08;mock-object&#xFF09;">&#x4EFF;&#x4EF6;&#x5BF9;&#x8C61;&#xFF08;Mock Object&#xFF09;</h2>
+<p>&#x5C06;&#x5BF9;&#x8C61;&#x66FF;&#x6362;&#x4E3A;&#x80FD;&#x9A8C;&#x8BC1;&#x9884;&#x671F;&#x884C;&#x4E3A;&#xFF08;&#x4F8B;&#x5982;&#x65AD;&#x8A00;&#x67D0;&#x4E2A;&#x65B9;&#x6CD5;&#x5FC5;&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#xFF09;&#x7684;&#x6D4B;&#x8BD5;&#x66FF;&#x8EAB;&#x7684;&#x5B9E;&#x8DF5;&#x65B9;&#x6CD5;&#x79F0;&#x4E3A;<em>&#x6A21;&#x4EFF;&#xFF08;mocking&#xFF09;</em>&#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x7528;<em>&#x4EFF;&#x4EF6;&#x5BF9;&#x8C61;&#xFF08;mock
+object&#xFF09;</em>&#x201C;&#x4F5C;&#x4E3A;&#x89C2;&#x5BDF;&#x70B9;&#x6765;&#x6838;&#x5B9E;&#x88AB;&#x6D4B;&#x8BD5;&#x7CFB;&#x7EDF;&#x5728;&#x6D4B;&#x8BD5;&#x4E2D;&#x7684;&#x95F4;&#x63A5;&#x8F93;&#x51FA;&#x3002;&#x901A;&#x5E38;&#xFF0C;&#x4EFF;&#x4EF6;&#x5BF9;&#x8C61;&#x8FD8;&#x9700;&#x8981;&#x5305;&#x62EC;&#x6869;&#x4EF6;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x56E0;&#x4E3A;&#x5982;&#x679C;&#x6D4B;&#x8BD5;&#x5C1A;&#x672A;&#x5931;&#x8D25;&#x5219;&#x4EFF;&#x4EF6;&#x5BF9;&#x8C61;&#x9700;&#x8981;&#x5411;&#x88AB;&#x6D4B;&#x7CFB;&#x7EDF;&#x8FD4;&#x56DE;&#x4E00;&#x4E9B;&#x503C;&#xFF0C;&#x4F46;&#x662F;&#x5176;&#x91CD;&#x70B9;&#x8FD8;&#x662F;&#x5728;&#x5BF9;&#x95F4;&#x63A5;&#x8F93;&#x51FA;&#x7684;&#x6838;&#x5B9E;&#x4E0A;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x4EFF;&#x4EF6;&#x5BF9;&#x8C61;&#x8FDC;&#x4E0D;&#x6B62;&#x662F;&#x6869;&#x4EF6;&#x52A0;&#x65AD;&#x8A00;&#xFF0C;&#x5B83;&#x662F;&#x4EE5;&#x4E00;&#x79CD;&#x4ECE;&#x6839;&#x672C;&#x4E0A;&#x5B8C;&#x5168;&#x4E0D;&#x540C;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x4F7F;&#x7528;&#x7684;&#x201D;&#xFF08;Gerard
+Meszaros&#xFF09;&#x3002;</p>
+<p>&#x5C40;&#x9650;&#x6027;&#xFF1A;&#x5BF9;&#x9884;&#x671F;&#x7684;&#x81EA;&#x52A8;&#x6821;&#x9A8C;</p>
+<p>PHPUnit
+&#x53EA;&#x4F1A;&#x5BF9;&#x5728;&#x67D0;&#x4E2A;&#x6D4B;&#x8BD5;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x5185;&#x751F;&#x6210;&#x7684;&#x4EFF;&#x4EF6;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x81EA;&#x52A8;&#x6821;&#x9A8C;&#x3002;&#x8BF8;&#x5982;&#x5728;&#x6570;&#x636E;&#x4F9B;&#x7ED9;&#x5668;&#x5185;&#x751F;&#x6210;&#x6216;&#x7528;
+<code>@depends</code> &#x6807;&#x6CE8;&#x6CE8;&#x5165;&#x6D4B;&#x8BD5;&#x7684;&#x4EFF;&#x4EF6;&#x5BF9;&#x8C61;&#xFF0C;PHPUnit &#x5E76;&#x4E0D;&#x4F1A;&#x81EA;&#x52A8;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x6821;&#x9A8C;&#x3002;</p>
+<p>&#x8FD9;&#x6709;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;&#x5047;&#x8BBE;&#x9700;&#x8981;&#x6D4B;&#x8BD5;&#x7684;&#x5F53;&#x524D;&#x65B9;&#x6CD5;&#xFF0C;&#x5728;&#x4F8B;&#x5B50;&#x4E2D;&#x662F;
+<code>update()</code>&#xFF0C;&#x786E;&#x5B9E;&#x5728;&#x4E00;&#x4E2A;&#x89C2;&#x5BDF;&#x7740;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x5BF9;&#x8C61;&#x4E2D;&#x4E0A;&#x88AB;&#x8C03;&#x7528;&#x4E86;&#x3002;<code>test-doubles.mock-objects.examples.SUT.php</code>
+&#x5C55;&#x793A;&#x4E86;&#x88AB;&#x6D4B;&#x7CFB;&#x7EDF;&#xFF08;SUT&#xFF09;&#x4E2D; <code>Subject</code> &#x548C; <code>Observer</code> &#x4E24;&#x4E2A;&#x7C7B;&#x7684;&#x4EE3;&#x7801;&#x3002;</p>
+<pre class="language-"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>?php</span> <span class="token attr-name">declare(strict_types</span><span class="token attr-value"><span class="token punctuation">=</span>1);</span>
+<span class="token attr-name">use</span> <span class="token attr-name">PHPUnit\Framework\TestCase;</span>
+
+<span class="token attr-name">class</span> <span class="token attr-name">Subject</span>
+<span class="token attr-name">{</span>
+    <span class="token attr-name">protected</span> <span class="token attr-name">$observers</span> <span class="token attr-value"><span class="token punctuation">=</span> [];</span>
+    <span class="token attr-name">protected</span> <span class="token attr-name">$name;</span>
+
+    <span class="token attr-name">public</span> <span class="token attr-name">function</span> <span class="token attr-name">__construct($name)</span>
+    <span class="token attr-name">{</span>
+        <span class="token attr-name">$this-</span><span class="token punctuation">&gt;</span></span>name = $name;
+    }
+
+    public function getName()
+    {
+        return $this-&gt;name;
+    }
+
+    public function attach(Observer $observer)
+    {
+        $this-&gt;observers[] = $observer;
+    }
+
+    public function doSomething()
+    {
+        // &#x968F;&#x4FBF;&#x505A;&#x70B9;&#x4EC0;&#x4E48;&#x3002;
+        // ...
+
+        // &#x901A;&#x77E5;&#x89C2;&#x5BDF;&#x8005;&#x6211;&#x4EEC;&#x505A;&#x4E86;&#x70B9;&#x4EC0;&#x4E48;&#x3002;
+        $this-&gt;notify(&apos;something&apos;);
+    }
+
+    public function doSomethingBad()
+    {
+        foreach ($this-&gt;observers as $observer) {
+            $observer-&gt;reportError(42, &apos;Something bad happened&apos;, $this);
+        }
+    }
+
+    protected function notify($argument)
+    {
+        foreach ($this-&gt;observers as $observer) {
+            $observer-&gt;update($argument);
+        }
+    }
+
+    // &#x5176;&#x4ED6;&#x65B9;&#x6CD5;&#x3002;
+}
+
+class Observer
+{
+    public function update($argument)
+    {
+        // &#x968F;&#x4FBF;&#x505A;&#x70B9;&#x4EC0;&#x4E48;&#x3002;
+    }
+
+    public function reportError($errorCode, $errorMessage, Subject $subject)
+    {
+        // &#x968F;&#x4FBF;&#x505A;&#x70B9;&#x4EC0;&#x4E48;
+    }
+
+    // &#x5176;&#x4ED6;&#x65B9;&#x6CD5;&#x3002;
+}
+</code></pre><p><code>test-doubles.mock-objects.examples.SubjectTest.php</code>
+&#x5C55;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x7528;&#x4EFF;&#x4EF6;&#x5BF9;&#x8C61;&#x6765;&#x6D4B;&#x8BD5; <code>Subject</code> &#x548C; <code>Observer</code> &#x5BF9;&#x8C61;&#x4E4B;&#x95F4;&#x7684;&#x4E92;&#x52A8;&#x3002;</p>
+<p>&#x9996;&#x5148;&#x7528; <code>PHPUnit\Framework\TestCase</code> &#x7C7B;&#x63D0;&#x4F9B;&#x7684; <code>createMock()</code> &#x65B9;&#x6CD5;&#x6765;&#x4E3A;
+<code>Observer</code> &#x5EFA;&#x7ACB;&#x4EFF;&#x4EF6;&#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x7531;&#x4E8E;&#x5173;&#x6CE8;&#x7684;&#x662F;&#x68C0;&#x9A8C;&#x67D0;&#x4E2A;&#x65B9;&#x6CD5;&#x662F;&#x5426;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x4EE5;&#x53CA;&#x8C03;&#x7528;&#x65F6;&#x5177;&#x4F53;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x56E0;&#x6B64;&#x5F15;&#x5165;
+<code>expects()</code> &#x4E0E; <code>with()</code> &#x65B9;&#x6CD5;&#x6765;&#x6307;&#x660E;&#x6B64;&#x4EA4;&#x4E92;&#x5E94;&#x8BE5;&#x662F;&#x4EC0;&#x4E48;&#x6837;&#x7684;&#x3002;</p>
+<pre class="language-"><code>&lt;?php declare(strict_types=1);
+use PHPUnit\Framework\TestCase;
+
+final class SubjectTest extends TestCase
+{
+    public function testObserversAreUpdated(): void
+    {
+        // &#x4E3A; Observer &#x7C7B;&#x5EFA;&#x7ACB;&#x4EFF;&#x4EF6;
+        // &#x53EA;&#x6A21;&#x4EFF; update() &#x65B9;&#x6CD5;&#x3002;
+        $observer = $this-&gt;createMock(Observer::class);
+
+        // &#x4E3A; update() &#x65B9;&#x6CD5;&#x5EFA;&#x7ACB;&#x9884;&#x671F;&#xFF1A;
+        // &#x53EA;&#x4F1A;&#x4EE5;&#x5B57;&#x7B26;&#x4E32; &apos;something&apos; &#x4E3A;&#x53C2;&#x6570;&#x8C03;&#x7528;&#x4E00;&#x6B21;&#x3002;
+        $observer-&gt;expects($this-&gt;once())
+                 -&gt;method(&apos;update&apos;)
+                 -&gt;with($this-&gt;equalTo(&apos;something&apos;));
+
+        // &#x5EFA;&#x7ACB; Subject &#x5BF9;&#x8C61;&#x5E76;&#x4E14;&#x5C06;&#x6A21;&#x4EFF;&#x7684; Observer &#x5BF9;&#x8C61;&#x9644;&#x52A0;&#x5176;&#x4E0A;&#x3002;
+        $subject = new Subject(&apos;My subject&apos;);
+        $subject-&gt;attach($observer);
+
+        // &#x5728; $subject &#x4E0A;&#x8C03;&#x7528; doSomething() &#x65B9;&#x6CD5;&#xFF0C;
+        // &#x6211;&#x4EEC;&#x9884;&#x671F;&#x4F1A;&#x4EE5;&#x5B57;&#x7B26;&#x4E32; &apos;something&apos; &#x8C03;&#x7528;&#x6A21;&#x4EFF;&#x7684; Observer
+        // &#x5BF9;&#x8C61;&#x7684; update() &#x65B9;&#x6CD5;&#x3002;
+        $subject-&gt;doSomething();
+    }
+}
+</code></pre><p><code>with()</code>
+&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x643A;&#x5E26;&#x4EFB;&#x4F55;&#x6570;&#x91CF;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5BF9;&#x5E94;&#x4E8E;&#x88AB;&#x6A21;&#x4EFF;&#x7684;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x6570;&#x91CF;&#x3002;&#x53EF;&#x4EE5;&#x5BF9;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x6307;&#x5B9A;&#x66F4;&#x52A0;&#x9AD8;&#x7B49;&#x7684;&#x7EA6;&#x675F;&#x800C;&#x4E0D;&#x4EC5;&#x662F;&#x7B80;&#x5355;&#x7684;&#x5339;&#x914D;&#x3002;</p>
+<pre class="language-"><code>&lt;?php declare(strict_types=1);
+use PHPUnit\Framework\TestCase;
+
+final class SubjectTest extends TestCase
+{
+    public function testErrorReported(): void
+    {
+        // &#x4E3A; Observer &#x7C7B;&#x5EFA;&#x7ACB;&#x4EFF;&#x4EF6;&#xFF0C;&#x6A21;&#x4EFF; reportError() &#x65B9;&#x6CD5;
+        $observer = $this-&gt;createMock(Observer::class);
+
+        $observer-&gt;expects($this-&gt;once())
+                 -&gt;method(&apos;reportError&apos;)
+                 -&gt;with(
+                       $this-&gt;greaterThan(0),
+                       $this-&gt;stringContains(&apos;Something&apos;),
+                       $this-&gt;anything()
+                   );
+
+        $subject = new Subject(&apos;My subject&apos;);
+        $subject-&gt;attach($observer);
+
+        // doSomethingBad() &#x65B9;&#x6CD5;&#x5E94;&#x5F53;&#x4F1A;&#x901A;&#x8FC7; 
+        // reportError() &#x65B9;&#x6CD5;&#x5411; observer &#x62A5;&#x544A;&#x9519;&#x8BEF;&#x3002;
+        $subject-&gt;doSomethingBad();
+    }
+}
+</code></pre><p><code>withConsecutive()</code>
+&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x4EFB;&#x610F;&#x591A;&#x4E2A;&#x6570;&#x7EC4;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF0C;&#x5177;&#x4F53;&#x6570;&#x91CF;&#x53D6;&#x51B3;&#x4E8E;&#x6B32;&#x6D4B;&#x8BD5;&#x7684;&#x8C03;&#x7528;&#x3002;&#x6BCF;&#x4E2A;&#x6570;&#x7EC4;&#x90FD;&#x90FD;&#x662F;&#x5BF9;&#x88AB;&#x4EFF;&#x65B9;&#x6CD5;&#x7684;&#x76F8;&#x5E94;&#x53C2;&#x6570;&#x7684;&#x4E00;&#x7EC4;&#x7EA6;&#x675F;&#xFF0C;&#x5C31;&#x50CF;
+<code>with()</code> &#x4E2D;&#x90A3;&#x6837;&#x3002;</p>
+<pre class="language-"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>?php</span> <span class="token attr-name">declare(strict_types</span><span class="token attr-value"><span class="token punctuation">=</span>1);</span>
+<span class="token attr-name">use</span> <span class="token attr-name">PHPUnit\Framework\TestCase;</span>
+
+<span class="token attr-name">final</span> <span class="token attr-name">class</span> <span class="token attr-name">FooTest</span> <span class="token attr-name">extends</span> <span class="token attr-name">TestCase</span>
+<span class="token attr-name">{</span>
+    <span class="token attr-name">public</span> <span class="token attr-name">function</span> <span class="token attr-name"><span class="token namespace">testFunctionCalledTwoTimesWithSpecificArguments():</span></span> <span class="token attr-name">void</span>
+    <span class="token attr-name">{</span>
+        <span class="token attr-name">$mock</span> <span class="token attr-value"><span class="token punctuation">=</span> $this-</span><span class="token punctuation">&gt;</span></span>getMockBuilder(stdClass::class)
+                     -&gt;setMethods([&apos;set&apos;])
+                     -&gt;getMock();
+
+        $mock-&gt;expects($this-&gt;exactly(2))
+             -&gt;method(&apos;set&apos;)
+             -&gt;withConsecutive(
+                 [$this-&gt;equalTo(&apos;foo&apos;), $this-&gt;greaterThan(0)],
+                 [$this-&gt;equalTo(&apos;bar&apos;), $this-&gt;greaterThan(0)]
+             );
+
+        $mock-&gt;set(&apos;foo&apos;, 21);
+        $mock-&gt;set(&apos;bar&apos;, 48);
+    }
+}
+</code></pre><p><code>callback()</code> &#x7EA6;&#x675F;&#x7528;&#x6765;&#x8FDB;&#x884C;&#x66F4;&#x52A0;&#x590D;&#x6742;&#x7684;&#x53C2;&#x6570;&#x6821;&#x9A8C;&#x3002;&#x6B64;&#x7EA6;&#x675F;&#x7684;&#x552F;&#x4E00;&#x53C2;&#x6570;&#x662F;&#x4E00;&#x4E2A; PHP
+&#x56DE;&#x8C03;&#x9879;&#xFF08;callback&#xFF09;&#x3002;&#x6B64; PHP
+&#x56DE;&#x8C03;&#x9879;&#x63A5;&#x53D7;&#x9700;&#x8981;&#x6821;&#x9A8C;&#x7684;&#x53C2;&#x6570;&#x4F5C;&#x4E3A;&#x5176;&#x552F;&#x4E00;&#x53C2;&#x6570;&#xFF0C;&#x5E76;&#x5E94;&#x5F53;&#x5728;&#x53C2;&#x6570;&#x901A;&#x8FC7;&#x6821;&#x9A8C;&#x65F6;&#x8FD4;&#x56DE;
+<code>true</code>&#xFF0C;&#x5426;&#x5219;&#x8FD4;&#x56DE; <code>false</code>&#x3002;</p>
+<pre class="language-"><code>&lt;?php declare(strict_types=1);
+use PHPUnit\Framework\TestCase;
+
+final class SubjectTest extends TestCase
+{
+    public function testErrorReported(): void
+    {
+        // &#x4E3A; Observer &#x7C7B;&#x5EFA;&#x7ACB;&#x4EFF;&#x4EF6;&#xFF0C;&#x6A21;&#x4EFF; reportError() &#x65B9;&#x6CD5;
+        $observer = $this-&gt;createMock(Observer::class);
+
+        $observer-&gt;expects($this-&gt;once())
+                 -&gt;method(&apos;reportError&apos;)
+                 -&gt;with(
+                     $this-&gt;greaterThan(0),
+                     $this-&gt;stringContains(&apos;Something&apos;),
+                     $this-&gt;callback(function($subject)
+                     {
+                         return is_callable([$subject, &apos;getName&apos;]) &amp;&amp;
+                                $subject-&gt;getName() == &apos;My subject&apos;;
+                     }
+                 ));
+
+        $subject = new Subject(&apos;My subject&apos;);
+        $subject-&gt;attach($observer);
+
+        // doSomethingBad() &#x65B9;&#x6CD5;&#x5E94;&#x5F53;&#x4F1A;&#x901A;&#x8FC7; 
+        // reportError() &#x65B9;&#x6CD5;&#x5411; observer &#x62A5;&#x544A;&#x9519;&#x8BEF;&#x3002;
+        $subject-&gt;doSomethingBad();
+    }
+}
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>?php</span> <span class="token attr-name">declare(strict_types</span><span class="token attr-value"><span class="token punctuation">=</span>1);</span>
+<span class="token attr-name">use</span> <span class="token attr-name">PHPUnit\Framework\TestCase;</span>
+
+<span class="token attr-name">final</span> <span class="token attr-name">class</span> <span class="token attr-name">FooTest</span> <span class="token attr-name">extends</span> <span class="token attr-name">TestCase</span>
+<span class="token attr-name">{</span>
+    <span class="token attr-name">public</span> <span class="token attr-name">function</span> <span class="token attr-name"><span class="token namespace">testIdenticalObjectPassed():</span></span> <span class="token attr-name">void</span>
+    <span class="token attr-name">{</span>
+        <span class="token attr-name">$expectedObject</span> <span class="token attr-value"><span class="token punctuation">=</span> new</span> <span class="token attr-name">stdClass;</span>
+
+        <span class="token attr-name">$mock</span> <span class="token attr-value"><span class="token punctuation">=</span> $this-</span><span class="token punctuation">&gt;</span></span>getMockBuilder(stdClass::class)
+                     -&gt;setMethods([&apos;foo&apos;])
+                     -&gt;getMock();
+
+        $mock-&gt;expects($this-&gt;once())
+             -&gt;method(&apos;foo&apos;)
+             -&gt;with($this-&gt;identicalTo($expectedObject));
+
+        $mock-&gt;foo($expectedObject);
+    }
+}
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>?php</span> <span class="token attr-name">declare(strict_types</span><span class="token attr-value"><span class="token punctuation">=</span>1);</span>
+<span class="token attr-name">use</span> <span class="token attr-name">PHPUnit\Framework\TestCase;</span>
+
+<span class="token attr-name">final</span> <span class="token attr-name">class</span> <span class="token attr-name">FooTest</span> <span class="token attr-name">extends</span> <span class="token attr-name">TestCase</span>
+<span class="token attr-name">{</span>
+    <span class="token attr-name">public</span> <span class="token attr-name">function</span> <span class="token attr-name"><span class="token namespace">testIdenticalObjectPassed():</span></span> <span class="token attr-name">void</span>
+    <span class="token attr-name">{</span>
+        <span class="token attr-name">$cloneArguments</span> <span class="token attr-value"><span class="token punctuation">=</span> true;</span>
+
+        <span class="token attr-name">$mock</span> <span class="token attr-value"><span class="token punctuation">=</span> $this-</span><span class="token punctuation">&gt;</span></span>getMockBuilder(stdClass::class)
+                     -&gt;enableArgumentCloning()
+                     -&gt;getMock();
+
+        // &#x73B0;&#x5728;&#x4EFF;&#x4EF6;&#x4F1A;&#x514B;&#x9686;&#x53C2;&#x6570;&#xFF0C;&#x56E0;&#x6B64; identicalTo &#x7EA6;&#x675F;&#x4F1A;&#x5931;&#x8D25;&#x3002;
+    }
+}
+</code></pre><p><code>appendixes.assertions.assertThat.tables.constraints</code>&#x4E2D;&#x5217;&#x51FA;&#x4E86;&#x53EF;&#x4EE5;&#x5E94;&#x7528;&#x4E8E;&#x65B9;&#x6CD5;&#x53C2;&#x6570;&#x7684;&#x5404;&#x79CD;&#x7EA6;&#x675F;&#xFF0C;<code>test-doubles.mock-objects.tables.matchers</code>
+&#x4E2D;&#x5217;&#x51FA;&#x4E86;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x8C03;&#x7528;&#x6B21;&#x6570;&#x7684;&#x5404;&#x79CD;&#x5339;&#x914D;&#x5668;&#x3002;</p>
+<p>table</p>
+<table>
+<caption>&#x5339;&#x914D;&#x5668;</caption>
+<thead>
+<tr class="header">
+<th>&#x5339;&#x914D;&#x5668;</th>
+<th>&#x542B;&#x4E49;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>PHPUnit\Framework\MockObject\Matcher\AnyInvokedCount any()</code></td>
+<td>&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5339;&#x914D;&#x5668;&#xFF0C;&#x5F53;&#x88AB;&#x8BC4;&#x5B9A;&#x7684;&#x65B9;&#x6CD5;&#x6267;&#x884C;0&#x6B21;&#x6216;&#x66F4;&#x591A;&#x6B21;&#xFF08;&#x5373;&#x4EFB;&#x610F;&#x6B21;&#x6570;&#xFF09;&#x65F6;&#x5339;&#x914D;&#x6210;&#x529F;&#x3002;</td>
+</tr>
+<tr class="even">
+<td><code>PHPUnit\Framework\MockObject\Matcher\InvokedCount never()</code></td>
+<td>&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5339;&#x914D;&#x5668;&#xFF0C;&#x5F53;&#x88AB;&#x8BC4;&#x5B9A;&#x7684;&#x65B9;&#x6CD5;&#x4ECE;&#x672A;&#x6267;&#x884C;&#x65F6;&#x5339;&#x914D;&#x6210;&#x529F;&#x3002;</td>
+</tr>
+<tr class="odd">
+<td><code>PHPUnit\Framework\MockObject\Matcher\InvokedAtLeastOnce atLeastOnce()</code></td>
+<td>&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5339;&#x914D;&#x5668;&#xFF0C;&#x5F53;&#x88AB;&#x8BC4;&#x5B9A;&#x7684;&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x81F3;&#x5C11;&#x4E00;&#x6B21;&#x65F6;&#x5339;&#x914D;&#x6210;&#x529F;&#x3002;</td>
+</tr>
+<tr class="even">
+<td><code>PHPUnit\Framework\MockObject\Matcher\InvokedCount once()</code></td>
+<td>&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5339;&#x914D;&#x5668;&#xFF0C;&#x5F53;&#x88AB;&#x8BC4;&#x5B9A;&#x7684;&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x6070;&#x597D;&#x4E00;&#x6B21;&#x65F6;&#x5339;&#x914D;&#x6210;&#x529F;&#x3002;</td>
+</tr>
+<tr class="odd">
+<td><code>PHPUnit\Framework\MockObject\Matcher\InvokedCount exactly(int $count)</code></td>
+<td>&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5339;&#x914D;&#x5668;&#xFF0C;&#x5F53;&#x88AB;&#x8BC4;&#x5B9A;&#x7684;&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x6070;&#x597D; <code>$count</code> &#x6B21;&#x65F6;&#x5339;&#x914D;&#x6210;&#x529F;&#x3002;</td>
+</tr>
+<tr class="even">
+<td><code>PHPUnit\Framework\MockObject\Matcher\InvokedAtIndex at(int $index)</code></td>
+<td>&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5339;&#x914D;&#x5668;&#xFF0C;&#x5F53;&#x88AB;&#x8BC4;&#x5B9A;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x7B2C; <code>$index</code> &#x4E2A;&#x6267;&#x884C;&#x7684;&#x65B9;&#x6CD5;&#x65F6;&#x5339;&#x914D;&#x6210;&#x529F;&#x3002;</td>
+</tr>
+</tbody>
+</table>
+
+<p>&#x6CE8;</p>
+<p><code>at()</code> &#x5339;&#x914D;&#x5668;&#x7684; <code>$index</code>
+&#x53C2;&#x6570;&#x6307;&#x7684;&#x662F;&#x5BF9;&#x7ED9;&#x5B9A;&#x4EFF;&#x4EF6;&#x5BF9;&#x8C61;&#x7684;<em>&#x6240;&#x6709;&#x65B9;&#x6CD5;&#x7684;&#x8C03;&#x7528;</em>&#x7684;&#x7D22;&#x5F15;&#xFF0C;&#x4ECE;&#x96F6;&#x5F00;&#x59CB;&#x3002;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x5339;&#x914D;&#x5668;&#x8981;&#x8C28;&#x614E;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x6D4B;&#x8BD5;&#x7531;&#x4E8E;&#x4E0E;&#x5177;&#x4F53;&#x7684;&#x5B9E;&#x73B0;&#x7EC6;&#x8282;&#x8FC7;&#x5206;&#x7D27;&#x5BC6;&#x7ED1;&#x5B9A;&#x800C;&#x53D8;&#x5F97;&#x8106;&#x5F31;&#x3002;</p>
+<p>&#x5982;&#x4E00;&#x5F00;&#x59CB;&#x63D0;&#x5230;&#x7684;&#xFF0C;&#x5982;&#x679C; <code>createStub()</code> &#x548C; <code>createMock()</code>
+&#x65B9;&#x6CD5;&#x5728;&#x751F;&#x6210;&#x6D4B;&#x8BD5;&#x66FF;&#x8EAB;&#x65F6;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#x4E0D;&#x7B26;&#x5408;&#x4F60;&#x7684;&#x8981;&#x6C42;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;
+<code>getMockBuilder($type)</code>
+&#x65B9;&#x6CD5;&#x6765;&#x7528;&#x6D41;&#x7545;&#x5F0F;&#x63A5;&#x53E3;&#x5B9A;&#x5236;&#x6D4B;&#x8BD5;&#x66FF;&#x8EAB;&#x7684;&#x751F;&#x6210;&#x8FC7;&#x7A0B;&#x3002;&#x4EE5;&#x4E0B;&#x662F;&#x4EFF;&#x4EF6;&#x751F;&#x6210;&#x5668;&#x6240;&#x63D0;&#x4F9B;&#x7684;&#x65B9;&#x6CD5;&#x5217;&#x8868;&#xFF1A;</p>
+<ul>
+<li><p><code>setMethods(array $methods)</code></p>
+<blockquote>
+<p>&#x53EF;&#x4EE5;&#x5728;&#x4EFF;&#x4EF6;&#x751F;&#x6210;&#x5668;&#x5BF9;&#x8C61;&#x4E0A;&#x8C03;&#x7528;&#xFF0C;&#x6765;&#x6307;&#x5B9A;&#x54EA;&#x4E9B;&#x65B9;&#x6CD5;&#x5C06;&#x88AB;&#x66FF;&#x6362;&#x4E3A;&#x53EF;&#x914D;&#x7F6E;&#x7684;&#x6D4B;&#x8BD5;&#x66FF;&#x8EAB;&#x3002;&#x5176;&#x4ED6;&#x65B9;&#x6CD5;&#x7684;&#x884C;&#x4E3A;&#x4E0D;&#x4F1A;&#x6709;&#x6240;&#x6539;&#x53D8;&#x3002;&#x5982;&#x679C;&#x8C03;&#x7528;
+<code>setMethods(null)</code>&#xFF0C;&#x90A3;&#x4E48;&#x6CA1;&#x6709;&#x65B9;&#x6CD5;&#x4F1A;&#x88AB;&#x66FF;&#x6362;&#x3002;</p>
+</blockquote>
+</li>
+<li><p>&#x53EF;&#x4EE5;&#x5728;&#x4EFF;&#x4EF6;&#x751F;&#x6210;&#x5668;&#x5BF9;&#x8C61;&#x4E0A;&#x8C03;&#x7528; <code>setMethodsExcept(array $methods)</code></p>
+<blockquote>
+<p>&#x6765;&#x6307;&#x5B9A;&#x54EA;&#x4E9B;&#x65B9;&#x6CD5;&#x4E0D;&#x88AB;&#x66FF;&#x6362;&#x4E3A;&#x53EF;&#x914D;&#x7F6E;&#x7684;&#x6D4B;&#x8BD5;&#x66FF;&#x8EAB;&#xFF0C;&#x4E0E;&#x6B64;&#x540C;&#x65F6;&#x6240;&#x6709;&#x5176;&#x4ED6; public
+&#x65B9;&#x6CD5;&#x90FD;&#x4F1A;&#x88AB;&#x66FF;&#x6362;&#x3002;<code>setMethods()</code> &#x7684;&#x4F5C;&#x7528;&#x5219;&#x76F8;&#x53CD;&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>setConstructorArgs(array $args)</code></p>
+<blockquote>
+<p>&#x53EF;&#x7528;&#x4E8E;&#x5411;&#x539F;&#x7248;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF08;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x4E0D;&#x4F1A;&#x88AB;&#x66FF;&#x6362;&#x4E3A;&#x4F2A;&#x5B9E;&#x73B0;&#xFF09;&#x63D0;&#x4F9B;&#x53C2;&#x6570;&#x6570;&#x7EC4;&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>setMockClassName($name)</code> &#x53EF;&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x751F;&#x6210;&#x7684;&#x6D4B;&#x8BD5;&#x66FF;&#x8EAB;&#x7C7B;&#x7684;&#x7C7B;&#x540D;&#x3002;</p>
+</li>
+<li><p><code>disableOriginalConstructor()</code></p>
+<blockquote>
+<p>&#x53C2;&#x6570;&#x53EF;&#x7528;&#x4E8E;&#x7981;&#x7528;&#x5BF9;&#x539F;&#x7248;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x7684;&#x8C03;&#x7528;&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>disableOriginalClone()</code> &#x53EF;&#x7528;&#x4E8E;&#x7981;&#x7528;&#x5BF9;&#x539F;&#x7248;&#x7C7B;&#x7684;&#x514B;&#x9686;&#x65B9;&#x6CD5;&#x7684;&#x8C03;&#x7528;&#x3002;</p>
+</li>
+<li><p><code>disableAutoload()</code> &#x53EF;&#x7528;&#x4E8E;&#x5728;&#x6D4B;&#x8BD5;&#x66FF;&#x8EAB;&#x7C7B;&#x7684;&#x751F;&#x6210;&#x671F;&#x95F4;&#x7981;&#x7528;</p>
+<blockquote>
+<p><code>__autoload()</code>&#x3002;</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="&#x5BF9;&#x7279;&#x8D28;&#xFF08;trait&#xFF09;&#x4E0E;&#x62BD;&#x8C61;&#x7C7B;&#x8FDB;&#x884C;&#x6A21;&#x4EFF;">&#x5BF9;&#x7279;&#x8D28;&#xFF08;Trait&#xFF09;&#x4E0E;&#x62BD;&#x8C61;&#x7C7B;&#x8FDB;&#x884C;&#x6A21;&#x4EFF;</h2>
+<p><code>getMockForTrait()</code>
+&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;&#x4E86;&#x7279;&#x5B9A;&#x7279;&#x8D28;&#xFF08;trait&#xFF09;&#x7684;&#x4EFF;&#x4EF6;&#x5BF9;&#x8C61;&#x3002;&#x7ED9;&#x5B9A;&#x7279;&#x8D28;&#x7684;&#x6240;&#x6709;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#x5C06;&#x90FD;&#x88AB;&#x6A21;&#x4EFF;&#x3002;&#x8FD9;&#x6837;&#x5C31;&#x80FD;&#x5BF9;&#x7279;&#x8D28;&#x7684;&#x5177;&#x4F53;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;&#x3002;</p>
+<pre class="language-"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>?php</span> <span class="token attr-name">declare(strict_types</span><span class="token attr-value"><span class="token punctuation">=</span>1);</span>
+<span class="token attr-name">use</span> <span class="token attr-name">PHPUnit\Framework\TestCase;</span>
+
+<span class="token attr-name">trait</span> <span class="token attr-name">AbstractTrait</span>
+<span class="token attr-name">{</span>
+    <span class="token attr-name">public</span> <span class="token attr-name">function</span> <span class="token attr-name">concreteMethod()</span>
+    <span class="token attr-name">{</span>
+        <span class="token attr-name">return</span> <span class="token attr-name">$this-</span><span class="token punctuation">&gt;</span></span>abstractMethod();
+    }
+
+    public abstract function abstractMethod();
+}
+
+final class TraitClassTest extends TestCase
+{
+    public function testConcreteMethod(): void
+    {
+        $mock = $this-&gt;getMockForTrait(AbstractTrait::class);
+
+        $mock-&gt;expects($this-&gt;any())
+             -&gt;method(&apos;abstractMethod&apos;)
+             -&gt;will($this-&gt;returnValue(true));
+
+        $this-&gt;assertTrue($mock-&gt;concreteMethod());
+    }
+}
+</code></pre><p><code>getMockForAbstractClass()</code>
+&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x7C7B;&#x7684;&#x4EFF;&#x4EF6;&#x5BF9;&#x8C61;&#x3002;&#x7ED9;&#x5B9A;&#x62BD;&#x8C61;&#x7C7B;&#x7684;&#x6240;&#x6709;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#x5C06;&#x90FD;&#x88AB;&#x6A21;&#x4EFF;&#x3002;&#x8FD9;&#x6837;&#x5C31;&#x80FD;&#x5BF9;&#x62BD;&#x8C61;&#x7C7B;&#x7684;&#x5177;&#x4F53;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;&#x3002;</p>
+<pre class="language-"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>?php</span> <span class="token attr-name">declare(strict_types</span><span class="token attr-value"><span class="token punctuation">=</span>1);</span>
+<span class="token attr-name">use</span> <span class="token attr-name">PHPUnit\Framework\TestCase;</span>
+
+<span class="token attr-name">abstract</span> <span class="token attr-name">class</span> <span class="token attr-name">AbstractClass</span>
+<span class="token attr-name">{</span>
+    <span class="token attr-name">public</span> <span class="token attr-name">function</span> <span class="token attr-name">concreteMethod()</span>
+    <span class="token attr-name">{</span>
+        <span class="token attr-name">return</span> <span class="token attr-name">$this-</span><span class="token punctuation">&gt;</span></span>abstractMethod();
+    }
+
+    public abstract function abstractMethod();
+}
+
+final class AbstractClassTest extends TestCase
+{
+    public function testConcreteMethod(): void
+    {
+        $stub = $this-&gt;getMockForAbstractClass(AbstractClass::class);
+
+        $stub-&gt;expects($this-&gt;any())
+             -&gt;method(&apos;abstractMethod&apos;)
+             -&gt;will($this-&gt;returnValue(true));
+
+        $this-&gt;assertTrue($stub-&gt;concreteMethod());
+    }
+}
+</code></pre><h2 id="&#x5BF9;-web-&#x670D;&#x52A1;&#xFF08;web-services&#xFF09;&#x8FDB;&#x884C;&#x4E0A;&#x6869;&#x6216;&#x6A21;&#x4EFF;">&#x5BF9; Web &#x670D;&#x52A1;&#xFF08;Web Services&#xFF09;&#x8FDB;&#x884C;&#x4E0A;&#x6869;&#x6216;&#x6A21;&#x4EFF;</h2>
+<p>&#x5F53;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x9700;&#x8981;&#x548C; web &#x670D;&#x52A1;&#x8FDB;&#x884C;&#x4EA4;&#x4E92;&#x65F6;&#xFF0C;&#x4F1A;&#x60F3;&#x8981;&#x5728;&#x4E0D;&#x4E0E; web
+&#x670D;&#x52A1;&#x8FDB;&#x884C;&#x5B9E;&#x9645;&#x4EA4;&#x4E92;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;&#x3002;&#x4E3A;&#x4E86;&#x7ED9; web
+&#x670D;&#x52A1;&#x521B;&#x5EFA;&#x6869;&#x4EF6;&#x6216;&#x4EFF;&#x4EF6;&#xFF0C;&#x53EF;&#x4EE5;&#x50CF;&#x4F7F;&#x7528; <code>getMock()</code>&#xFF08;&#x89C1;&#x4E0A;&#x6587;&#xFF09;&#x90A3;&#x6837;&#x4F7F;&#x7528;
+<code>getMockFromWsdl()</code>&#x3002;&#x552F;&#x4E00;&#x7684;&#x533A;&#x522B;&#x662F; <code>getMockFromWsdl()</code>
+&#x6240;&#x8FD4;&#x56DE;&#x7684;&#x6869;&#x4EF6;&#x6216;&#x8005;&#x4EFF;&#x4EF6;&#x662F;&#x57FA;&#x4E8E;&#x4EE5; WSDL &#x63CF;&#x8FF0;&#x7684; web &#x670D;&#x52A1;&#xFF0C;&#x800C; <code>getMock()</code>
+&#x8FD4;&#x56DE;&#x7684;&#x6869;&#x4EF6;&#x6216;&#x8005;&#x4EFF;&#x4EF6;&#x662F;&#x57FA;&#x4E8E; PHP &#x7C7B;&#x6216;&#x63A5;&#x53E3;&#x7684;&#x3002;</p>
+<p><code>test-doubles.stubbing-and-mocking-web-services.examples.GoogleTest.php</code>
+&#x5C55;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x7528; <code>getMockFromWsdl()</code> &#x6765;&#x5BF9;&#xFF08;&#x4F8B;&#x5982;&#xFF09;<code>GoogleSearch.wsdl</code>
+&#x4E2D;&#x63CF;&#x8FF0;&#x7684; web &#x670D;&#x52A1;&#x4E0A;&#x6869;&#x3002;</p>
+<pre class="language-"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>?php</span> <span class="token attr-name">declare(strict_types</span><span class="token attr-value"><span class="token punctuation">=</span>1);</span>
+<span class="token attr-name">use</span> <span class="token attr-name">PHPUnit\Framework\TestCase;</span>
+
+<span class="token attr-name">final</span> <span class="token attr-name">class</span> <span class="token attr-name">GoogleTest</span> <span class="token attr-name">extends</span> <span class="token attr-name">TestCase</span>
+<span class="token attr-name">{</span>
+    <span class="token attr-name">public</span> <span class="token attr-name">function</span> <span class="token attr-name"><span class="token namespace">testSearch():</span></span> <span class="token attr-name">void</span>
+    <span class="token attr-name">{</span>
+        <span class="token attr-name">$googleSearch</span> <span class="token attr-value"><span class="token punctuation">=</span> $this-</span><span class="token punctuation">&gt;</span></span>getMockFromWsdl(
+          &apos;GoogleSearch.wsdl&apos;, &apos;GoogleSearch&apos;
+        );
+
+        $directoryCategory = new stdClass;
+        $directoryCategory-&gt;fullViewableName = &apos;&apos;;
+        $directoryCategory-&gt;specialEncoding = &apos;&apos;;
+
+        $element = new stdClass;
+        $element-&gt;summary = &apos;&apos;;
+        $element-&gt;URL = &apos;https://phpunit.de/&apos;;
+        $element-&gt;snippet = &apos;...&apos;;
+        $element-&gt;title = &apos;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>b</span><span class="token punctuation">&gt;</span></span>PHPUnit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>b</span><span class="token punctuation">&gt;</span></span>&apos;;
+        $element-&gt;cachedSize = &apos;11k&apos;;
+        $element-&gt;relatedInformationPresent = true;
+        $element-&gt;hostName = &apos;phpunit.de&apos;;
+        $element-&gt;directoryCategory = $directoryCategory;
+        $element-&gt;directoryTitle = &apos;&apos;;
+
+        $result = new stdClass;
+        $result-&gt;documentFiltering = false;
+        $result-&gt;searchComments = &apos;&apos;;
+        $result-&gt;estimatedTotalResultsCount = 3.9000;
+        $result-&gt;estimateIsExact = false;
+        $result-&gt;resultElements = [$element];
+        $result-&gt;searchQuery = &apos;PHPUnit&apos;;
+        $result-&gt;startIndex = 1;
+        $result-&gt;endIndex = 1;
+        $result-&gt;searchTips = &apos;&apos;;
+        $result-&gt;directoryCategories = [];
+        $result-&gt;searchTime = 0.248822;
+
+        $googleSearch-&gt;expects($this-&gt;any())
+                     -&gt;method(&apos;doGoogleSearch&apos;)
+                     -&gt;will($this-&gt;returnValue($result));
+
+        /**
+         * $googleSearch-&gt;doGoogleSearch() &#x73B0;&#x5728;&#x4F1A;&#x8FD4;&#x56DE;&#x6869;&#x7ED3;&#x679C;&#xFF0C;
+         * &#x5E76;&#x4E0D;&#x4F1A;&#x8C03;&#x7528; web &#x670D;&#x52A1;&#x7684; doGoogleSearch() &#x65B9;&#x6CD5;&#x3002;
+         */
+        $this-&gt;assertEquals(
+          $result,
+          $googleSearch-&gt;doGoogleSearch(
+            &apos;00000000000000000000000000000000&apos;,
+            &apos;PHPUnit&apos;,
+            0,
+            1,
+            false,
+            &apos;&apos;,
+            false,
+            &apos;&apos;,
+            &apos;&apos;,
+            &apos;&apos;
+          )
+        );
+    }
+}
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="risky-tests.html" class="navigation navigation-prev " aria-label="Previous page: Risky Tests">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="textui.html" class="navigation navigation-next " aria-label="Next page: Textui">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Test Doubles","level":"1.14","depth":1,"next":{"title":"Textui","level":"1.15","depth":1,"path":"textui.md","ref":"textui.md","articles":[]},"previous":{"title":"Risky Tests","level":"1.13","depth":1,"path":"risky-tests.md","ref":"risky-tests.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-highlight","-livereload","prism"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-solarizedlight.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"PHPUnit 中文文档","language":"zh-hans","links":{"sidebar":{"Home":"https://docs.khs1994.com"}},"gitbook":"*"},"file":{"path":"test-doubles.md","mtime":"2021-03-21T00:47:07.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-21T00:47:52.261Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

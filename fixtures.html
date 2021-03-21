@@ -1,0 +1,667 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Fixtures · PHPUnit 中文文档</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="incomplete-and-skipped-tests.html" />
+    
+    
+    <link rel="prev" href="extending-phpunit.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://docs.khs1994.com" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="annotations.html">
+            
+                <a href="annotations.html">
+            
+                    
+                    Annotations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="assertions.html">
+            
+                <a href="assertions.html">
+            
+                    
+                    Assertions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="bibliography.html">
+            
+                <a href="bibliography.html">
+            
+                    
+                    Bibliography
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="code-coverage-analysis.html">
+            
+                <a href="code-coverage-analysis.html">
+            
+                    
+                    Code Coverage Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="configuration.html">
+            
+                <a href="configuration.html">
+            
+                    
+                    Configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="copyright.html">
+            
+                <a href="copyright.html">
+            
+                    
+                    Copyright
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="extending-phpunit.html">
+            
+                <a href="extending-phpunit.html">
+            
+                    
+                    Extending Phpunit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.9" data-path="fixtures.html">
+            
+                <a href="fixtures.html">
+            
+                    
+                    Fixtures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="incomplete-and-skipped-tests.html">
+            
+                <a href="incomplete-and-skipped-tests.html">
+            
+                    
+                    Incomplete And Skipped Tests
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="installation.html">
+            
+                <a href="installation.html">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="organizing-tests.html">
+            
+                <a href="organizing-tests.html">
+            
+                    
+                    Organizing Tests
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="risky-tests.html">
+            
+                <a href="risky-tests.html">
+            
+                    
+                    Risky Tests
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="test-doubles.html">
+            
+                <a href="test-doubles.html">
+            
+                    
+                    Test Doubles
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="textui.html">
+            
+                <a href="textui.html">
+            
+                    
+                    Textui
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="writing-tests-for-phpunit.html">
+            
+                <a href="writing-tests-for-phpunit.html">
+            
+                    
+                    Writing Tests For Phpunit
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Fixtures</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x57FA;&#x5883;&#xFF08;fixture&#xFF09;">&#x57FA;&#x5883;&#xFF08;fixture&#xFF09;</h1>
+<p>&#x5728;&#x7F16;&#x5199;&#x6D4B;&#x8BD5;&#x65F6;&#xFF0C;&#x6700;&#x8D39;&#x65F6;&#x7684;&#x90E8;&#x5206;&#x4E4B;&#x4E00;&#x662F;&#x7F16;&#x5199;&#x4EE3;&#x7801;&#x6765;&#x5C06;&#x6574;&#x4E2A;&#x573A;&#x666F;&#x8BBE;&#x7F6E;&#x6210;&#x67D0;&#x4E2A;&#x5DF2;&#x77E5;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x5E76;&#x5728;&#x6D4B;&#x8BD5;&#x7ED3;&#x675F;&#x540E;&#x5C06;&#x5176;&#x590D;&#x539F;&#x5230;&#x521D;&#x59CB;&#x72B6;&#x6001;&#x3002;&#x8FD9;&#x4E2A;&#x5DF2;&#x77E5;&#x7684;&#x72B6;&#x6001;&#x79F0;&#x4E3A;&#x6D4B;&#x8BD5;&#x7684;<em>&#x57FA;&#x5883;&#xFF08;fixture&#xFF09;</em>&#x3002;</p>
+<p>&#x5728;<code>writing-tests-for-phpunit.examples.StackTest.php</code>&#x4E2D;&#xFF0C;&#x57FA;&#x5883;&#x5C31;&#x662F;&#x5B58;&#x50A8;&#x5728;
+<code>$stack</code>
+&#x53D8;&#x91CF;&#x4E2D;&#x7684;&#x6570;&#x7EC4;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x7EDD;&#x5927;&#x591A;&#x6570;&#x65F6;&#x5019;&#x57FA;&#x5883;&#x5747;&#x8FDC;&#x6BD4;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x6570;&#x7EC4;&#x8981;&#x590D;&#x6742;&#xFF0C;&#x7528;&#x4E8E;&#x5EFA;&#x7ACB;&#x57FA;&#x5883;&#x7684;&#x4EE3;&#x7801;&#x91CF;&#x4E5F;&#x4F1A;&#x968F;&#x4E4B;&#x589E;&#x957F;&#x3002;&#x6D4B;&#x8BD5;&#x7684;&#x771F;&#x6B63;&#x5185;&#x5BB9;&#x5C31;&#x88AB;&#x6DF9;&#x6CA1;&#x4E8E;&#x5EFA;&#x7ACB;&#x57FA;&#x5883;&#x5E26;&#x6765;&#x7684;&#x5E72;&#x6270;&#x4E2D;&#x3002;&#x5F53;&#x7F16;&#x5199;&#x591A;&#x4E2A;&#x9700;&#x8981;&#x7C7B;&#x4F3C;&#x57FA;&#x5883;&#x7684;&#x6D4B;&#x8BD5;&#x65F6;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x5C31;&#x53D8;&#x5F97;&#x66F4;&#x7CDF;&#x7CD5;&#x4E86;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6765;&#x81EA;&#x4E8E;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;&#x7684;&#x5E2E;&#x52A9;&#xFF0C;&#x5C31;&#x4E0D;&#x5F97;&#x4E0D;&#x5728;&#x5199;&#x6BCF;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x65F6;&#x90FD;&#x5C06;&#x5EFA;&#x7ACB;&#x57FA;&#x5883;&#x7684;&#x4EE3;&#x7801;&#x91CD;&#x590D;&#x4E00;&#x6B21;&#x3002;</p>
+<p>PHPUnit &#x652F;&#x6301;&#x5171;&#x4EAB;&#x5EFA;&#x7ACB;&#x57FA;&#x5883;&#x7684;&#x4EE3;&#x7801;&#x3002;&#x5728;&#x8FD0;&#x884C;&#x67D0;&#x4E2A;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;&#x524D;&#xFF0C;&#x4F1A;&#x8C03;&#x7528;&#x4E00;&#x4E2A;&#x540D;&#x53EB;
+<code>setUp()</code> &#x7684;&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#x3002;<code>setUp()</code>
+&#x662F;&#x521B;&#x5EFA;&#x6D4B;&#x8BD5;&#x6240;&#x7528;&#x5BF9;&#x8C61;&#x7684;&#x5730;&#x65B9;&#x3002;&#x5F53;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;&#x8FD0;&#x884C;&#x7ED3;&#x675F;&#x540E;&#xFF0C;&#x4E0D;&#x7BA1;&#x662F;&#x6210;&#x529F;&#x8FD8;&#x662F;&#x5931;&#x8D25;&#xFF0C;&#x90FD;&#x4F1A;&#x8C03;&#x7528;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x540D;&#x53EB;
+<code>tearDown()</code> &#x7684;&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#x3002;<code>tearDown()</code> &#x662F;&#x6E05;&#x7406;&#x6D4B;&#x8BD5;&#x6240;&#x7528;&#x5BF9;&#x8C61;&#x7684;&#x5730;&#x65B9;&#x3002;</p>
+<p>&#x5728;<code>writing-tests-for-phpunit.examples.StackTest2.php</code>&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x6D4B;&#x8BD5;&#x4E4B;&#x95F4;&#x8FD0;&#x7528;&#x751F;&#x4EA7;&#x8005;-&#x6D88;&#x8D39;&#x8005;&#x5173;&#x7CFB;&#x6765;&#x5171;&#x4EAB;&#x57FA;&#x5883;&#x3002;&#x8FD9;&#x5E76;&#x975E;&#x603B;&#x662F;&#x9884;&#x671F;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x751A;&#x81F3;&#x6709;&#x65F6;&#x662F;&#x4E0D;&#x53EF;&#x80FD;&#x7684;&#x3002;<code>fixtures.examples.StackTest.php</code>
+&#x5C55;&#x793A;&#x4E86;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x7F16;&#x5199;&#x6D4B;&#x8BD5; <code>StackTest</code>
+&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x5728;&#x8FD9;&#x4E2A;&#x65B9;&#x5F0F;&#x4E2D;&#xFF0C;&#x4E0D;&#x518D;&#x91CD;&#x7528;&#x57FA;&#x5883;&#x672C;&#x8EAB;&#xFF0C;&#x800C;&#x662F;&#x91CD;&#x7528;&#x5EFA;&#x7ACB;&#x57FA;&#x5883;&#x7684;&#x4EE3;&#x7801;&#x3002;&#x9996;&#x5148;&#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x53D8;&#x91CF;&#xFF0C;<code>$stack</code>&#xFF0C;&#x7528;&#x6765;&#x66FF;&#x4EE3;&#x65B9;&#x6CD5;&#x5185;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x3002;&#x7136;&#x540E;&#x628A;
+<code>array</code> &#x57FA;&#x5883;&#x7684;&#x5EFA;&#x7ACB;&#x653E;&#x5230; <code>setUp()</code>
+&#x65B9;&#x6CD5;&#x4E2D;&#x3002;&#x6700;&#x540E;&#xFF0C;&#x4ECE;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;&#x4E2D;&#x53BB;&#x9664;&#x5197;&#x4F59;&#x4EE3;&#x7801;&#xFF0C;&#x5728; <code>assertSame()</code>
+&#x65AD;&#x8A00;&#x65B9;&#x6CD5;&#x4E2D;&#x4F7F;&#x7528;&#x65B0;&#x5F15;&#x5165;&#x7684;&#x5B9E;&#x4F8B;&#x53D8;&#x91CF; <code>$this-&gt;stack</code> &#x66FF;&#x4EE3;&#x65B9;&#x6CD5;&#x5185;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;
+<code>$stack</code>&#x3002;</p>
+<pre class="language-"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>?php</span> <span class="token attr-name">declare(strict_types</span><span class="token attr-value"><span class="token punctuation">=</span>1);</span>
+<span class="token attr-name">use</span> <span class="token attr-name">PHPUnit\Framework\TestCase;</span>
+
+<span class="token attr-name">final</span> <span class="token attr-name">class</span> <span class="token attr-name">StackTest</span> <span class="token attr-name">extends</span> <span class="token attr-name">TestCase</span>
+<span class="token attr-name">{</span>
+    <span class="token attr-name">private</span> <span class="token attr-name">$stack;</span>
+
+    <span class="token attr-name">protected</span> <span class="token attr-name">function</span> <span class="token attr-name"><span class="token namespace">setUp():</span></span> <span class="token attr-name">void</span>
+    <span class="token attr-name">{</span>
+        <span class="token attr-name">$this-</span><span class="token punctuation">&gt;</span></span>stack = [];
+    }
+
+    public function testEmpty(): void
+    {
+        $this-&gt;assertTrue(empty($this-&gt;stack));
+    }
+
+    public function testPush(): void
+    {
+        array_push($this-&gt;stack, &apos;foo&apos;);
+
+        $this-&gt;assertSame(&apos;foo&apos;, $this-&gt;stack[count($this-&gt;stack)-1]);
+        $this-&gt;assertFalse(empty($this-&gt;stack));
+    }
+
+    public function testPop(): void
+    {
+        array_push($this-&gt;stack, &apos;foo&apos;);
+
+        $this-&gt;assertSame(&apos;foo&apos;, array_pop($this-&gt;stack));
+        $this-&gt;assertTrue(empty($this-&gt;stack));
+    }
+}
+</code></pre><p>&#x6D4B;&#x8BD5;&#x7C7B;&#x7684;&#x6BCF;&#x4E2A;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;&#x90FD;&#x4F1A;&#x8FD0;&#x884C;&#x4E00;&#x6B21; <code>setUp()</code> &#x548C; <code>tearDown()</code>
+&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#xFF08;&#x540C;&#x65F6;&#xFF0C;&#x6BCF;&#x4E2A;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;&#x90FD;&#x662F;&#x5728;&#x4E00;&#x4E2A;&#x5168;&#x65B0;&#x7684;&#x6D4B;&#x8BD5;&#x7C7B;&#x5B9E;&#x4F8B;&#x4E0A;&#x8FD0;&#x884C;&#x7684;&#xFF09;&#x3002;</p>
+<p>&#x53E6;&#x5916;&#xFF0C;<code>setUpBeforeClass()</code> &#x4E0E; <code>tearDownAfterClass()</code>
+&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#x5C06;&#x5206;&#x522B;&#x5728;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x7C7B;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x8FD0;&#x884C;&#x4E4B;&#x524D;&#x548C;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x7C7B;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x8FD0;&#x884C;&#x4E4B;&#x540E;&#x8C03;&#x7528;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#x5C55;&#x793A;&#x4E86;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x7C7B;&#x4E2D;&#x6240;&#x6709;&#x53EF;&#x7528;&#x7684;&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#x3002;</p>
+<pre class="language-"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>?php</span> <span class="token attr-name">declare(strict_types</span><span class="token attr-value"><span class="token punctuation">=</span>1);</span>
+<span class="token attr-name">use</span> <span class="token attr-name">PHPUnit\Framework\TestCase;</span>
+
+<span class="token attr-name">final</span> <span class="token attr-name">class</span> <span class="token attr-name">TemplateMethodsTest</span> <span class="token attr-name">extends</span> <span class="token attr-name">TestCase</span>
+<span class="token attr-name">{</span>
+    <span class="token attr-name">public</span> <span class="token attr-name">static</span> <span class="token attr-name">function</span> <span class="token attr-name"><span class="token namespace">setUpBeforeClass():</span></span> <span class="token attr-name">void</span>
+    <span class="token attr-name">{</span>
+        <span class="token attr-name">fwrite(STDOUT,</span> <span class="token attr-name">__METHOD__</span> <span class="token attr-name">.</span> <span class="token attr-name">&quot;\n&quot;);</span>
+    <span class="token attr-name">}</span>
+
+    <span class="token attr-name">protected</span> <span class="token attr-name">function</span> <span class="token attr-name"><span class="token namespace">setUp():</span></span> <span class="token attr-name">void</span>
+    <span class="token attr-name">{</span>
+        <span class="token attr-name">fwrite(STDOUT,</span> <span class="token attr-name">__METHOD__</span> <span class="token attr-name">.</span> <span class="token attr-name">&quot;\n&quot;);</span>
+    <span class="token attr-name">}</span>
+
+    <span class="token attr-name">protected</span> <span class="token attr-name">function</span> <span class="token attr-name"><span class="token namespace">assertPreConditions():</span></span> <span class="token attr-name">void</span>
+    <span class="token attr-name">{</span>
+        <span class="token attr-name">fwrite(STDOUT,</span> <span class="token attr-name">__METHOD__</span> <span class="token attr-name">.</span> <span class="token attr-name">&quot;\n&quot;);</span>
+    <span class="token attr-name">}</span>
+
+    <span class="token attr-name">public</span> <span class="token attr-name">function</span> <span class="token attr-name"><span class="token namespace">testOne():</span></span> <span class="token attr-name">void</span>
+    <span class="token attr-name">{</span>
+        <span class="token attr-name">fwrite(STDOUT,</span> <span class="token attr-name">__METHOD__</span> <span class="token attr-name">.</span> <span class="token attr-name">&quot;\n&quot;);</span>
+        <span class="token attr-name">$this-</span><span class="token punctuation">&gt;</span></span>assertTrue(true);
+    }
+
+    public function testTwo(): void
+    {
+        fwrite(STDOUT, __METHOD__ . &quot;\n&quot;);
+        $this-&gt;assertTrue(false);
+    }
+
+    protected function assertPostConditions(): void
+    {
+        fwrite(STDOUT, __METHOD__ . &quot;\n&quot;);
+    }
+
+    protected function tearDown(): void
+    {
+        fwrite(STDOUT, __METHOD__ . &quot;\n&quot;);
+    }
+
+    public static function tearDownAfterClass(): void
+    {
+        fwrite(STDOUT, __METHOD__ . &quot;\n&quot;);
+    }
+
+    protected function onNotSuccessfulTest(Throwable $t): void
+    {
+        fwrite(STDOUT, __METHOD__ . &quot;\n&quot;);
+        throw $t;
+    }
+}
+</code></pre><p>$ phpunit TemplateMethodsTest PHPUnit .0 by Sebastian Bergmann and
+contributors.</p>
+<p>TemplateMethodsTest::setUpBeforeClass TemplateMethodsTest::setUp
+TemplateMethodsTest::assertPreConditions TemplateMethodsTest::testOne
+TemplateMethodsTest::assertPostConditions TemplateMethodsTest::tearDown
+.TemplateMethodsTest::setUp TemplateMethodsTest::assertPreConditions
+TemplateMethodsTest::testTwo TemplateMethodsTest::tearDown
+TemplateMethodsTest::onNotSuccessfulTest
+FTemplateMethodsTest::tearDownAfterClass</p>
+<p>Time: 0 seconds, Memory: 5.25Mb</p>
+<p>There was 1 failure:</p>
+<p>1) TemplateMethodsTest::testTwo Failed asserting that
+&lt;boolean:false&gt; is true. /home/sb/TemplateMethodsTest.php:30</p>
+<p>FAILURES! Tests: 2, Assertions: 2, Failures: 1.</p>
+<h2 id="setup-&#x591A;&#x3001;teardown-&#x5C11;">setUp() &#x591A;&#x3001;tearDown() &#x5C11;</h2>
+<p>&#x7406;&#x8BBA;&#x4E0A;&#x8BF4;&#xFF0C;<code>setUp()</code> &#x548C; <code>tearDown()</code>
+&#x662F;&#x7CBE;&#x786E;&#x5BF9;&#x79F0;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x5B9E;&#x8DF5;&#x4E2D;&#x5E76;&#x975E;&#x5982;&#x6B64;&#x3002;&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;&#x53EA;&#x6709;&#x5728; <code>setUp()</code>
+&#x4E2D;&#x5206;&#x914D;&#x4E86;&#x8BF8;&#x5982;&#x6587;&#x4EF6;&#x6216;&#x5957;&#x63A5;&#x5B57;&#x4E4B;&#x7C7B;&#x7684;&#x5916;&#x90E8;&#x8D44;&#x6E90;&#x65F6;&#x624D;&#x9700;&#x8981;&#x5B9E;&#x73B0; <code>tearDown()</code> &#x3002;&#x5982;&#x679C;
+<code>setUp()</code> &#x4E2D;&#x53EA;&#x521B;&#x5EFA;&#x7EAF; PHP &#x5BF9;&#x8C61;&#xFF0C;&#x901A;&#x5E38;&#x53EF;&#x4EE5;&#x7565;&#x8FC7; <code>tearDown()</code>&#x3002;&#x4E0D;&#x8FC7;&#xFF0C;&#x5982;&#x679C;&#x5728;
+<code>setUp()</code> &#x4E2D;&#x521B;&#x5EFA;&#x4E86;&#x5927;&#x91CF;&#x5BF9;&#x8C61;&#xFF0C;&#x4F60;&#x53EF;&#x80FD;&#x60F3;&#x8981;&#x5728; <code>tearDown()</code> &#x4E2D; <code>unset()</code>
+&#x6307;&#x5411;&#x8FD9;&#x4E9B;&#x5BF9;&#x8C61;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x8FD9;&#x6837;&#x5B83;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x88AB;&#x5783;&#x573E;&#x56DE;&#x6536;&#x673A;&#x5236;&#x56DE;&#x6536;&#x6389;&#x3002;&#x5BF9;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x5BF9;&#x8C61;&#x7684;&#x5783;&#x573E;&#x56DE;&#x6536;&#x52A8;&#x4F5C;&#x5219;&#x662F;&#x4E0D;&#x53EF;&#x9884;&#x77E5;&#x7684;&#x3002;</p>
+<h2 id="&#x53D8;&#x4F53;">&#x53D8;&#x4F53;</h2>
+<p>&#x5982;&#x679C;&#x62E5;&#x6709;&#x4E24;&#x4E2A;&#x6D4B;&#x8BD5;&#xFF0C;&#x5B83;&#x4EEC;&#x7684;&#x57FA;&#x5883;&#x5EFA;&#x7ACB;&#x5DE5;&#x4F5C;&#x7565;&#x6709;&#x4E0D;&#x540C;&#xFF0C;&#x8BE5;&#x600E;&#x4E48;&#x529E;&#xFF1F;&#x6709;&#x4E24;&#x79CD;&#x53EF;&#x80FD;&#xFF1A;</p>
+<ul>
+<li><p>&#x5982;&#x679C;&#x4E24;&#x4E2A; <code>setUp()</code> &#x4EE3;&#x7801;&#x4EC5;&#x6709;&#x5FAE;&#x5C0F;&#x5DEE;&#x5F02;&#xFF0C;&#x628A;&#x6709;&#x5DEE;&#x5F02;&#x7684;&#x4EE3;&#x7801;&#x5185;&#x5BB9;&#x4ECE; <code>setUp()</code></p>
+<blockquote>
+<p>&#x79FB;&#x5230;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;&#x5185;&#x3002;</p>
+</blockquote>
+</li>
+<li><p>&#x5982;&#x679C;&#x4E24;&#x4E2A; <code>setUp()</code></p>
+<blockquote>
+<p>&#x662F;&#x786E;&#x5B9E;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x90A3;&#x4E48;&#x9700;&#x8981;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x7C7B;&#x3002;&#x53C2;&#x8003;&#x57FA;&#x5883;&#x5EFA;&#x7ACB;&#x5DE5;&#x4F5C;&#x7684;&#x4E0D;&#x540C;&#x4E4B;&#x5904;&#x6765;&#x547D;&#x540D;&#x8FD9;&#x4E2A;&#x7C7B;&#x3002;</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="&#x57FA;&#x5883;&#x5171;&#x4EAB;">&#x57FA;&#x5883;&#x5171;&#x4EAB;</h2>
+<p>&#x6709;&#x51E0;&#x4E2A;&#x597D;&#x7684;&#x7406;&#x7531;&#x6765;&#x5728;&#x6D4B;&#x8BD5;&#x4E4B;&#x95F4;&#x5171;&#x4EAB;&#x57FA;&#x5883;&#xFF0C;&#x4F46;&#x662F;&#x5927;&#x90E8;&#x5206;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5728;&#x6D4B;&#x8BD5;&#x4E4B;&#x95F4;&#x5171;&#x4EAB;&#x57FA;&#x5883;&#x7684;&#x9700;&#x6C42;&#x90FD;&#x6E90;&#x4E8E;&#x67D0;&#x4E2A;&#x672A;&#x89E3;&#x51B3;&#x7684;&#x8BBE;&#x8BA1;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x4E00;&#x4E2A;&#x6709;&#x5B9E;&#x9645;&#x610F;&#x4E49;&#x7684;&#x591A;&#x6D4B;&#x8BD5;&#x95F4;&#x5171;&#x4EAB;&#x57FA;&#x5883;&#x7684;&#x4F8B;&#x5B50;&#x662F;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;&#xFF1A;&#x53EA;&#x767B;&#x5F55;&#x6570;&#x636E;&#x5E93;&#x4E00;&#x6B21;&#xFF0C;&#x7136;&#x540E;&#x91CD;&#x7528;&#x6B64;&#x8FDE;&#x63A5;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x6BCF;&#x4E2A;&#x6D4B;&#x8BD5;&#x90FD;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;&#x3002;&#x8FD9;&#x6837;&#x80FD;&#x52A0;&#x5FEB;&#x6D4B;&#x8BD5;&#x7684;&#x8FD0;&#x884C;&#x3002;</p>
+<p><code>fixtures.sharing-fixture.examples.DatabaseTest.php</code> &#x4E2D;&#x7528;
+<code>setUpBeforeClass()</code> &#x548C; <code>tearDownAfterClass()</code>
+&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#x6765;&#x5206;&#x522B;&#x5728;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x7C7B;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x4E4B;&#x524D;&#x548C;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x4E4B;&#x540E;&#x8FDE;&#x63A5;&#x4E0E;&#x65AD;&#x5F00;&#x6570;&#x636E;&#x5E93;&#x3002;</p>
+<pre class="language-"><code>&lt;?php declare(strict_types=1);
+use PHPUnit\Framework\TestCase;
+
+final class DatabaseTest extends TestCase
+{
+    private static $dbh;
+
+    public static function setUpBeforeClass(): void
+    {
+        self::$dbh = new PDO(&apos;sqlite::memory:&apos;);
+    }
+
+    public static function tearDownAfterClass(): void
+    {
+        self::$dbh = null;
+    }
+}
+</code></pre><p>&#x9700;&#x8981;&#x53CD;&#x590D;&#x5F3A;&#x8C03;&#x7684;&#x662F;&#xFF1A;&#x5728;&#x6D4B;&#x8BD5;&#x4E4B;&#x95F4;&#x5171;&#x4EAB;&#x57FA;&#x5883;&#x4F1A;&#x964D;&#x4F4E;&#x6D4B;&#x8BD5;&#x7684;&#x4EF7;&#x503C;&#x3002;&#x6F5C;&#x5728;&#x7684;&#x8BBE;&#x8BA1;&#x95EE;&#x9898;&#x662F;&#x5BF9;&#x8C61;&#x4E4B;&#x95F4;&#x5E76;&#x975E;&#x677E;&#x6563;&#x8026;&#x5408;&#x3002;&#x5982;&#x679C;&#x89E3;&#x51B3;&#x6389;&#x6F5C;&#x5728;&#x7684;&#x8BBE;&#x8BA1;&#x95EE;&#x9898;&#x5E76;&#x4F7F;&#x7528;&#x6869;&#x4EF6;&#xFF08;stub&#xFF09;&#xFF08;&#x53C2;&#x89C1;<code>test-doubles</code>&#xFF09;&#x6765;&#x7F16;&#x5199;&#x6D4B;&#x8BD5;&#xFF0C;&#x5C31;&#x80FD;&#x8FBE;&#x6210;&#x66F4;&#x597D;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5728;&#x6D4B;&#x8BD5;&#x4E4B;&#x95F4;&#x4EA7;&#x751F;&#x8FD0;&#x884C;&#x65F6;&#x4F9D;&#x8D56;&#x5E76;&#x9519;&#x8FC7;&#x6539;&#x8FDB;&#x8BBE;&#x8BA1;&#x7684;&#x673A;&#x4F1A;&#x3002;</p>
+<h2 id="&#x5168;&#x5C40;&#x72B6;&#x6001;">&#x5168;&#x5C40;&#x72B6;&#x6001;</h2>
+<p><a href="http://googletesting.blogspot.com/2008/05/tott-using-dependancy-injection-to.html" target="_blank">&#x4F7F;&#x7528;&#x5355;&#x4EF6;&#xFF08;singleton&#xFF09;&#x7684;&#x4EE3;&#x7801;&#x5F88;&#x96BE;&#x6D4B;&#x8BD5;&#x3002;</a>&#x4F7F;&#x7528;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x7684;&#x4EE3;&#x7801;&#x4E5F;&#x4E00;&#x6837;&#x3002;&#x901A;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6B32;&#x6D4B;&#x4EE3;&#x7801;&#x548C;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x4E4B;&#x95F4;&#x4F1A;&#x5F3A;&#x70C8;&#x8026;&#x5408;&#xFF0C;&#x5E76;&#x4E14;&#x5176;&#x521B;&#x5EFA;&#x65E0;&#x6CD5;&#x63A7;&#x5236;&#x3002;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#x662F;&#xFF0C;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x5BF9;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x7684;&#x6539;&#x53D8;&#x53EF;&#x80FD;&#x4F1A;&#x7834;&#x574F;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x3002;</p>
+<p>&#x5728; PHP &#x4E2D;&#xFF0C;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x662F;&#x8FD9;&#x6837;&#x8FD0;&#x4F5C;&#x7684;&#xFF1A;</p>
+<ul>
+<li><p>&#x5168;&#x5C40;&#x53D8;&#x91CF; <code>$foo = &apos;bar&apos;;</code> &#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x5B58;&#x50A8;&#x4E3A; <code>$GLOBALS[&apos;foo&apos;] = &apos;bar&apos;;</code></p>
+<blockquote>
+<p>&#x7684;&#x3002;</p>
+</blockquote>
+</li>
+<li><p><code>$GLOBALS</code>&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x662F;&#x4E00;&#x79CD;&#x88AB;&#x79F0;&#x4E3A;<em>&#x8D85;&#x5168;&#x5C40;</em>&#x53D8;&#x91CF;&#x7684;&#x53D8;&#x91CF;&#x3002;</p>
+</li>
+<li><p>&#x8D85;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x662F;&#x4E00;&#x79CD;&#x5728;&#x4EFB;&#x4F55;&#x53D8;&#x91CF;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x90FD;&#x603B;&#x662F;&#x53EF;&#x7528;&#x7684;&#x5185;&#x5EFA;&#x53D8;&#x91CF;&#x3002;</p>
+</li>
+<li><p>&#x5728;&#x51FD;&#x6570;&#x6216;&#x8005;&#x65B9;&#x6CD5;&#x7684;&#x53D8;&#x91CF;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#xFF0C;&#x8981;&#x8BBF;&#x95EE;&#x5168;&#x5C40;&#x53D8;&#x91CF; <code>$foo</code>&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;</p>
+<blockquote>
+<p><code>$GLOBALS[&apos;foo&apos;]</code>&#xFF0C;&#x6216;&#x8005;&#x7528; <code>global $foo;</code>
+&#x6765;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5F15;&#x7528;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x3002;</p>
+</blockquote>
+</li>
+</ul>
+<p>&#x9664;&#x4E86;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF0C;&#x7C7B;&#x7684;&#x9759;&#x6001;&#x5C5E;&#x6027;&#x4E5F;&#x662F;&#x4E00;&#x79CD;&#x5168;&#x5C40;&#x72B6;&#x6001;&#x3002;</p>
+<p>&#x5728;&#x7248;&#x672C; 6 &#x4E4B;&#x524D;&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;PHPUnit
+&#x7528;&#x4E00;&#x79CD;&#x66F4;&#x6539;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x4E0E;&#x8D85;&#x5168;&#x5C40;&#x53D8;&#x91CF;(<code>$GLOBALS</code>&#x3001;<code>$_ENV</code>&#x3001;<code>$_POST</code>&#x3001;<code>$_GET</code>&#x3001;<code>$_COOKIE</code>&#x3001;<code>$_SERVER</code>&#x3001;<code>$_FILES</code>&#x3001;<code>$_REQUEST</code>)&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x5230;&#x5176;&#x4ED6;&#x6D4B;&#x8BD5;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x8FD0;&#x884C;&#x6240;&#x6709;&#x6D4B;&#x8BD5;&#x3002;</p>
+<p>&#x5728;&#x7248;&#x672C; 6 &#x4E2D;&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B; PHPUnit
+&#x4E0D;&#x518D;&#x5BF9;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x548C;&#x8D85;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x8FDB;&#x884C;&#x8FD9;&#x79CD;&#x5907;&#x4EFD;&#x4E0E;&#x6062;&#x590D;&#x7684;&#x64CD;&#x4F5C;&#x3002;&#x53EF;&#x4EE5;&#x7528;
+<code>--globals-backup</code> &#x9009;&#x9879;&#x6216;&#x5728; XML &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x7528; <code>backupGlobals=&quot;true&quot;</code>
+&#x5C06;&#x5176;&#x6FC0;&#x6D3B;&#x3002;</p>
+<p>&#x901A;&#x8FC7;&#x7528; <code>--static-backup</code> &#x9009;&#x9879;&#x6216;&#x5728; XML &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x8BBE;&#x7F6E;
+<code>backupStaticAttributes=&quot;true&quot;</code>&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x6B64;&#x9694;&#x79BB;&#x6269;&#x5C55;&#x5230;&#x7C7B;&#x7684;&#x9759;&#x6001;&#x5C5E;&#x6027;&#x3002;</p>
+<p>&#x6CE8;</p>
+<p>&#x5BF9;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x548C;&#x7C7B;&#x7684;&#x9759;&#x6001;&#x5C5E;&#x6027;&#x7684;&#x5907;&#x4EFD;&#x4E0E;&#x8FD8;&#x539F;&#x64CD;&#x4F5C;&#x4F7F;&#x7528;&#x4E86; <code>serialize()</code> &#x4E0E;
+<code>unserialize()</code>&#x3002;</p>
+<p>&#x67D0;&#x4E9B;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#xFF08;&#x6BD4;&#x5982;
+<code>PDO</code>&#xFF09;&#x65E0;&#x6CD5;&#x5E8F;&#x5217;&#x5316;&#xFF0C;&#x56E0;&#x6B64;&#x5982;&#x679C;&#x628A;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x5B58;&#x653E;&#x5728;&#x6BD4;&#x5982;&#x8BF4; <code>$GLOBALS</code>
+&#x6570;&#x7EC4;&#x5185;&#x65F6;&#xFF0C;&#x5907;&#x4EFD;&#x64CD;&#x4F5C;&#x5C31;&#x4F1A;&#x51FA;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x5728; <code>appendixes.annotations.backupGlobals</code> &#x4E2D;&#x6240;&#x8BA8;&#x8BBA;&#x7684; <code>@backupGlobals</code>
+&#x6807;&#x6CE8;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x63A7;&#x5236;&#x5BF9;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x7684;&#x5907;&#x4EFD;&#x4E0E;&#x8FD8;&#x539F;&#x64CD;&#x4F5C;&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x7684;&#x540D;&#x5355;&#xFF0C;&#x540D;&#x5355;&#x4E2D;&#x7684;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x5C06;&#x88AB;&#x6392;&#x9664;&#x4E8E;&#x5907;&#x4EFD;&#x4E0E;&#x8FD8;&#x539F;&#x64CD;&#x4F5C;&#x4E4B;&#x5916;&#xFF0C;&#x5C31;&#x50CF;&#x8FD9;&#x6837;&#xFF1A;</p>
+<pre class="language-"><code>final class MyTest extends TestCase
+{
+    protected $backupGlobalsExcludeList = [&apos;globalVariable&apos;];
+
+    // ...
+}
+</code></pre><p>&#x6CE8;</p>
+<p>&#x5728;&#x65B9;&#x6CD5;&#xFF08;&#x4F8B;&#x5982; <code>setUp()</code> &#x65B9;&#x6CD5;&#xFF09;&#x5185;&#x5BF9; <code>$backupGlobalsBlacklist</code>
+&#x5C5E;&#x6027;&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;&#x662F;&#x65E0;&#x6548;&#x7684;&#x3002;</p>
+<p>&#x5728; <code>appendixes.annotations.backupStaticAttributes</code> &#x4E2D;&#x63D0;&#x5230;&#x7684;
+<code>@backupStaticAttributes</code>
+&#x6807;&#x6CE8;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x5728;&#x6BCF;&#x4E2A;&#x6D4B;&#x8BD5;&#x4E4B;&#x524D;&#x5907;&#x4EFD;&#x6240;&#x6709;&#x5DF2;&#x58F0;&#x660E;&#x7C7B;&#x7684;&#x9759;&#x6001;&#x5C5E;&#x6027;&#x503C;&#x5E76;&#x5728;&#x5176;&#x540E;&#x6062;&#x590D;&#x3002;</p>
+<p>&#x5B83;&#x6240;&#x5904;&#x7406;&#x7684;&#x5E76;&#x4E0D;&#x53EA;&#x662F;&#x6D4B;&#x8BD5;&#x7C7B;&#x81EA;&#x8EAB;&#xFF0C;&#x800C;&#x662F;&#x5728;&#x6D4B;&#x8BD5;&#x5F00;&#x59CB;&#x65F6;&#x5DF2;&#x58F0;&#x660E;&#x7684;&#x6240;&#x6709;&#x7C7B;&#x3002;&#x5B83;&#x53EA;&#x4F5C;&#x7528;&#x4E8E;&#x9759;&#x6001;&#x7C7B;&#x5C5E;&#x6027;&#xFF0C;&#x4E0D;&#x4F5C;&#x7528;&#x4E8E;&#x51FD;&#x6570;&#x5185;&#x58F0;&#x660E;&#x7684;&#x9759;&#x6001;&#x53D8;&#x91CF;&#x3002;</p>
+<p>&#x6CE8;</p>
+<p>&#x53EA;&#x6709;&#x542F;&#x7528;&#x4E86; <code>@backupStaticAttributes</code>
+&#x7684;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;&#x624D;&#x4F1A;&#x5728;&#x65B9;&#x6CD5;&#x4E4B;&#x524D;&#x6267;&#x884C;&#x6B64;&#x64CD;&#x4F5C;&#x3002;&#x5982;&#x679C;&#x5728;&#x6B64;&#x4E4B;&#x524D;&#x8FD0;&#x884C;&#x7684;&#x67D0;&#x4E2A;&#x6CA1;&#x6709;&#x542F;&#x7528;
+<code>@backupStaticAttributes</code>
+&#x7684;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;&#x6539;&#x53D8;&#x4E86;&#x9759;&#x6001;&#x5C5E;&#x6027;&#x7684;&#x503C;&#xFF0C;&#x90A3;&#x4E48;&#x88AB;&#x5907;&#x4EFD;&#x53CA;&#x8FD8;&#x539F;&#x7684;&#x5C06;&#x4F1A;&#x662F;&#x8FD9;&#x4E2A;&#x6539;&#x53D8;&#x540E;&#x7684;&#x503C;&#x2014;&#x2014;&#x800C;&#x975E;&#x521D;&#x59CB;&#x58F0;&#x660E;&#x65F6;&#x63D0;&#x4F9B;&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#x3002;PHP
+&#x5E76;&#x4E0D;&#x989D;&#x5916;&#x8BB0;&#x5F55;&#x4EFB;&#x4F55;&#x9759;&#x6001;&#x53D8;&#x91CF;&#x7684;&#x58F0;&#x660E;&#x65F6;&#x63D0;&#x4F9B;&#x7684;&#x521D;&#x59CB;&#x9ED8;&#x8BA4;&#x503C;&#x3002;</p>
+<p>&#x540C;&#x6837;&#x7684;&#x60C5;&#x51B5;&#x4E5F;&#x53D1;&#x751F;&#x4E8E;&#x6D4B;&#x8BD5;&#x5185;&#x90E8;&#x65B0;&#x52A0;&#x8F7D;/&#x58F0;&#x660E;&#x7684;&#x7C7B;&#x7684;&#x9759;&#x6001;&#x5C5E;&#x6027;&#x4E0A;&#x3002;&#x5B83;&#x4EEC;&#x4E5F;&#x65E0;&#x6CD5;&#x5728;&#x6D4B;&#x8BD5;&#x7ED3;&#x675F;&#x4E4B;&#x540E;&#x590D;&#x539F;&#x4E3A;&#x58F0;&#x660E;&#x65F6;&#x63D0;&#x4F9B;&#x7684;&#x539F;&#x59CB;&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x56E0;&#x4E3A;&#x65E0;&#x4ECE;&#x5F97;&#x77E5;&#x8FD9;&#x4E9B;&#x9ED8;&#x8BA4;&#x503C;&#x3002;&#x8FD9;&#x4E9B;&#x88AB;&#x4FEE;&#x6539;&#x8FC7;&#x7684;&#x503C;&#x4F1A;&#x6CC4;&#x6F0F;&#x5230;&#x540E;&#x7EE7;&#x6D4B;&#x8BD5;&#x4E2D;&#x3002;</p>
+<p>&#x5BF9;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x800C;&#x8A00;&#xFF0C;&#x63A8;&#x8350;&#x5728; <code>setUp()</code>
+&#x4E2D;&#x663E;&#x5F0F;&#x7684;&#x91CD;&#x7F6E;&#x6D4B;&#x8BD5;&#x4E2D;&#x4F7F;&#x7528;&#x5230;&#x7684;&#x9759;&#x6001;&#x5C5E;&#x6027;&#xFF08;&#x6700;&#x597D;&#x540C;&#x65F6;&#x5728; <code>tearDown()</code>
+&#x4E2D;&#x6267;&#x884C;&#x91CD;&#x7F6E;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x4FDD;&#x8BC1;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x5230;&#x540E;&#x7EE7;&#x7684;&#x6D4B;&#x8BD5;&#xFF09;&#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x540D;&#x5355;&#x6765;&#x5C06;&#x9759;&#x6001;&#x5C5E;&#x6027;&#x4ECE;&#x5907;&#x4EFD;&#x4E0E;&#x8FD8;&#x539F;&#x64CD;&#x4F5C;&#x4E2D;&#x6392;&#x9664;&#x51FA;&#x53BB;&#xFF1A;</p>
+<pre class="language-"><code>final class MyTest extends TestCase
+{
+    protected $backupStaticAttributesExcludeList = [
+        &apos;className&apos; =&gt; [&apos;attributeName&apos;]
+    ];
+
+    // ...
+}
+</code></pre><p>&#x6CE8;</p>
+<p>&#x5728;&#x65B9;&#x6CD5;&#xFF08;&#x4F8B;&#x5982; <code>setUp()</code> &#x65B9;&#x6CD5;&#xFF09;&#x5185;&#x5BF9; <code>$backupStaticAttributesExcludeList</code>
+&#x5C5E;&#x6027;&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;&#x662F;&#x65E0;&#x6548;&#x7684;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="extending-phpunit.html" class="navigation navigation-prev " aria-label="Previous page: Extending Phpunit">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="incomplete-and-skipped-tests.html" class="navigation navigation-next " aria-label="Next page: Incomplete And Skipped Tests">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Fixtures","level":"1.9","depth":1,"next":{"title":"Incomplete And Skipped Tests","level":"1.10","depth":1,"path":"incomplete-and-skipped-tests.md","ref":"incomplete-and-skipped-tests.md","articles":[]},"previous":{"title":"Extending Phpunit","level":"1.8","depth":1,"path":"extending-phpunit.md","ref":"extending-phpunit.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-highlight","-livereload","prism"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-solarizedlight.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"PHPUnit 中文文档","language":"zh-hans","links":{"sidebar":{"Home":"https://docs.khs1994.com"}},"gitbook":"*"},"file":{"path":"fixtures.md","mtime":"2021-03-21T00:47:07.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-21T00:47:52.261Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
